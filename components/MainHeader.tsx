@@ -51,7 +51,7 @@ export function MainHeader({ className, ...props }: MainHeaderProps) {
                   : ''
               } w-full justify-start`}
             >
-              <Typography variant="menuItem" className="ms-2 text-white">
+              <Typography variant="HempaSansSm" className="ms-2 text-white">
                 {route.label}
               </Typography>
             </Button>

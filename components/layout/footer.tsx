@@ -70,10 +70,10 @@ export function Footer() {
       <div className="bg-pink">
         <div className="container mx-auto p-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-12">
-            <div className="order-2 md:order-1  col-span-7 flex gap-4 justify-center md:justify-start">
+            <div className="order-2 col-span-7 flex justify-center gap-4 md:order-1 md:justify-start">
               <Typography
                 className="text-start text-lg text-white md:text-start"
-                variant="footerText"
+                variant="HempaSansLg"
               >
                 {' '}
                 Legal
@@ -81,17 +81,17 @@ export function Footer() {
               <Separator orientation="vertical" className="my-auto h-5" />
               <Typography
                 className="text-start text-lg text-white md:text-start"
-                variant="footerText"
+                variant="HempaSansLg"
               >
                 {' '}
                 ©2024 by BIM Group. All rights reserved
               </Typography>
             </div>
 
-            <div className="order-1 md:order-2 col-span-5 flex items-center justify-center gap-2 md:justify-end">
+            <div className="order-1 col-span-5 flex items-center justify-center gap-2 md:order-2 md:justify-end">
               <Typography
                 className="me-4 text-start text-lg text-white md:text-start"
-                variant="footerText"
+                variant="HempaSansLg"
               >
                 Follow Us
               </Typography>

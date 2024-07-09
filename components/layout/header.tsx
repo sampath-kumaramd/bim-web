@@ -45,14 +45,14 @@ export function Header() {
                 alt="Logo"
                 width={300}
                 height={300}
-                className="w-[180px] md:w-[250px] h-auto lg:w-[300px]"
+                className="h-auto w-[180px] md:w-[250px] lg:w-[300px]"
                 loading="lazy"
               />
             </button>
           </div>
           <MainHeader className="hidden flex-row gap-4 lg:flex" />
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-8 lg:gap-16">
             <Button className="hidden rounded-lg bg-white text-[#4B0325] hover:bg-gray-50 md:block">
               Pre-Register
             </Button>

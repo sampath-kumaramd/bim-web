@@ -4,10 +4,14 @@ export const typographyVariants = cva('', {
   variants: {
     variant: {
       default: 'font-sans', // Add a default style
-      menuItem:
+      HempaSansSm:
         "font-['Hempa_Sans'] font-normal text-[18px] leading-[24px] tracking-normal",
-      footerText:
+      HempaSansLg:
         "font-['Hempa_Sans'] font-normal text-[20px] leading-[27.9px] tracking-normal",
+      luckiestGuy:
+        "font-['Luckiest_Guy'] font-normal text-[36px] leading-[43.2px] tracking-normal text-center",
+      nexaRegular:
+        "font-['NexaRegular'] font-normal text-[16px] leading-[24px] text-center",
     },
   },
   defaultVariants: {
