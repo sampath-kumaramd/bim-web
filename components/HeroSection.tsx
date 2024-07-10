@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Typography } from './Typography';
 import CustomButton from './CustomButton';
+import { motion } from 'framer-motion';
 
 interface HeroSectionProps {
   title: string;
@@ -53,7 +54,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           }}
         />
       )}
-      <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-16 sm:py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 mx-auto w-full max-w-4xl px-4 py-16 sm:py-24"
+      >
         <div className="">
           <Typography
             variant="Bim1"
@@ -87,7 +94,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
         {children}
-      </div>
+      </motion.div>
     </section>
   );
 };

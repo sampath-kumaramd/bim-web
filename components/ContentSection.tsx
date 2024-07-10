@@ -3,6 +3,7 @@ import React, { useState, useEffect, forwardRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Typography } from './Typography';
 import CustomButton from './CustomButton';
+import { motion } from 'framer-motion';
 
 interface ContentSectionProps {
   title: string;
@@ -50,7 +51,22 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
       return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    return (
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  return (
       <section ref={ref} className="relative overflow-hidden">
         {backgroundImage && backgroundImageMobile && (
           <div
@@ -108,9 +124,12 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
         </div>
       </section>
     );
+};
+    
   },
 );
 
 ContentSection.displayName = 'ContentSection';
+
 
 export default ContentSection;
