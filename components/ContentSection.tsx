@@ -108,11 +108,11 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
                 <span className="font-bold text-pink">{startingWord}</span>{' '}
                 {description}
               </Typography>
-              <div className="flex justify-center">
+              <div className="flex justify-start">
                 {button && (
                   <CustomButton
                     variant="custom"
-                    className={`mx-auto w-[80%] ${button.backgroundColor} ${button.textColor} ${button.reverse ? 'rounded-br-3xl rounded-tr-3xl clip-customRight' : 'rounded-bl-3xl rounded-tl-3xl clip-customLeft'} ${button.className}`}
+                    className={` mx-auto sm:mx-0 w-[80%] ${button.backgroundColor} ${button.textColor} ${button.reverse ? 'rounded-br-3xl rounded-tr-3xl clip-customRight' : 'rounded-bl-3xl rounded-tl-3xl clip-customLeft'} ${button.className}`}
                     text={button.text}
                     onClick={onButtonClick}
                   />
