@@ -53,10 +53,10 @@ export function Header() {
                 alt="Logo"
                 width={30}
                 height={30}
-                className="h-auto w-[40px] lg:w-[45px]"
+                className="h-auto w-[30px] lg:w-[45px]"
                 loading="lazy"
               />
-              <span className="text-white">The Dating Social Media</span>
+              <span className="text-white text-xs sm:text-base">The Dating Social Media</span>
             </button>
           </div>
           <MainHeader className="hidden flex-row gap-4 lg:flex" />
