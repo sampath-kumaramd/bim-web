@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Typography } from './Typography';
 import CustomButton from './CustomButton';
+import { motion } from 'framer-motion';
 
 interface ContentSectionProps {
   title: string;
@@ -44,6 +45,21 @@ const ContentSection: React.FC<ContentSectionProps> = ({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <section className="relative overflow-hidden">
       {backgroundImage && backgroundImageMobile && (
@@ -61,18 +77,26 @@ const ContentSection: React.FC<ContentSectionProps> = ({
         />
       )}
       <div className="container relative z-10 mx-auto px-4 py-16 sm:py-24">
-        <div
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          viewport={{ once: true, amount: 0.3 }}
           className={`mx-auto items-center px-4 ${reverse ? 'flex-row-reverse sm:flex' : 'sm:flex'}`}
         >
           {image && (
-            <div
+            <motion.div
+              variants={itemVariants}
               className={`order-1 flex-1 sm:order-2 ${reverse ? 'sm:pe-20 lg:pe-28 xl:pe-40' : 'sm:ps-20 lg:ps-28 xl:ps-40'}`}
             >
               <img src={image} alt={title} className="h-auto w-full" />
-            </div>
+            </motion.div>
           )}
 
-          <div className="order-2 flex-1 space-y-12 sm:order-1">
+          <motion.div
+            variants={itemVariants}
+            className="order-2 flex-1 space-y-12 sm:order-1"
+          >
             <Typography
               variant="luckiestGuy"
               className="mb-4 mt-12 text-center text-3xl text-[#4b0325] sm:mt-0 sm:text-start sm:text-4xl"
@@ -96,8 +120,8 @@ const ContentSection: React.FC<ContentSectionProps> = ({
                 />
               )}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         {children}
       </div>
     </section>
