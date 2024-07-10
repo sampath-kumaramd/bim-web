@@ -12,7 +12,6 @@ type SocialIcon = {
 };
 
 const socialIcons: SocialIcon[] = [
-  // { src: '/icons/facebook.svg', alt: 'Facebook', width: 10, height: 10 },
   {
     href: 'https://www.facebook.com',
     src: '/icons/fb.svg',
@@ -73,7 +72,7 @@ export function Footer() {
             <div className="order-2 col-span-7 flex justify-center gap-4 md:order-1 md:justify-start">
               <Typography
                 className="text-start text-sm text-white sm:text-lg md:text-start"
-                variant="HempaSansLg"
+                variant="Bim4Regular"
               >
                 {' '}
                 Legal
@@ -81,7 +80,7 @@ export function Footer() {
               <Separator orientation="vertical" className="my-auto h-5" />
               <Typography
                 className="text-start text-sm text-white sm:text-lg md:text-start"
-                variant="HempaSansLg"
+                variant="Bim4Regular"
               >
                 {' '}
                 ©2024 by BIM Group. All rights reserved
@@ -91,7 +90,7 @@ export function Footer() {
             <div className="order-1 col-span-5 flex items-center justify-center gap-2 md:order-2 md:justify-end">
               <Typography
                 className="me-4 text-start text-sm text-white sm:text-lg md:text-start"
-                variant="HempaSansLg"
+                variant="Bim4Regular"
               >
                 Follow Us
               </Typography>

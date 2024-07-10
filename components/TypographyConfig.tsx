@@ -12,6 +12,9 @@ export const typographyVariants = cva('', {
         "font-['Luckiest_Guy'] font-normal text-[36px] leading-[43.2px] tracking-normal text-center",
       nexaRegular:
         "font-['NexaRegular'] font-normal text-[16px] leading-[24px] text-center",
+      Bim1: "font-['Bim1'] font-normal text-[16px] leading-[24px] text-center",
+      Bim4Regular:
+        "font-['Bim4-Regular'] font-normal text-[16px] leading-[24px] text-center",
     },
   },
   defaultVariants: {

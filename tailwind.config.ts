@@ -80,6 +80,9 @@ const config = {
         customRight: 'polygon(0 0, 100% 10%, 100% 90%, 0 100%)',
         customLeft: 'polygon(0 10%, 100% 0, 100% 100%, 0 90%)',
       },
+      boxShadow: {
+        'logo-text-border': '0 0 0 2px #540217',
+      },
     },
   },
   plugins: [
