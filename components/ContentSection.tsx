@@ -124,10 +124,8 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
         </div>
       </section>
     );
-};
+  });
     
-  },
-);
 
 ContentSection.displayName = 'ContentSection';
 

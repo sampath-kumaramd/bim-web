@@ -6,7 +6,6 @@ import HeroSection from '@/components/HeroSection';
 import { Typography } from '@/components/Typography';
 import VideoSection from '@/components/VideoSection';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
