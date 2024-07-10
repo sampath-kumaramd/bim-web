@@ -1,9 +1,8 @@
 'use client';
-import React, { useState, useEffect, forwardRef } from 'react';
-import { Button } from '@/components/ui/button';
+import React, { useState, useEffect, forwardRef, useRef } from 'react';
 import { Typography } from './Typography';
 import CustomButton from './CustomButton';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 interface ContentSectionProps {
   title: string;
@@ -41,6 +40,8 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
     ref,
   ) => {
     const [windowWidth, setWindowWidth] = useState<number | null>(null);
+    const sectionRef = useRef(null);
+    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
     useEffect(() => {
       function handleResize() {
@@ -56,7 +57,7 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.5,
       },
     },
   };
@@ -82,19 +83,23 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
             }}
           />
         )}
-        <div className="container relative z-10 mx-auto px-4 py-16 sm:py-24">
+        <motion.div  ref={sectionRef}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="container relative z-10 mx-auto px-4 py-16 sm:py-24">
           <div
             className={`mx-auto items-center px-4 ${reverse ? 'flex-row-reverse sm:flex' : 'sm:flex'}`}
           >
             {image && (
-              <div
+              <motion.div variants={itemVariants}
                 className={`order-1 flex-1 sm:order-2 ${reverse ? 'sm:pe-20 lg:pe-28 xl:pe-40' : 'sm:ps-20 lg:ps-28 xl:ps-40'}`}
               >
                 <img src={image} alt={title} className="h-auto w-full" />
-              </div>
+              </motion.div>
             )}
 
-            <div className="order-2 flex-1 space-y-12 sm:order-1">
+            <motion.div variants={itemVariants} className="order-2 flex-1 space-y-12 sm:order-1">
               <Typography
                 variant="Bim1"
                 className="mb-4 mt-12 text-center text-3xl text-[#4b0325] sm:mt-0 sm:text-start sm:text-4xl"
@@ -118,10 +123,10 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
                   />
                 )}
               </div>
-            </div>
+            </motion.div>
           </div>
           {children}
-        </div>
+        </motion.div>
       </section>
     );
   });
