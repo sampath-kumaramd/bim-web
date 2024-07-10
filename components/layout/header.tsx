@@ -62,7 +62,7 @@ export function Header() {
           <MainHeader className="hidden flex-row gap-4 lg:flex" />
 
           <div className="flex items-center gap-8 lg:gap-16">
-            <Button className="hidden rounded-lg bg-white text-[#4B0325] hover:bg-gray-50 md:block">
+            <Button className="hidden rounded-lg bg-white text-[#4B0325] hover:bg-yellow-400 md:block">
               Pre-Register
             </Button>
             <LanguageSwitcher />

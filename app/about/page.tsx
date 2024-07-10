@@ -119,8 +119,8 @@ export default function page() {
                   <Image
                     src="/images/app-store-badge.svg"
                     alt="Download on the App Store"
-                    width={140}
-                    height={40}
+                    width={180}
+                    height={60}
                   />
                 </motion.button>
                 <motion.button
@@ -130,8 +130,8 @@ export default function page() {
                   <Image
                     src="/images/google-play-badge.svg"
                     alt="Get it on Google Play"
-                    width={140}
-                    height={40}
+                    width={180}
+                    height={60}
                   />
                 </motion.button>
               </div>
