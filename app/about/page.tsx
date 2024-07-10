@@ -111,30 +111,29 @@ export default function page() {
                 className="w-full bg-[#d10062] py-3 text-white"
                 text="Pre-Registration"
               />
-              <div className="flex justify-start md:gap-16 gap-4">
+              <div className="flex justify-start gap-4 md:gap-16 mt-16">
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
-                   className=' rounded-2xl'
+                  className="rounded-2xl"
                 >
                   <Image
-                    src="/images/app-store-badge.svg"
+                    src="/images/app-store-badge.png"
                     alt="Download on the App Store"
-                   
-                    width={180}
+                    width={190}
                     height={60}
                   />
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
-                   className=' rounded-2xl'
+                  className="rounded-2xl"
                 >
                   <Image
-                    src="/images/google-play-badge.svg"
+                    src="/images/google-play-badge.png"
                     alt="Get it on Google Play"
-                    width={180}
-                    height={40}
+                    width={170}
+                    height={20}
                   />
                 </motion.button>
               </div>

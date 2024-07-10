@@ -56,7 +56,9 @@ export function Header() {
                 className="h-auto w-[30px] lg:w-[45px]"
                 loading="lazy"
               />
-              <span className="text-white text-xs sm:text-base">The Dating Social Media</span>
+              <span className="text-xs text-white sm:text-base">
+                The Dating Social Media
+              </span>
             </button>
           </div>
           <MainHeader className="hidden flex-row gap-4 lg:flex" />

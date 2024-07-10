@@ -44,7 +44,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       )}
       onClick={onClick}
     >
-      <Typography variant="Bim4Regular" className="sm:text-lg text-sm ">
+      <Typography variant="Bim4Regular" className="text-sm sm:text-lg">
         {text}
       </Typography>
     </motion.button>
