@@ -72,19 +72,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           >
             {description}
           </Typography>
-          <div className="flex items-start gap-8 flex-row  justify-center">
+          <div className="flex flex-row items-start justify-center gap-8">
             {primaryButton && (
               <CustomButton
                 variant="primary"
                 cornerStyle="asymmetrical"
-                className="w-44"
+                className="w-52"
                 text={primaryButton}
               />
             )}
             {secondaryButton && (
               <CustomButton
                 cornerStyle="pill"
-                className="w-44 px-8 "
+                className="w-52 px-8"
                 variant="secondary"
                 text={secondaryButton}
               />
@@ -98,8 +98,3 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 };
 
 export default HeroSection;
-
-{
-  /* <CustomButton text="Get Started" variant="primary" />
-<CustomButton text="Our Concept" variant="secondary" /> */
-}
