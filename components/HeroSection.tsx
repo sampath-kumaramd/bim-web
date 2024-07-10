@@ -11,6 +11,8 @@ interface HeroSectionProps {
   backgroundImageMobile?: string;
   primaryButton?: string;
   secondaryButton?: string;
+  onPrimaryButtonClick?: () => void;
+  onSecondaryButtonClick?: () => void;
   children?: React.ReactNode;
 }
 
@@ -21,6 +23,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   backgroundImageMobile,
   primaryButton,
   secondaryButton,
+  onPrimaryButtonClick,
+  onSecondaryButtonClick,
   children,
 }) => {
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
@@ -52,13 +56,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-16 sm:py-24">
         <div className="">
           <Typography
-            variant="luckiestGuy"
+            variant="Bim1"
             className="mb-4 text-3xl text-white sm:text-4xl"
           >
             {title}
           </Typography>
           <Typography
-            variant="nexaRegular"
+            variant="Bim4Regular"
             className="mb-8 text-base text-white/80 sm:text-lg"
           >
             {description}
@@ -67,17 +71,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {primaryButton && (
               <CustomButton
                 variant="primary"
-                cornerStyle="asymmetrical"
                 className="w-52"
                 text={primaryButton}
+                onClick={onPrimaryButtonClick}
               />
             )}
             {secondaryButton && (
               <CustomButton
-                cornerStyle="pill"
                 className="w-52 px-8"
                 variant="secondary"
                 text={secondaryButton}
+                onClick={onSecondaryButtonClick}
               />
             )}
           </div>

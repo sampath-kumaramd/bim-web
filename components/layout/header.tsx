@@ -44,15 +44,19 @@ export function Header() {
               </motion.div>
             </button>
 
-            <button onClick={handleLogoClick}>
+            <button
+              onClick={handleLogoClick}
+              className="flex items-center gap-3"
+            >
               <Image
-                src="/logo.png"
+                src="/logo.svg"
                 alt="Logo"
-                width={300}
-                height={300}
-                className="h-auto w-[180px] md:w-[250px] lg:w-[300px]"
+                width={30}
+                height={30}
+                className="h-auto w-[40px] lg:w-[45px]"
                 loading="lazy"
               />
+              <span className="text-white">The Dating Social Media</span>
             </button>
           </div>
           <MainHeader className="hidden flex-row gap-4 lg:flex" />

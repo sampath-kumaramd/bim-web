@@ -6,10 +6,12 @@ import HeroSection from '@/components/HeroSection';
 import { Typography } from '@/components/Typography';
 import VideoSection from '@/components/VideoSection';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function page() {
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
+  const getStartedRef = useRef<HTMLDivElement>(null);
+  const ourConceptRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleResize() {
@@ -20,6 +22,10 @@ export default function page() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen">
       <HeroSection
@@ -29,6 +35,8 @@ export default function page() {
         backgroundImageMobile="/images/about-hero-mobile.png"
         primaryButton="Get Started"
         secondaryButton="Our Concept"
+        onPrimaryButtonClick={() => scrollToSection(getStartedRef)}
+        onSecondaryButtonClick={() => scrollToSection(ourConceptRef)}
       />
 
       <ContentSection
@@ -46,22 +54,22 @@ export default function page() {
         }}
         reverse={true}
       />
-
-      <ContentSection
-        title="Our Concept"
-        description="Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam."
-        image="/images/about-us-our-concept.svg"
-        backgroundImage="/images/about-us-our-concept-bg.png"
-        backgroundImageMobile="/images/about-us-our-concept-bg-mobile.png"
-        button={{
-          text: 'Learn More',
-          textColor: 'text-[#4b0325]',
-          backgroundColor: 'bg-white',
-          reverse: true,
-        }}
-      />
-
-      <section className="relative overflow-hidden">
+      <div ref={ourConceptRef}>
+        <ContentSection
+          title="Our Concept"
+          description="Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam."
+          image="/images/about-us-our-concept.svg"
+          backgroundImage="/images/about-us-our-concept-bg.png"
+          backgroundImageMobile="/images/about-us-our-concept-bg-mobile.png"
+          button={{
+            text: 'Learn More',
+            textColor: 'text-[#4b0325]',
+            backgroundColor: 'bg-white',
+            reverse: true,
+          }}
+        />
+      </div>
+      <section className="relative overflow-hidden" ref={getStartedRef}>
         <div
           className="absolute inset-0 z-0 bg-cover bg-right"
           style={{
@@ -79,7 +87,7 @@ export default function page() {
             </div>
             <div className="mt-8 flex-1 justify-between sm:mt-0">
               <Typography
-                variant="luckiestGuy"
+                variant="Bim1"
                 className="mb-4 text-center text-3xl text-[#4b0325] sm:text-start sm:text-4xl"
               >
                 Get Started
@@ -93,7 +101,6 @@ export default function page() {
               </Typography>
               <CustomButton
                 variant="tertiary"
-                cornerStyle="rounded"
                 className="w-full bg-[#d10062] py-3 text-white"
                 text="Pre-Registration"
               />

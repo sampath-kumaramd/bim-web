@@ -1,18 +1,19 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { Typography } from './Typography';
 
 interface CustomButtonProps {
   text: string;
   variant: 'primary' | 'secondary' | 'tertiary' | 'custom';
-  cornerStyle: 'rounded' | 'pill' | 'sharp' | 'asymmetrical';
   className?: string;
+  onClick?: () => void;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   text,
   variant,
-  cornerStyle,
   className,
+  onClick,
 }) => {
   const primaryClasses =
     'bg-yellow-400 text-black hover:bg-yellow-500 clip-customLeft rounded-2xl rounded-tl-3xl rounded-bl-3xl  h-16';
@@ -34,12 +35,15 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   return (
     <button
       className={cn(
-        'relative px-6 py-2 font-semibold transition-colors duration-300',
+        'relative px-6 py-2 transition-colors duration-300',
         variantClasses,
         className,
       )}
+      onClick={onClick}
     >
-      {text}
+      <Typography variant="Bim4Regular" className="text-lg">
+        {text}
+      </Typography>
     </button>
   );
 };
