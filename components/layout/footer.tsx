@@ -72,7 +72,7 @@ export function Footer() {
           <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-12">
             <div className="order-2 col-span-7 flex justify-center gap-4 md:order-1 md:justify-start">
               <Typography
-                className="text-start text-lg text-white md:text-start"
+                className="text-start text-sm sm:text-lg text-white md:text-start"
                 variant="HempaSansLg"
               >
                 {' '}
@@ -80,7 +80,7 @@ export function Footer() {
               </Typography>
               <Separator orientation="vertical" className="my-auto h-5" />
               <Typography
-                className="text-start text-lg text-white md:text-start"
+                className="text-start text-sm sm:text-lg text-white md:text-start"
                 variant="HempaSansLg"
               >
                 {' '}
@@ -90,7 +90,7 @@ export function Footer() {
 
             <div className="order-1 col-span-5 flex items-center justify-center gap-2 md:order-2 md:justify-end">
               <Typography
-                className="me-4 text-start text-lg text-white md:text-start"
+                className="me-4 text-start text-sm sm:text-lg text-white md:text-start"
                 variant="HempaSansLg"
               >
                 Follow Us

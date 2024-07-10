@@ -14,10 +14,16 @@ export function Header() {
 
   const handleLogoClick = () => {
     router.push('/');
+    setIsMenuOpen(false);
+
   };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
@@ -52,7 +58,7 @@ export function Header() {
           </div>
           <MainHeader className="hidden flex-row gap-4 lg:flex" />
 
-          <div className="flex items-center gap-8 lg:gap-16">
+          <div className="flex items-center lg:gap-16 gap-8">
             <Button className="hidden rounded-lg bg-white text-[#4B0325] hover:bg-gray-50 md:block">
               Pre-Register
             </Button>
@@ -70,7 +76,7 @@ export function Header() {
             transition={{ duration: 0.3 }}
           >
             <div className="p-4 pt-20">
-              <MainHeader className="flex flex-col items-start space-y-2" />
+              <MainHeader className="flex flex-col items-start space-y-2" closeMenu={closeMenu} />
             </div>
           </motion.div>
         )}

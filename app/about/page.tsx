@@ -89,7 +89,7 @@ export default function page() {
             <div className="flex-1 sm:pr-8 sm:pe-20 lg:pe-28 xl:pe-40">
               <VideoSection />
             </div>
-            <div className="mt-8 flex-1 space-y-6 sm:mt-0">
+            <div className="mt-8 flex-1 justify-between sm:mt-0 ">
               <Typography
                 variant="luckiestGuy"
                 className="mb-4 text-center text-3xl text-[#4b0325] sm:text-start sm:text-4xl"
@@ -113,7 +113,7 @@ export default function page() {
                 <button>
 
                 <Image
-                  src="/images/app-store-badge.png"
+                  src="/images/app-store-badge.svg"
                   alt="Download on the App Store"
                   width={140}
                   height={40}
@@ -122,7 +122,7 @@ export default function page() {
                 <button>
 
                 <Image
-                  src="/images/google-play-badge.png"
+                  src="/images/google-play-badge.svg"
                   alt="Get it on Google Play"
                   width={140}
                   height={40}

@@ -7,9 +7,10 @@ import { motion } from 'framer-motion';
 
 interface MainHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
+  closeMenu?: () => void;
 }
 
-export function MainHeader({ className, ...props }: MainHeaderProps) {
+export function MainHeader({ className,closeMenu, ...props }: MainHeaderProps) {
   const pathname = usePathname();
   const params = useParams();
 
@@ -43,7 +44,10 @@ export function MainHeader({ className, ...props }: MainHeaderProps) {
         {routes.map((route) => (
           <motion.div key={route.href} variants={itemVariants}>
             <Button
-              onClick={() => router.push(route.href)}
+              onClick={() => {
+                router.push(route.href);
+                closeMenu?.(); 
+              }}
               variant={'link'}
               className={`${
                 route.active
