@@ -11,13 +11,13 @@ interface ContentSectionProps {
   image: string;
   backgroundImage?: string;
   backgroundImageMobile?: string;
-  button:{
-    text:string,
-    textColor:string
-    backgroundColor:string
+  button: {
+    text: string;
+    textColor: string;
+    backgroundColor: string;
     reverse: boolean;
     className?: string;
-  }
+  };
   reverse?: boolean;
   children?: React.ReactNode;
 }
@@ -36,21 +36,13 @@ const ContentSection: React.FC<ContentSectionProps> = ({
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
 
   useEffect(() => {
-    // Handler to call on window resize
     function handleResize() {
-      // Set window width to state
       setWindowWidth(window.innerWidth);
     }
-
-    // Add event listener
     window.addEventListener('resize', handleResize);
-
-    // Call handler right away so state gets updated with initial window size
     handleResize();
-
-    // Remove event listener on cleanup
     return () => window.removeEventListener('resize', handleResize);
-  }, []); // Empty array ensures that effect is only run on mount and unmount
+  }, []);
 
   return (
     <section className="relative overflow-hidden">
@@ -83,7 +75,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
           <div className="order-2 flex-1 space-y-12 sm:order-1">
             <Typography
               variant="luckiestGuy"
-              className="mb-4 text-center text-3xl text-[#4b0325] sm:text-start sm:text-4xl mt-12 sm:mt-0"
+              className="mb-4 mt-12 text-center text-3xl text-[#4b0325] sm:mt-0 sm:text-start sm:text-4xl"
             >
               {title}
             </Typography>
@@ -99,7 +91,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
                 <CustomButton
                   variant="custom"
                   cornerStyle="asymmetrical"
-                  className={`mx-auto w-[80%] ${button.backgroundColor} ${button.textColor} ${button.reverse ? 'clip-customRight rounded-tr-3xl rounded-br-3xl' : 'clip-customLeft rounded-tl-3xl rounded-bl-3xl'} ${button.className}`}
+                  className={`mx-auto w-[80%] ${button.backgroundColor} ${button.textColor} ${button.reverse ? 'rounded-br-3xl rounded-tr-3xl clip-customRight' : 'rounded-bl-3xl rounded-tl-3xl clip-customLeft'} ${button.className}`}
                   text={button.text}
                 />
               )}
@@ -113,8 +105,3 @@ const ContentSection: React.FC<ContentSectionProps> = ({
 };
 
 export default ContentSection;
-
-{
-  /* <CustomButton text="Get Started" variant="primary" />
-<CustomButton text="Our Concept" variant="secondary" /> */
-}

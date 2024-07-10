@@ -6,7 +6,6 @@ interface CustomButtonProps {
   variant: 'primary' | 'secondary' | 'tertiary' | 'custom';
   cornerStyle: 'rounded' | 'pill' | 'sharp' | 'asymmetrical';
   className?: string;
-  
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -35,7 +34,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   return (
     <button
       className={cn(
-        'relative px-6 py-2 font-semibold transition-colors duration-300  ',
+        'relative px-6 py-2 font-semibold transition-colors duration-300',
         variantClasses,
         className,
       )}

@@ -10,7 +10,11 @@ interface MainHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   closeMenu?: () => void;
 }
 
-export function MainHeader({ className,closeMenu, ...props }: MainHeaderProps) {
+export function MainHeader({
+  className,
+  closeMenu,
+  ...props
+}: MainHeaderProps) {
   const pathname = usePathname();
   const params = useParams();
 
@@ -46,7 +50,7 @@ export function MainHeader({ className,closeMenu, ...props }: MainHeaderProps) {
             <Button
               onClick={() => {
                 router.push(route.href);
-                closeMenu?.(); 
+                closeMenu?.();
               }}
               variant={'link'}
               className={`${
