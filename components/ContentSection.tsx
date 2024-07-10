@@ -83,7 +83,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
           <div className="order-2 flex-1 space-y-12 sm:order-1">
             <Typography
               variant="luckiestGuy"
-              className="mb-4 text-center text-3xl text-[#4b0325] sm:text-start sm:text-4xl"
+              className="mb-4 text-center text-3xl text-[#4b0325] sm:text-start sm:text-4xl mt-12 sm:mt-0"
             >
               {title}
             </Typography>
