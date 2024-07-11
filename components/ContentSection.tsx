@@ -68,7 +68,10 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
     };
 
     return (
-      <section ref={ref} className="relative overflow-hidden">
+      <section
+        ref={ref}
+        className={`relative overflow-hidden ${backgroundImage ? '' : 'bg-[#fbf1ef]'}`}
+      >
         {backgroundImage && backgroundImageMobile && (
           <div
             className="absolute inset-0 z-0 bg-cover bg-right"

@@ -26,6 +26,21 @@ export default function page() {
         }}
         reverse={true}
       />
+
+      <ContentSection
+        title="News Heading"
+        startingWord="BIM"
+        description="(Better International Match) is a global dating app connecting singles worldwide. It uses advanced matching algorithms, supports multiple languages, and ensures user safety through rigorous verification. Features include text, voice, and video communication, cultural exchange, and travel planning. BIM offers both free and premium plans, fostering a supportive community and meaningful cross-cultural connections."
+        image="/images/news-heading-images.svg"
+        backgroundImageMobile="/images/news-heading-bg-mobile.png"
+        button={{
+          text: 'Read More',
+          textColor: 'text-white',
+          backgroundColor: 'bg-[#d10062]',
+          reverse: false,
+        }}
+      />
+      <div className="bg-[#fbf1ef] sm:py-16"></div>
     </div>
   );
 }
