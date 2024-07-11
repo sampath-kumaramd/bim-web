@@ -14,6 +14,7 @@ interface HeroSectionProps {
   secondaryButton?: string;
   onPrimaryButtonClick?: () => void;
   onSecondaryButtonClick?: () => void;
+  className?: string;
   children?: React.ReactNode;
 }
 
@@ -26,6 +27,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   secondaryButton,
   onPrimaryButtonClick,
   onSecondaryButtonClick,
+  className,
   children,
 }) => {
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
@@ -39,7 +41,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   return (
-    <section className="relative overflow-hidden">
+    <section className={`relative overflow-hidden ${className}`}>
       {backgroundImage && backgroundImageMobile && (
         <div
           className="absolute inset-0 z-0 bg-cover bg-right"

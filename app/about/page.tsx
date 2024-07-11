@@ -111,7 +111,7 @@ export default function page() {
                 className="w-full bg-[#d10062] py-3 text-white"
                 text="Pre-Registration"
               />
-              <div className="flex justify-start gap-4 md:gap-16 mt-16">
+              <div className="mt-16 flex justify-start gap-4 md:gap-16">
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
