@@ -29,7 +29,7 @@ export default function page() {
         title="Legal"
         description="If you need any help for any issues or If you want to know any more about us you can contact us directly. We always ready to help you."
         backgroundImage="/images/legal-hero.png"
-        backgroundImageMobile="/images/news-hero-mobile.png"
+        backgroundImageMobile="/images/legal-hero-mobile.png"
       />
 
       <section className="relative overflow-hidden">
