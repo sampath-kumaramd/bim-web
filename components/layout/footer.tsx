@@ -75,7 +75,7 @@ export function Footer() {
                 variant="Bim4Regular"
               >
                 {' '}
-                Legal
+                <a href="/legal">Legal</a>
               </Typography>
               <Separator orientation="vertical" className="my-auto h-5" />
               <Typography
