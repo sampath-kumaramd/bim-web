@@ -3,12 +3,10 @@
 import { LegalArticles } from '@/bin/LegalData';
 import HeroSection from '@/components/HeroSection';
 import { Typography } from '@/components/Typography';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function page() {
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
-  const getStartedRef = useRef<HTMLDivElement>(null);
-  const ourConceptRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleResize() {
@@ -18,10 +16,6 @@ export default function page() {
     handleResize();
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <div className="min-h-screen">
