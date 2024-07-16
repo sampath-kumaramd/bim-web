@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -27,6 +29,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 const FormSchema = z.object({
   name: z.string().min(2, {
@@ -61,6 +73,8 @@ function PreRegistrationForm() {
       ),
     });
   }
+
+  const [countryCode, setCountryCode] = useState('+880');
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-auto space-y-6">
@@ -68,7 +82,7 @@ function PreRegistrationForm() {
           variant="Bim1"
           className="mb-8 text-center text-xl text-[#D10062] sm:text-3xl"
         >
-          Basic Informations
+          BASIC INFORMATIONS
         </Typography>
 
         <FormField
@@ -106,7 +120,28 @@ function PreRegistrationForm() {
             <FormItem>
               <FormLabel>Phone</FormLabel>
               <FormControl>
-                <Input placeholder="Enter phone number" {...field} />
+                <div className="flex items-center rounded-xl border border-gray-200">
+                  <Select>
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="Select a country code" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectLabel>Country codes</SelectLabel>
+                        <SelectItem value="apple" className="flex items-center">
+                          <div></div>
+                          <div>+2</div>
+                        </SelectItem>
+                        {/* <SelectItem value="apple"><span><DE/></span><span>+2565</span></SelectItem> */}
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                  <Input
+                    placeholder="Your phone number"
+                    {...field}
+                    className="border-none"
+                  />
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>

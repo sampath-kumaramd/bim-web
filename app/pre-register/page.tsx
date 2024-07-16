@@ -26,7 +26,7 @@ export default function page() {
   return (
     <div className="min-h-screen">
       <HeroSection
-        title="Pre Register"
+        title="PRE REGISTER"
         description="If you need any help for any issues or if you want to know any more about us you can contact us directly us we always ready to help you."
         backgroundImage="/images/pre-registration-hero.png"
         backgroundImageMobile="/images/pre-registration-hero-mobile.png"
