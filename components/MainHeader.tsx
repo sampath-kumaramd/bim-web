@@ -66,11 +66,17 @@ export function MainHeader({
             </Button>
           </motion.div>
         ))}
-        <Link href="/pre-register">
-          <Button className="rounded-lg bg-white text-[#4B0325] hover:bg-gray-50 lg:hidden">
-            Pre-Register
-          </Button>
-        </Link>
+        {/* <Link href="/pre-register"> */}
+        <Button
+          className="rounded-lg bg-white text-[#4B0325] hover:bg-gray-50 lg:hidden"
+          onClick={() => {
+            router.push('/pre-register');
+            closeMenu?.();
+          }}
+        >
+          Pre-Register
+        </Button>
+        {/* </Link> */}
       </div>
     </motion.div>
   );

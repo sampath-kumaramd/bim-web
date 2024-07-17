@@ -66,7 +66,13 @@ export function Header() {
 
           <div className="flex items-center gap-8 lg:gap-16">
             <Link href="/pre-register">
-              <Button className="hidden rounded-lg bg-white text-[#4B0325] hover:bg-yellow-400 md:block">
+              <Button
+                className="hidden rounded-lg bg-white text-[#4B0325] hover:bg-yellow-400 md:block"
+                onClick={() => {
+                  router.push('/pre-register');
+                  closeMenu?.();
+                }}
+              >
                 Pre-Register
               </Button>
             </Link>
