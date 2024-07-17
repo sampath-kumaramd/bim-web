@@ -7,6 +7,7 @@ import { LanguageSwitcher } from '../LanguageSwitcher';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 export function Header() {
   const router = useRouter();
@@ -64,9 +65,11 @@ export function Header() {
           <MainHeader className="hidden flex-row gap-4 lg:flex" />
 
           <div className="flex items-center gap-8 lg:gap-16">
-            <Button className="hidden rounded-lg bg-white text-[#4B0325] hover:bg-yellow-400 md:block">
-              Pre-Register
-            </Button>
+            <Link href="/pre-register">
+              <Button className="hidden rounded-lg bg-white text-[#4B0325] hover:bg-yellow-400 md:block">
+                Pre-Register
+              </Button>
+            </Link>
             <LanguageSwitcher />
           </div>
         </div>

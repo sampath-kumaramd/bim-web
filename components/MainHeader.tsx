@@ -4,6 +4,7 @@ import { Button } from './ui/button';
 import { useRouter } from 'next/navigation';
 import { Typography } from './Typography';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface MainHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -65,10 +66,11 @@ export function MainHeader({
             </Button>
           </motion.div>
         ))}
-
-        <Button className="rounded-lg bg-white text-[#4B0325] hover:bg-gray-50 lg:hidden">
-          Pre-Register
-        </Button>
+        <Link href="/pre-register">
+          <Button className="rounded-lg bg-white text-[#4B0325] hover:bg-gray-50 lg:hidden">
+            Pre-Register
+          </Button>
+        </Link>
       </div>
     </motion.div>
   );
