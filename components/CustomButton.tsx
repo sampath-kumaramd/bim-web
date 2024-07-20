@@ -8,6 +8,7 @@ interface CustomButtonProps {
   variant: 'primary' | 'secondary' | 'tertiary' | 'custom';
   className?: string;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -15,6 +16,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   variant,
   className,
   onClick,
+  disabled,
 }) => {
   const primaryClasses =
     'bg-yellow-400 text-black hover:bg-yellow-500 clip-customLeft rounded-2xl rounded-tl-3xl rounded-bl-3xl  h-16';
@@ -43,6 +45,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         className,
       )}
       onClick={onClick}
+      disabled={disabled}
     >
       <Typography variant="Bim4Regular" className="text-sm sm:text-lg">
         {text}
