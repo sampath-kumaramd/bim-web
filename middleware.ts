@@ -3,7 +3,15 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  const pathnameIsMissingLocale = ['en', 'fr'].every(
+
+  const pathnameIsMissingLocale = [
+    'en',
+    'fr',
+    'lb',
+    'it',
+    'es',
+    'de',
+  ].every(
     (locale) =>
       !pathname.startsWith(`/${locale}/`) &&
       pathname !== `/${locale}`,

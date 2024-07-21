@@ -29,6 +29,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { ReactNode } from 'react';
 import { getDictionary } from '@/lib/getDictionary';
 import { LanguageProvider } from '@/components/LanguageContext';
+import { Languages } from '@/types/languages';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -44,7 +45,7 @@ export default async function RootLayout({
   params: { lang }
 }: {
   children: ReactNode
-  params: { lang: 'en' | 'fr' }
+  params: { lang:Languages }
 }) {
   const dict = await getDictionary(lang)
 
@@ -74,6 +75,10 @@ export async function generateStaticParams() {
   return [
     { lang: 'en' },
     { lang: 'fr' },
+    { lang: 'lb' },
+    { lang: 'it' },
+    { lang: 'es' },
+    { lang: 'de' },
     // Add more languages as needed
   ];
 }

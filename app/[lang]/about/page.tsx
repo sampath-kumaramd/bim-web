@@ -23,6 +23,7 @@ import aboutUsGetStartBg from '../../../public/images/about-us-get-start-bg.png'
 import { getDictionary } from '@/lib/getDictionary';
 import { useDictionary } from '@/hooks/useDictionary';
 import { useParams } from 'next/navigation';
+import { Languages } from '@/types/languages';
 
 
 export default  function page()  {
@@ -32,7 +33,7 @@ export default  function page()  {
   const getStartedRef = useRef<HTMLDivElement>(null);
   const ourConceptRef = useRef<HTMLDivElement>(null);
   const params = useParams();
-  const lang = params.lang as 'en' | 'fr'; 
+  const lang = params.lang as Languages; 
   const dict = useDictionary(lang);
 
   useEffect(() => {
@@ -57,11 +58,11 @@ export default  function page()  {
     <div className="min-h-screen">
       <HeroSection
         title={dict.about.hero.title}
-        description="Lorem ipsum dolor sit amet consectetur. Purus venenatis sit egestas luctus proin amet lorem leo. Fringilla turpis id amet fermentum leo et dictum viverra. Consectetur fringilla in"
+        description={dict.about.hero.description}
         backgroundImage={aboutHeroImage.src}
         backgroundImageMobile={aboutHeroMobileImage.src}
-        primaryButton="Get Started"
-        secondaryButton="Our Concept"
+        primaryButton={dict.about.hero.primaryButton}
+        secondaryButton={dict.about.hero.secondaryButton}
         onPrimaryButtonClick={() =>
           scrollToSection(getStartedRef)
         }
@@ -71,14 +72,14 @@ export default  function page()  {
       />
 
       <ContentSection
-        title="About Us"
-        startingWord="BIM"
-        description="(Better International Match) is a global dating app connecting singles worldwide. It uses advanced matching algorithms, supports multiple languages, and ensures user safety through rigorous verification. Features include text, voice, and video communication, cultural exchange, and travel planning. BIM offers both free and premium plans, fostering a supportive community and meaningful cross-cultural connections."
+        title={dict.about.aboutUs.title}
+        startingWord={dict.about.aboutUs.startingWord}
+        description={dict.about.aboutUs.description}
         image={aboutUsImages.src}
         backgroundImage={aboutUsBg.src}
         backgroundImageMobile=  {aboutUsBgMobile.src}
         button={{
-          text: 'Read More',
+          text: dict.about.aboutUs.button,
           textColor: 'text-white',
           backgroundColor: 'bg-[#d10062]',
           reverse: true,
@@ -87,13 +88,13 @@ export default  function page()  {
       />
       <div ref={ourConceptRef}>
         <ContentSection
-          title="Our Concept"
-          description="Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam."
+          title={dict.about.ourConcept.title}
+          description={dict.about.ourConcept.description}
           image={aboutUsOurConcept.src}
           backgroundImage={aboutUsOurConceptBg.src}
           backgroundImageMobile={aboutUsOurConceptBgMobile.src}
           button={{
-            text: 'Learn More',
+            text: dict.about.ourConcept.button,
             textColor: 'text-[#4b0325]',
             backgroundColor: 'bg-white',
             reverse: true,
@@ -141,20 +142,18 @@ export default  function page()  {
                 variant="Bim1"
                 className="mb-4 text-center text-3xl text-[#4b0325] sm:text-start sm:text-4xl"
               >
-                Get Started
+               {dict.about.getStarted.title}
               </Typography>
               <Typography
                 variant="nexaRegular"
                 className="mb-8 text-center text-base text-[#4b0325] sm:text-justify sm:text-lg"
               >
-                Lorem ipsum dolor sit amet consectetur.
-                Scelerisque mi varius quam facilisis etiam.
-                Nunc id aliquam
+                {dict.about.getStarted.description}
               </Typography>
               <CustomButton
                 variant="tertiary"
                 className="w-full bg-[#d10062] py-3 text-white"
-                text="Pre-Registration"
+                text={dict.about.getStarted.button}
               />
               <div className="mt-16 flex justify-start gap-4 md:gap-16">
                 <motion.button

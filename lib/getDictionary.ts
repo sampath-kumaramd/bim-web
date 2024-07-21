@@ -1,8 +1,4 @@
-// lib/getDictionary.ts
-
-// Define a type for the supported locales
 type Locale = keyof typeof dictionaries;
-
 const dictionaries = {
   en: () =>
     import('../locales/en.json').then(
@@ -14,6 +10,18 @@ const dictionaries = {
     ),
   es: () =>
     import('../locales/es.json').then(
+      (module) => module.default,
+    ),
+  it: () =>
+    import('../locales/it.json').then(
+      (module) => module.default,
+    ),
+  lb: () =>
+    import('../locales/lb.json').then(
+      (module) => module.default,
+    ),
+  de: () =>
+    import('../locales/de.json').then(
       (module) => module.default,
     ),
 };

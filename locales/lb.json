@@ -1,0 +1,28 @@
+{
+  "about": {
+    "hero": {
+      "title": "AM MEESCHTEN VERTRAUT & SÉCHER",
+      "description": "Lorem ipsum dolor sit amet consectetur. Purus venenatis sit egestas luctus proin amet lorem leo. Fringilla turpis id amet fermentum leo et dictum viverra. Consectetur fringilla in",
+      "primaryButton": "Uffänken",
+      "secondaryButton": "Eise Konzept"
+    },
+    "aboutUs": {
+      "title": "Iwwert Eis",
+      "startingWord": "BIM",
+      "description": "(Better International Match) ass eng global Dating App déi Single weltwäit verbënnt. Si benotzt fortgeschratt Matching Algorithmen, ënnerstëtzt vill Sproochen a garantéiert Benotzersécherheet duerch streng Verifikatioun. Funktioune beinhalteten Text-, Stëmm- a Videokommunikatioun, kulturellen Austausch a Reesplanung. BIM bitt souwuel gratis wéi premium Pläng un, a fördert eng ënnerstëtzend Gemeinschaft a bedeitend interkulturell Verbindungen.",
+      "button": "Weiderliesen"
+    },
+    "ourConcept": {
+      "title": "Eise Konzept",
+      "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam.",
+      "button": "Méi Léieren"
+    },
+    "getStarted": {
+      "title": "Uffänken",
+      "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam",
+      "button": "Virregistréierung",
+      "appStore": "Eroflueden op den App Store",
+      "googlePlay": "Kritt et op Google Play"
+    }
+  }
+}

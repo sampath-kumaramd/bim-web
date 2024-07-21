@@ -1,28 +1,28 @@
 {
-  "about":{
-  "hero": {
-    "title": "MÁS CONFIABLE Y SEGURO",
-    "description": "Lorem ipsum dolor sit amet consectetur. Purus venenatis sit egestas luctus proin amet lorem leo. Fringilla turpis id amet fermentum leo et dictum viverra. Consectetur fringilla in",
-    "primaryButton": "Get Started",
-    "secondaryButton": "Our Concept"
-  },
-  "aboutUs": {
-    "title": "About Us",
-    "startingWord": "BIM",
-    "description": "(Better International Match) is a global dating app connecting singles worldwide. It uses advanced matching algorithms, supports multiple languages, and ensures user safety through rigorous verification. Features include text, voice, and video communication, cultural exchange, and travel planning. BIM offers both free and premium plans, fostering a supportive community and meaningful cross-cultural connections.",
-    "button": "Read More"
-  },
-  "ourConcept": {
-    "title": "Our Concept",
-    "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam.",
-    "button": "Learn More"
-  },
-  "getStarted": {
-    "title": "Get Started",
-    "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam",
-    "button": "Pre-Registration",
-    "appStore": "Download on the App Store",
-    "googlePlay": "Get it on Google Play"
+  "about": {
+    "hero": {
+      "title": "EL MÁS CONFIABLE & SEGURO",
+      "description": "Lorem ipsum dolor sit amet consectetur. Purus venenatis sit egestas luctus proin amet lorem leo. Fringilla turpis id amet fermentum leo et dictum viverra. Consectetur fringilla in",
+      "primaryButton": "Empezar",
+      "secondaryButton": "Nuestro Concepto"
+    },
+    "aboutUs": {
+      "title": "Sobre Nosotros",
+      "startingWord": "BIM",
+      "description": "(Better International Match) es una aplicación de citas global que conecta a solteros de todo el mundo. Utiliza algoritmos de coincidencia avanzados, admite varios idiomas y garantiza la seguridad del usuario a través de una rigurosa verificación. Las funciones incluyen comunicación por texto, voz y video, intercambio cultural y planificación de viajes. BIM ofrece planes gratuitos y premium, fomentando una comunidad solidaria y conexiones interculturales significativas.",
+      "button": "Leer Más"
+    },
+    "ourConcept": {
+      "title": "Nuestro Concepto",
+      "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam.",
+      "button": "Saber Más"
+    },
+    "getStarted": {
+      "title": "Empezar",
+      "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam",
+      "button": "Pre-Registro",
+      "appStore": "Descargar en el App Store",
+      "googlePlay": "Consíguelo en Google Play"
+    }
   }
-}
 }
