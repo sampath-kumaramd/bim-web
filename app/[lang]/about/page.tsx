@@ -20,6 +20,9 @@ import aboutUsOurConceptBg from '../../../public/images/about-us-our-concept-bg.
 import aboutUsOurConceptBgMobile from '../../../public/images/about-us-our-concept-bg-mobile.png';
 import aboutUsGetStartMobileBg from '../../../public/images/about-us-get-start-mobile-bg.png';
 import aboutUsGetStartBg from '../../../public/images/about-us-get-start-bg.png';
+import appSroteImage from '../../../public/images/app-store-badge.png';
+import googlePlayImage from '../../../public/images/google-play-badge.png';
+
 import { getDictionary } from '@/lib/getDictionary';
 import { useDictionary } from '@/hooks/useDictionary';
 import { useParams } from 'next/navigation';
@@ -166,7 +169,7 @@ export default  function page()  {
                   className="rounded-2xl"
                 >
                   <Image
-                    src="/images/app-store-badge.png"
+                    src={appSroteImage.src}
                     alt="Download on the App Store"
                     width={190}
                     height={60}
@@ -182,7 +185,7 @@ export default  function page()  {
                   className="rounded-2xl"
                 >
                   <Image
-                    src="/images/google-play-badge.png"
+                    src={googlePlayImage.src}
                     alt="Get it on Google Play"
                     width={170}
                     height={20}
