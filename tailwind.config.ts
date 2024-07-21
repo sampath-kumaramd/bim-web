@@ -61,11 +61,17 @@ const config = {
       },
       keyframes: {
         'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
+          from: {
+            height: '0',
+          },
+          to: {
+            height: 'var(--radix-accordion-content-height)',
+          },
         },
         'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
+          from: {
+            height: 'var(--radix-accordion-content-height)',
+          },
           to: { height: '0' },
         },
       },
@@ -77,8 +83,10 @@ const config = {
         '18': '18px',
       },
       clipPath: {
-        customRight: 'polygon(0 0, 100% 10%, 100% 90%, 0 100%)',
-        customLeft: 'polygon(0 10%, 100% 0, 100% 100%, 0 90%)',
+        customRight:
+          'polygon(0 0, 100% 10%, 100% 90%, 0 100%)',
+        customLeft:
+          'polygon(0 10%, 100% 0, 100% 100%, 0 90%)',
       },
       boxShadow: {
         'logo-text-border': '0 0 0 2px #540217',
@@ -90,14 +98,18 @@ const config = {
     function ({
       addUtilities,
     }: {
-      addUtilities: (utilities: Record<string, any>) => void;
+      addUtilities: (
+        utilities: Record<string, any>,
+      ) => void;
     }) {
       addUtilities({
         '.clip-customRight': {
-          'clip-path': 'polygon(0 0, 100% 10%, 100% 90%, 0 100%)',
+          'clip-path':
+            'polygon(0 0, 100% 10%, 100% 90%, 0 100%)',
         },
         '.clip-customLeft': {
-          'clip-path': 'polygon(0 10%, 100% 0, 100% 100%, 0 90%)',
+          'clip-path':
+            'polygon(0 10%, 100% 0, 100% 100%, 0 90%)',
         },
       });
     },

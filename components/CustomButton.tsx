@@ -1,6 +1,7 @@
 import React from 'react';
-import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
+
+import { cn } from '@/lib/utils';
 import { Typography } from './Typography';
 
 interface CustomButtonProps {
@@ -37,8 +38,12 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 
   return (
     <motion.button
-      whileHover={{ scale: 1.04 }}
-      whileTap={{ scale: 0.96 }}
+      whileHover={{
+        scale: 1.04,
+      }}
+      whileTap={{
+        scale: 0.96,
+      }}
       className={cn(
         'relative px-6 py-2 transition-colors duration-300',
         variantClasses,
@@ -47,7 +52,10 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
     >
-      <Typography variant="Bim4Regular" className="text-sm sm:text-lg">
+      <Typography
+        variant="Bim4Regular"
+        className="text-sm sm:text-lg"
+      >
         {text}
       </Typography>
     </motion.button>

@@ -6,7 +6,9 @@ import { Typography } from '@/components/Typography';
 import { useEffect, useState } from 'react';
 
 export default function page() {
-  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+  const [windowWidth, setWindowWidth] = useState<
+    number | null
+  >(null);
 
   useEffect(() => {
     function handleResize() {
@@ -14,7 +16,8 @@ export default function page() {
     }
     window.addEventListener('resize', handleResize);
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    return () =>
+      window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
@@ -42,19 +45,22 @@ export default function page() {
             variant="Bim4Regular"
             className="mb-8 text-justify text-base text-[#4b0325] sm:text-lg"
           >
-            In accordance with the provisions of Articles 6-III and 19 of Law
-            No. 2004-575 of June 21, 2004 for the Confidence in the digital
-            conomy, known as L.C.E.N., it is brought to the attention of users
-            and visitors, hereinafter the "User", of the site
-            www.bim-dating.com, hereinafter the "Site", herein Legal Notice.
+            In accordance with the provisions of Articles
+            6-III and 19 of Law No. 2004-575 of June 21,
+            2004 for the Confidence in the digital conomy,
+            known as L.C.E.N., it is brought to the
+            attention of users and visitors, hereinafter the
+            "User", of the site www.bim-dating.com,
+            hereinafter the "Site", herein Legal Notice.
           </Typography>
           <Typography
             variant="Bim4Regular"
             className="text-justify text-base text-[#4b0325] sm:text-lg"
           >
-            Connection and navigation on the Site by the User implies full
-            acceptance and without subject to these legal notices.These are
-            accessible on the Site in the “Legal notices” section.
+            Connection and navigation on the Site by the
+            User implies full acceptance and without subject
+            to these legal notices.These are accessible on
+            the Site in the “Legal notices” section.
           </Typography>
         </div>
       </section>
@@ -68,7 +74,8 @@ export default function page() {
                   variant="Bim1"
                   className="mb-3 text-justify text-base text-[#4B0325] sm:text-3xl"
                 >
-                  Article {legalArticle.id} - {legalArticle.title}
+                  Article {legalArticle.id} -{' '}
+                  {legalArticle.title}
                 </Typography>
                 <Typography
                   variant="Bim4Regular"

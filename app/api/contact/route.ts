@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-export async function POST(request) {
+export async function POST(request: Request) {
   const { name, email, message } = await request.json();
 
   const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
+    host: 'ssl0.ovh.net',
+    port: 587,
+    secure: false,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASSWORD,
@@ -65,8 +65,8 @@ export async function POST(request) {
   `;
 
   const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: email,
+    from: 'Contact Form',
+    to: process.env.EMAIL_USER,
     subject: `New Contact Form Submission from ${name}`,
     html: htmlContent,
   };
@@ -75,11 +75,18 @@ export async function POST(request) {
     await transporter.sendMail(mailOptions);
     console.log('Email sent successfully');
     return NextResponse.json(
-      { message: 'Email sent successfully' },
+      {
+        message: 'Email sent successfully',
+      },
       { status: 200 },
     );
   } catch (error) {
     console.error('Error sending email', error);
-    return NextResponse.json({ error: 'Error sending email' }, { status: 500 });
+    return NextResponse.json(
+      {
+        error: 'Error sending email',
+      },
+      { status: 500 },
+    );
   }
 }

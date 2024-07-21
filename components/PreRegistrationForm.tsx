@@ -1,10 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { format } from 'date-fns';
+import { CalendarIcon } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -17,19 +20,12 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
-import { Typography } from './Typography';
-import CustomButton from './CustomButton';
-
-import { cn } from '@/lib/utils';
-import { format } from 'date-fns';
-import { CalendarIcon } from 'lucide-react';
 import { Calendar } from '@/components/ui/calendar';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-
 import {
   Select,
   SelectContent,
@@ -39,6 +35,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { Typography } from './Typography';
+import CustomButton from './CustomButton';
 
 const FormSchema = z.object({
   name: z.string().min(2, {
@@ -68,7 +66,9 @@ function PreRegistrationForm() {
       title: 'You submitted the following values:',
       description: (
         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+          <code className="text-white">
+            {JSON.stringify(data, null, 2)}
+          </code>
         </pre>
       ),
     });
@@ -77,7 +77,10 @@ function PreRegistrationForm() {
   const [countryCode, setCountryCode] = useState('+880');
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-auto space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-auto space-y-6"
+      >
         <Typography
           variant="Bim1"
           className="mb-8 text-center text-xl text-[#D10062] sm:text-3xl"
@@ -106,7 +109,10 @@ function PreRegistrationForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Your email address" {...field} />
+                <Input
+                  placeholder="Your email address"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -127,12 +133,16 @@ function PreRegistrationForm() {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectGroup>
-                        <SelectLabel>Country codes</SelectLabel>
-                        <SelectItem value="apple" className="flex items-center">
+                        <SelectLabel>
+                          Country codes
+                        </SelectLabel>
+                        <SelectItem
+                          value="apple"
+                          className="flex items-center"
+                        >
                           <div></div>
                           <div>+2</div>
                         </SelectItem>
-                        {/* <SelectItem value="apple"><span><DE/></span><span>+2565</span></SelectItem> */}
                       </SelectGroup>
                     </SelectContent>
                   </Select>
@@ -161,7 +171,8 @@ function PreRegistrationForm() {
                       variant={'outline'}
                       className={cn(
                         'w-auto pl-3 text-left font-normal',
-                        !field.value && 'text-muted-foreground',
+                        !field.value &&
+                          'text-muted-foreground',
                       )}
                     >
                       {field.value ? (
@@ -173,13 +184,17 @@ function PreRegistrationForm() {
                     </Button>
                   </FormControl>
                 </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
+                <PopoverContent
+                  className="w-auto p-0"
+                  align="start"
+                >
                   <Calendar
                     mode="single"
                     selected={field.value}
                     onSelect={field.onChange}
                     disabled={(date) =>
-                      date > new Date() || date < new Date('1900-01-01')
+                      date > new Date() ||
+                      date < new Date('1900-01-01')
                     }
                     initialFocus
                   />

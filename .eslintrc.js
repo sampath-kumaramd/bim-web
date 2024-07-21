@@ -23,7 +23,12 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:react-hooks/recommended',
   ],
-  plugins: ['prettier', '@typescript-eslint', 'react', 'react-hooks'],
+  plugins: [
+    'prettier',
+    '@typescript-eslint',
+    'react',
+    'react-hooks',
+  ],
   rules: {
     // JavaScript rules
     'prefer-const': 'warn',

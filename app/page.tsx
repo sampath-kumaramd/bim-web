@@ -1,13 +1,14 @@
 'use client';
 
 import { Typography } from '@/components/Typography';
-import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Home() {
-  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+  const [windowWidth, setWindowWidth] = useState<
+    number | null
+  >(null);
 
   useEffect(() => {
     function handleResize() {
@@ -15,7 +16,8 @@ export default function Home() {
     }
     window.addEventListener('resize', handleResize);
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    return () =>
+      window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
@@ -48,23 +50,34 @@ export default function Home() {
                 >
                   <div>FIND SOMETHING</div>
                   <div>
-                    <span className="text-[#D10062]">PERFECT</span> & MAKE
+                    <span className="text-[#D10062]">
+                      PERFECT
+                    </span>{' '}
+                    & MAKE
                   </div>
                   <div>
-                    SOME <span className="text-[#33AE9D]">FUN</span>
+                    SOME{' '}
+                    <span className="text-[#33AE9D]">
+                      FUN
+                    </span>
                   </div>
                 </Typography>
                 <Typography
                   variant="Bim4Regular"
                   className="text-justify text-base text-[#4b0325] sm:text-lg"
                 >
-                  Download the most popular online dating mobile app from app
-                  store or google store. Let’s have a try
+                  Download the most popular online dating
+                  mobile app from app store or google store.
+                  Let’s have a try
                 </Typography>
                 <div className="mt-28 flex justify-start gap-4 md:gap-16">
                   <motion.button
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.96 }}
+                    whileHover={{
+                      scale: 1.04,
+                    }}
+                    whileTap={{
+                      scale: 0.96,
+                    }}
                     className="rounded-2xl"
                   >
                     <Image
@@ -75,8 +88,12 @@ export default function Home() {
                     />
                   </motion.button>
                   <motion.button
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.96 }}
+                    whileHover={{
+                      scale: 1.04,
+                    }}
+                    whileTap={{
+                      scale: 0.96,
+                    }}
                     className="rounded-2xl"
                   >
                     <Image

@@ -1,13 +1,15 @@
 'use client';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { MainHeader } from '../MainHeader';
-import { Button } from '../ui/button';
-import { LanguageSwitcher } from '../LanguageSwitcher';
+
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+
+import { MainHeader } from '../MainHeader';
+import { Button } from '../ui/button';
+import { LanguageSwitcher } from '../LanguageSwitcher';
 
 export function Header() {
   const router = useRouter();
@@ -31,11 +33,18 @@ export function Header() {
       <div className="bg-pink">
         <div className="container mx-auto flex items-center justify-between p-4">
           <div className="flex items-center gap-4">
-            <button onClick={toggleMenu} className="z-50 lg:hidden">
+            <button
+              onClick={toggleMenu}
+              className="z-50 lg:hidden"
+            >
               <motion.div
                 initial={false}
-                animate={{ rotate: isMenuOpen ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
+                animate={{
+                  rotate: isMenuOpen ? 180 : 0,
+                }}
+                transition={{
+                  duration: 0.3,
+                }}
               >
                 {isMenuOpen ? (
                   <X size={24} color="white" />
@@ -84,10 +93,21 @@ export function Header() {
         {isMenuOpen && (
           <motion.div
             className="fixed left-0 top-0 z-40 w-full bg-pink lg:hidden"
-            initial={{ opacity: 0, y: '-100%' }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: '-100%' }}
-            transition={{ duration: 0.3 }}
+            initial={{
+              opacity: 0,
+              y: '-100%',
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: '-100%',
+            }}
+            transition={{
+              duration: 0.3,
+            }}
           >
             <div className="p-4 pt-20">
               <MainHeader

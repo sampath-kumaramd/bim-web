@@ -1,13 +1,16 @@
 'use client';
 
-import HeroSection from '@/components/HeroSection';
 import { useEffect, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
+
+import HeroSection from '@/components/HeroSection';
 import { Typography } from '@/components/Typography';
-import PreRegistrationForm from '@/components/pre-registration-form';
+import PreRegistrationForm from '@/components/PreRegistrationForm';
 
 export default function page() {
-  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+  const [windowWidth, setWindowWidth] = useState<
+    number | null
+  >(null);
 
   useEffect(() => {
     function handleResize() {
@@ -15,12 +18,19 @@ export default function page() {
     }
     window.addEventListener('resize', handleResize);
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    return () =>
+      window.removeEventListener('resize', handleResize);
   }, []);
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
   };
 
   return (
@@ -65,11 +75,14 @@ export default function page() {
               variant="Bim4Regular"
               className="text-center text-base text-[#4b0325] sm:text-justify sm:text-lg"
             >
-              Lorem ipsum dolor sit amet consectetur. Varius blandit urna magna
-              enim adipiscing magna quisque vitae. Vel id vel sodales venenatis
-              nulla fermentum. Sagittis pharetra sed vitae at. At dui lacus
-              nulla massa scelerisque interdum tellus arcu mi. Amet laoreet
-              pulvinar mattis scelerisque amet egestas ac magna aenean.
+              Lorem ipsum dolor sit amet consectetur. Varius
+              blandit urna magna enim adipiscing magna
+              quisque vitae. Vel id vel sodales venenatis
+              nulla fermentum. Sagittis pharetra sed vitae
+              at. At dui lacus nulla massa scelerisque
+              interdum tellus arcu mi. Amet laoreet pulvinar
+              mattis scelerisque amet egestas ac magna
+              aenean.
             </Typography>
           </div>
           <div className="rounded-l-3xl rounded-t-3xl bg-white p-8 shadow-lg sm:p-12">

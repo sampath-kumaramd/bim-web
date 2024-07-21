@@ -33,9 +33,27 @@ export function GB({ className }: { className?: string }) {
         d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z"
         fill="#fff"
       ></path>
-      <rect x="13" y="4" width="6" height="24" fill="#fff"></rect>
-      <rect x="1" y="13" width="30" height="6" fill="#fff"></rect>
-      <rect x="14" y="4" width="4" height="24" fill="#b92932"></rect>
+      <rect
+        x="13"
+        y="4"
+        width="6"
+        height="24"
+        fill="#fff"
+      ></rect>
+      <rect
+        x="1"
+        y="13"
+        width="30"
+        height="6"
+        fill="#fff"
+      ></rect>
+      <rect
+        x="14"
+        y="4"
+        width="4"
+        height="24"
+        fill="#b92932"
+      ></rect>
       <rect
         x="14"
         y="1"

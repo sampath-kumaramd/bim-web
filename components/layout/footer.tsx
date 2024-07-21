@@ -49,15 +49,30 @@ const socialIcons: SocialIcon[] = [
   },
 ];
 
-function SocialButton({ href, src, alt, width, height }: SocialIcon) {
+function SocialButton({
+  href,
+  src,
+  alt,
+  width,
+  height,
+}: SocialIcon) {
   return (
     <Button
       variant="outline"
       size="icon"
       className="h-6 w-6 rounded-full border-2 bg-transparent hover:bg-rose-400"
     >
-      <a href={href} target="_blank" rel="noopener noreferrer">
-        <Image src={src} alt={alt} width={width} height={height} />
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+        />
       </a>
     </Button>
   );
@@ -77,7 +92,10 @@ export function Footer() {
                 {' '}
                 <a href="/legal">Legal</a>
               </Typography>
-              <Separator orientation="vertical" className="my-auto h-5" />
+              <Separator
+                orientation="vertical"
+                className="my-auto h-5"
+              />
               <Typography
                 className="text-start text-sm text-white sm:text-lg md:text-start"
                 variant="Bim4Regular"

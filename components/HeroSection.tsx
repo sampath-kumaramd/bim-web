@@ -1,9 +1,10 @@
 'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+
 import { Typography } from './Typography';
 import CustomButton from './CustomButton';
-import { motion } from 'framer-motion';
 
 interface HeroSectionProps {
   title: string;
@@ -30,7 +31,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   className,
   children,
 }) => {
-  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+  const [windowWidth, setWindowWidth] = useState<
+    number | null
+  >(null);
 
   useEffect(() => {
     function handleResize() {
@@ -38,10 +41,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     }
     window.addEventListener('resize', handleResize);
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    return () =>
+      window.removeEventListener('resize', handleResize);
   }, []);
   return (
-    <section className={`relative overflow-hidden ${className}`}>
+    <section
+      className={`relative overflow-hidden ${className}`}
+    >
       {backgroundImage && backgroundImageMobile && (
         <div
           className="absolute inset-0 z-0 bg-cover bg-right"
@@ -57,10 +63,20 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         />
       )}
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        initial={{
+          opacity: 0,
+          y: 50,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 0.8,
+        }}
         className="relative z-10 mx-auto w-full max-w-4xl px-4 py-16 sm:py-24"
       >
         <div className="">
