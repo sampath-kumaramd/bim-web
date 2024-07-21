@@ -1,9 +1,15 @@
 'use client';
 
-import { LegalArticles } from '@/bin/LegalData';
+import { useEffect, useState } from 'react';
+
 import HeroSection from '@/components/HeroSection';
 import { Typography } from '@/components/Typography';
-import { useEffect, useState } from 'react';
+
+import { LegalArticles } from '@/bin/LegalData';
+import legalHero from '../../../public/images/legal-hero.png';
+import legalHeroMobile from '../../../public/images/legal-hero-mobile.png';
+import legalBg from '../../../public/images/legal-bg.png';
+import legalBgMobile from '../../../public/images/legal-bg-mobile.png';
 
 export default function page() {
   const [windowWidth, setWindowWidth] = useState<
@@ -25,8 +31,8 @@ export default function page() {
       <HeroSection
         title="Legal"
         description="If you need any help for any issues or If you want to know any more about us you can contact us directly. We always ready to help you."
-        backgroundImage="/images/legal-hero.png"
-        backgroundImageMobile="/images/legal-hero-mobile.png"
+        backgroundImage={legalHero.src}
+        backgroundImageMobile={legalHeroMobile.src}
       />
 
       <section className="relative overflow-hidden">
@@ -35,8 +41,8 @@ export default function page() {
           style={{
             backgroundImage: `url(${
               windowWidth !== null && windowWidth <= 768
-                ? '/images/legal-bg-mobile.png'
-                : '/images/legal-bg.png'
+                ? legalBgMobile.src
+                : legalBg.src
             })`,
           }}
         />

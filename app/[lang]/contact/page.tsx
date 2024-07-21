@@ -8,6 +8,12 @@ import { ContactDetails } from '@/bin/ContactDetails';
 import Image from 'next/image';
 import ContactUsForm from '@/components/ContactUsForm';
 
+import contactUsHeroImage from '../../../public/images/contact-us-hero.png';
+import contactUsHeroMobileImage from '../../../public/images/contact-us-hero-mobile.png';
+import contactUsBg from '../../../public/images/contact-us-bg.png';
+import contactUsBgMobile from '../../../public/images/contact-us-bg-mobile.png';
+
+
 export default function page() {
   const [windowWidth, setWindowWidth] = useState<
     number | null
@@ -67,8 +73,8 @@ export default function page() {
       <HeroSection
         title="CONTACT"
         description="If you need any help for any issues or if you want to know any more about us you can contact us directly us we always ready to help you."
-        backgroundImage="/images/contact-us-hero.png"
-        backgroundImageMobile="/images/contact-us-hero-mobile.png"
+        backgroundImage={contactUsHeroImage.src}
+        backgroundImageMobile={contactUsHeroMobileImage.src}
       />
 
       <section className="relative overflow-hidden">
@@ -77,8 +83,8 @@ export default function page() {
           style={{
             backgroundImage: `url(${
               windowWidth !== null && windowWidth <= 768
-                ? '/images/contact-us-bg-mobile.png'
-                : '/images/contact-us-bg.png'
+                ? contactUsBgMobile.src
+                : contactUsBg.src
             })`,
           }}
         />

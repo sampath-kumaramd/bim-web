@@ -7,6 +7,14 @@ import HeroSection from '@/components/HeroSection';
 import { Typography } from '@/components/Typography';
 import PreRegistrationForm from '@/components/PreRegistrationForm';
 
+import preRegisterHero from '../../../public/images/pre-registration-hero.png';
+import preRegisterHeroMobile from '../../../public/images/pre-registration-hero-mobile.png';
+
+import preRegisterBg from '../../../public/images/pre-registration-bg.png';
+import preRegisterBgMobile from '../../../public/images/pre-registration-bg-mobile.png';
+import preRegisterImage from '../../../public/images/pre-registration-image.png';
+
+
 export default function page() {
   const [windowWidth, setWindowWidth] = useState<
     number | null
@@ -38,8 +46,8 @@ export default function page() {
       <HeroSection
         title="PRE REGISTER"
         description="If you need any help for any issues or if you want to know any more about us you can contact us directly us we always ready to help you."
-        backgroundImage="/images/pre-registration-hero.png"
-        backgroundImageMobile="/images/pre-registration-hero-mobile.png"
+        backgroundImage={preRegisterHero.src}
+        backgroundImageMobile=  {preRegisterHeroMobile.src}
       />
 
       <section className="relative overflow-hidden">
@@ -48,8 +56,8 @@ export default function page() {
           style={{
             backgroundImage: `url(${
               windowWidth !== null && windowWidth <= 768
-                ? '/images/pre-registration-bg-mobile.png'
-                : '/images/pre-registration-bg.png'
+                ? preRegisterBgMobile.src
+                : preRegisterBg.src
             })`,
           }}
         />
@@ -60,7 +68,7 @@ export default function page() {
               className="order-1 hidden flex-1 sm:order-2 sm:block"
             >
               <img
-                src="/images/pre-registration-image.png"
+                src={preRegisterImage.src}
                 alt="image"
                 className="h-96 w-auto"
               />

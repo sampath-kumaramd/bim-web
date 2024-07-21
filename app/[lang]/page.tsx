@@ -1,9 +1,27 @@
+// app/[lang]/page.tsx
+// import { getDictionary } from '@/lib/getDictionary'
+
+// export default async function Home({ params: { lang } }: Readonly<{ params: { lang: 'en' | 'fr' } }>) {
+//   const dict = await getDictionary(lang)
+
+//   return (
+//     <main>
+//       <h1>{dict.Home}</h1>
+//     </main>
+//   )
+// }
+
 'use client';
 
 import { Typography } from '@/components/Typography';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+
+import homeBg from '../../public/images/home-bg.png';
+import homeBgMobile from '../../public/images/home-bg-mobile.png';
+import poligonImage from '../../public/images/home-bg-mobile.png';
+
 
 export default function Home() {
   const [windowWidth, setWindowWidth] = useState<
@@ -28,16 +46,19 @@ export default function Home() {
           style={{
             backgroundImage: `url(${
               windowWidth !== null && windowWidth <= 768
-                ? '/images/home-bg-mobile.png'
-                : '/images/home-bg.png'
+                ?   homeBgMobile.src
+                :  homeBg.src
             })`,
           }}
         />
+        <div className=' min-h-screen'>
+          hi
+        </div>
 
-        <div className="relative z-10 grid grid-cols-1 gap-32 sm:py-24 md:grid-cols-2">
+        {/* <div className="relative z-10 grid grid-cols-1 gap-32 sm:py-24 md:grid-cols-2">
           <div className="relative">
             <Image
-              src="/images/poligon.png"
+              src=  {poligonImage.src}
               alt="poligon"
               width="850"
               height="700"
@@ -108,7 +129,7 @@ export default function Home() {
             </div>
           </div>
           <div>gsfs</div>
-        </div>
+        </div> */}
       </section>
     </div>
   );

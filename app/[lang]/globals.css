@@ -79,8 +79,8 @@
 @font-face {
   font-family: 'Bim1';
   src:
-    url('/fonts/Bim1.woff2') format('woff2'),
-    url('/fonts/Bim1.woff') format('woff');
+    url('../../public/fonts/Bim1.woff2') format('woff2'),
+    url('../../public/fonts/Bim1.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -89,8 +89,10 @@
 @font-face {
   font-family: 'Bim4-Regular';
   src:
-    url('/fonts/Bim4-Regular.woff2') format('woff2'),
-    url('/fonts/Bim4-Regular.woff') format('woff');
+    url('../../public/fonts/Bim4-Regular.woff2')
+      format('woff2'),
+    url('../../public/fonts/Bim4-Regular.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

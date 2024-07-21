@@ -10,12 +10,27 @@ import HeroSection from '@/components/HeroSection';
 import { Typography } from '@/components/Typography';
 import VideoSection from '@/components/VideoSection';
 
-export default function page() {
+import aboutHeroImage from '../../../public/images/about-hero.png';
+import aboutHeroMobileImage from '../../../public/images/about-hero-mobile.png';
+import aboutUsImages from '../../../public/images/about-us-images.svg';
+import aboutUsBg from '../../../public/images/about-us-bg.png';
+import aboutUsBgMobile from '../../../public/images/about-us-bg-mobile.png';
+import aboutUsOurConcept from '../../../public/images/about-us-our-concept.svg';
+import aboutUsOurConceptBg from '../../../public/images/about-us-our-concept-bg.png';
+import aboutUsOurConceptBgMobile from '../../../public/images/about-us-our-concept-bg-mobile.png';
+import aboutUsGetStartMobileBg from '../../../public/images/about-us-get-start-mobile-bg.png';
+import aboutUsGetStartBg from '../../../public/images/about-us-get-start-bg.png';
+import { getDictionary } from '@/lib/getDictionary';
+import { useDictionary } from '@/hooks/useDictionary';
+
+
+export default  function page({ params: { lang } }: Readonly<{ params: { lang: 'en' | 'fr' } }>)  {
   const [windowWidth, setWindowWidth] = useState<
     number | null
   >(null);
   const getStartedRef = useRef<HTMLDivElement>(null);
   const ourConceptRef = useRef<HTMLDivElement>(null);
+ const dict = useDictionary(lang);
 
   useEffect(() => {
     function handleResize() {
@@ -34,14 +49,14 @@ export default function page() {
       behavior: 'smooth',
     });
   };
-
+ if (!dict) return null;
   return (
     <div className="min-h-screen">
       <HeroSection
-        title="MOST TRUSTED & SECURE"
+        title={dict.about.hero.title}
         description="Lorem ipsum dolor sit amet consectetur. Purus venenatis sit egestas luctus proin amet lorem leo. Fringilla turpis id amet fermentum leo et dictum viverra. Consectetur fringilla in"
-        backgroundImage="/images/about-hero.png"
-        backgroundImageMobile="/images/about-hero-mobile.png"
+        backgroundImage={aboutHeroImage.src}
+        backgroundImageMobile={aboutHeroMobileImage.src}
         primaryButton="Get Started"
         secondaryButton="Our Concept"
         onPrimaryButtonClick={() =>
@@ -56,9 +71,9 @@ export default function page() {
         title="About Us"
         startingWord="BIM"
         description="(Better International Match) is a global dating app connecting singles worldwide. It uses advanced matching algorithms, supports multiple languages, and ensures user safety through rigorous verification. Features include text, voice, and video communication, cultural exchange, and travel planning. BIM offers both free and premium plans, fostering a supportive community and meaningful cross-cultural connections."
-        image="/images/about-us-images.svg"
-        backgroundImage="/images/about-us-bg.png"
-        backgroundImageMobile="/images/about-us-bg-mobile.png"
+        image={aboutUsImages.src}
+        backgroundImage={aboutUsBg.src}
+        backgroundImageMobile=  {aboutUsBgMobile.src}
         button={{
           text: 'Read More',
           textColor: 'text-white',
@@ -71,9 +86,9 @@ export default function page() {
         <ContentSection
           title="Our Concept"
           description="Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam."
-          image="/images/about-us-our-concept.svg"
-          backgroundImage="/images/about-us-our-concept-bg.png"
-          backgroundImageMobile="/images/about-us-our-concept-bg-mobile.png"
+          image={aboutUsOurConcept.src}
+          backgroundImage={aboutUsOurConceptBg.src}
+          backgroundImageMobile={aboutUsOurConceptBgMobile.src}
           button={{
             text: 'Learn More',
             textColor: 'text-[#4b0325]',
@@ -91,8 +106,8 @@ export default function page() {
           style={{
             backgroundImage: `url(${
               windowWidth !== null && windowWidth <= 768
-                ? '/images/about-us-get-start-mobile-bg.png'
-                : '/images/about-us-get-start-bg.png'
+                ? aboutUsGetStartMobileBg.src
+                : aboutUsGetStartBg.src
             })`,
           }}
         />

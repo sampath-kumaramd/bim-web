@@ -11,12 +11,14 @@ import { MainHeader } from '../MainHeader';
 import { Button } from '../ui/button';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 
+import logoIcon from '../../public/logo.svg';
+
 export function Header() {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogoClick = () => {
-    router.push('/');
+    router.push('/en');
     setIsMenuOpen(false);
   };
 
@@ -59,7 +61,7 @@ export function Header() {
               className="flex items-center gap-3"
             >
               <Image
-                src="/logo.svg"
+                src={logoIcon}
                 alt="Logo"
                 width={30}
                 height={30}

@@ -1,14 +1,12 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 
 import { Button } from './ui/button';
 import { Typography } from './Typography';
 
-interface MainHeaderProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+interface MainHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   closeMenu?: () => void;
 }
@@ -18,28 +16,29 @@ export function MainHeader({
   closeMenu,
   ...props
 }: MainHeaderProps) {
-
   const pathname = usePathname();
+  const lang = pathname.split('/')[1];
+  
   const routes = [
     {
-      href: '/',
+      href: `/${lang}`,
       label: 'Home',
-      active: pathname === '/',
+      active: pathname === `/${lang}` || pathname === `/${lang}/`,
     },
     {
-      href: '/about',
+      href: `/${lang}/about`,
       label: 'About',
-      active: pathname === '/about',
+      active: pathname === `/${lang}/about`,
     },
     {
-      href: '/news',
+      href: `/${lang}/news`,
       label: 'News',
-      active: pathname === '/news',
+      active: pathname === `/${lang}/news`,
     },
     {
-      href: '/contact',
+      href: `/${lang}/contact`,
       label: 'Contact',
-      active: pathname === '/contact',
+      active: pathname === `/${lang}/contact`,
     },
   ];
 
@@ -102,7 +101,7 @@ export function MainHeader({
         <Button
           className="rounded-lg bg-white text-[#4B0325] hover:bg-gray-50 lg:hidden"
           onClick={() => {
-            router.push('/pre-register');
+            router.push(`/${lang}/pre-register`);
             closeMenu?.();
           }}
         >

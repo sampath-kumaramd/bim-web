@@ -3,6 +3,9 @@ import Image from 'next/image';
 
 import { PlayIcon } from 'lucide-react';
 
+import aboutUsOurConceptImage from '../public/images/about-us-our-concept-image.svg';
+import thumbnailImage from '../public/images/thumbnail.svg';
+
 const VideoSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -15,7 +18,7 @@ const VideoSection = () => {
       {!isPlaying ? (
         <div className="relative">
           <Image
-            src="/images/about-us-our-concept-image.svg"
+            src={aboutUsOurConceptImage.src}
             alt="Video background"
             width={500}
             height={300}
@@ -25,7 +28,7 @@ const VideoSection = () => {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="relative h-[90%] w-[90%]">
               <Image
-                src="/images/thumbnail.svg"
+                src={thumbnailImage.src}
                 alt="Video thumbnail"
                 layout="fill"
                 objectFit="cover"
@@ -43,7 +46,7 @@ const VideoSection = () => {
       ) : (
         <div className="relative">
           <Image
-            src="/images/about-us-our-concept-image.svg"
+            src={aboutUsOurConceptImage.src}
             alt="Video background"
             width={500}
             height={300}
@@ -58,7 +61,7 @@ const VideoSection = () => {
                 autoPlay
               >
                 <source
-                  src="/sample-video.mov"
+                  src="../public/videos/video.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.

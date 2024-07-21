@@ -18,6 +18,7 @@ import { LU } from './ui/flags/LU';
 import { IT } from './ui/flags/IT';
 import { ES } from './ui/flags/ES';
 import { DE } from './ui/flags/DE';
+import { useLanguage } from './LanguageContext';
 
 const languages = [
   {
@@ -53,15 +54,22 @@ const languages = [
 ];
 
 export function LanguageSwitcher() {
-  const [language, setLanguage] = React.useState('en');
+
+   const { language, setLanguage } = useLanguage();
+
+  const handleLanguageChange = (value: string) => {
+    setLanguage(value);
+  };
+
+  // const [language, setLanguage] = React.useState('en');
 
   const selectedLanguage = languages.find(
     (lang) => lang.value === language,
   );
 
-  const handleLanguageChange = (value: string) => {
-    setLanguage(value);
-  };
+  // const handleLanguageChange = (value: string) => {
+  //   setLanguage(value);
+  // };
 
   return (
     <DropdownMenu>
