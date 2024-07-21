@@ -1,4 +1,3 @@
-// app/not-found.tsx
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -6,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 text-center">
       <Image
-        src="/images/404-illustration.jpg" // Replace with your own illustration
+        src="/images/404-illustration.jpg" 
         alt="404 Illustration"
         width={600}
         height={600}
@@ -16,7 +15,8 @@ export default function NotFound() {
         Oops! Page Not Found
       </h1>
       <p className="mb-8 text-xl text-gray-600">
-        We can not seem to find the page you are looking for.
+        We can not seem to find the page you are looking
+        for.
       </p>
       <Link
         href="/"

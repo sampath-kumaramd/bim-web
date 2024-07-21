@@ -11,6 +11,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+
 import { GB } from './ui/flags/GB';
 import { FR } from './ui/flags/FR';
 import { LU } from './ui/flags/LU';
@@ -19,18 +20,44 @@ import { ES } from './ui/flags/ES';
 import { DE } from './ui/flags/DE';
 
 const languages = [
-  { value: 'en', label: 'English', flag: GB },
-  { value: 'fr', label: 'French', flag: FR },
-  { value: 'lb', label: 'Luxembourgish', flag: LU },
-  { value: 'it', label: 'Italian', flag: IT },
-  { value: 'es', label: 'Spanish', flag: ES },
-  { value: 'de', label: 'German', flag: DE },
+  {
+    value: 'en',
+    label: 'English',
+    flag: GB,
+  },
+  {
+    value: 'fr',
+    label: 'French',
+    flag: FR,
+  },
+  {
+    value: 'lb',
+    label: 'Luxembourgish',
+    flag: LU,
+  },
+  {
+    value: 'it',
+    label: 'Italian',
+    flag: IT,
+  },
+  {
+    value: 'es',
+    label: 'Spanish',
+    flag: ES,
+  },
+  {
+    value: 'de',
+    label: 'German',
+    flag: DE,
+  },
 ];
 
 export function LanguageSwitcher() {
   const [language, setLanguage] = React.useState('en');
 
-  const selectedLanguage = languages.find((lang) => lang.value === language);
+  const selectedLanguage = languages.find(
+    (lang) => lang.value === language,
+  );
 
   const handleLanguageChange = (value: string) => {
     setLanguage(value);

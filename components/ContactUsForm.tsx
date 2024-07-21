@@ -1,12 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 
-import { Button } from '@/components/ui/button';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
 import {
   Form,
   FormControl,
@@ -17,15 +16,10 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
-import { Typography } from './Typography';
-import CustomButton from './CustomButton';
 import { Textarea } from '@/components/ui/textarea';
 
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover';
+import { Typography } from './Typography';
+import CustomButton from './CustomButton';
 
 const FormSchema = z.object({
   name: z.string().min(2, {
@@ -34,12 +28,17 @@ const FormSchema = z.object({
   email: z.string().email({
     message: 'Invalid email address.',
   }),
-  message: z.string().max(50, {
-    message: 'Message must be at maximum 50 characters.',
-  }),
+  message: z
+    .string()
+    .min(3, 'Message is required.')
+    .max(250, {
+      message: 'Message must be at maximum 250 characters.',
+    }),
 });
 
 function ContactUsForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -49,26 +48,53 @@ function ContactUsForm() {
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast({
-      title: 'You submitted the following values:',
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+  async function onSubmit(
+    data: z.infer<typeof FormSchema>,
+  ) {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      toast({
+        title: 'Message sent successfully!',
+        description: 'We will get back to you soon.',
+      });
+
+      form.reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: 'Error',
+        description:
+          'Failed to send message. Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
-  const [countryCode, setCountryCode] = useState('+880');
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-auto space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-auto space-y-6"
+      >
         <Typography
           variant="Bim1"
           className="mb-8 text-center text-xl text-[#D10062] sm:text-3xl"
         >
-          REACH OUT US
+          REACH OUT TO US
         </Typography>
 
         <FormField
@@ -92,7 +118,10 @@ function ContactUsForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Your email address" {...field} />
+                <Input
+                  placeholder="Your email address"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -105,7 +134,11 @@ function ContactUsForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Message</FormLabel>
-              <Textarea placeholder="Type your message here." id="message" />
+              <Textarea
+                placeholder="Type your message here."
+                id="message"
+                {...field}
+              />
               <FormMessage />
             </FormItem>
           )}
@@ -116,6 +149,7 @@ function ContactUsForm() {
             variant="tertiary"
             className="w-2/3 bg-[#d10062] py-3 text-white"
             text="Submit"
+            disabled={isSubmitting}
           />
         </div>
       </form>

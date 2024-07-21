@@ -1,6 +1,7 @@
 import React from 'react';
-import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
+
+import { cn } from '@/lib/utils';
 import { Typography } from './Typography';
 
 interface CustomButtonProps {
@@ -8,6 +9,7 @@ interface CustomButtonProps {
   variant: 'primary' | 'secondary' | 'tertiary' | 'custom';
   className?: string;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -15,6 +17,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   variant,
   className,
   onClick,
+  disabled,
 }) => {
   const primaryClasses =
     'bg-yellow-400 text-black hover:bg-yellow-500 clip-customLeft rounded-2xl rounded-tl-3xl rounded-bl-3xl  h-16';
@@ -35,16 +38,24 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 
   return (
     <motion.button
-      whileHover={{ scale: 1.04 }}
-      whileTap={{ scale: 0.96 }}
+      whileHover={{
+        scale: 1.04,
+      }}
+      whileTap={{
+        scale: 0.96,
+      }}
       className={cn(
         'relative px-6 py-2 transition-colors duration-300',
         variantClasses,
         className,
       )}
       onClick={onClick}
+      disabled={disabled}
     >
-      <Typography variant="Bim4Regular" className="text-sm sm:text-lg">
+      <Typography
+        variant="Bim4Regular"
+        className="text-sm sm:text-lg"
+      >
         {text}
       </Typography>
     </motion.button>

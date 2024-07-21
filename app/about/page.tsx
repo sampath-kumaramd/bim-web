@@ -1,16 +1,19 @@
 'use client';
 
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+
 import ContentSection from '@/components/ContentSection';
 import CustomButton from '@/components/CustomButton';
 import HeroSection from '@/components/HeroSection';
 import { Typography } from '@/components/Typography';
 import VideoSection from '@/components/VideoSection';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
 
 export default function page() {
-  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+  const [windowWidth, setWindowWidth] = useState<
+    number | null
+  >(null);
   const getStartedRef = useRef<HTMLDivElement>(null);
   const ourConceptRef = useRef<HTMLDivElement>(null);
 
@@ -20,11 +23,16 @@ export default function page() {
     }
     window.addEventListener('resize', handleResize);
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    return () =>
+      window.removeEventListener('resize', handleResize);
   }, []);
 
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (
+    ref: React.RefObject<HTMLDivElement>,
+  ) => {
+    ref.current?.scrollIntoView({
+      behavior: 'smooth',
+    });
   };
 
   return (
@@ -36,8 +44,12 @@ export default function page() {
         backgroundImageMobile="/images/about-hero-mobile.png"
         primaryButton="Get Started"
         secondaryButton="Our Concept"
-        onPrimaryButtonClick={() => scrollToSection(getStartedRef)}
-        onSecondaryButtonClick={() => scrollToSection(ourConceptRef)}
+        onPrimaryButtonClick={() =>
+          scrollToSection(getStartedRef)
+        }
+        onSecondaryButtonClick={() =>
+          scrollToSection(ourConceptRef)
+        }
       />
 
       <ContentSection
@@ -70,7 +82,10 @@ export default function page() {
           }}
         />
       </div>
-      <section className="relative overflow-hidden" ref={getStartedRef}>
+      <section
+        className="relative overflow-hidden"
+        ref={getStartedRef}
+      >
         <div
           className="absolute inset-0 z-0 bg-cover bg-right"
           style={{
@@ -84,10 +99,21 @@ export default function page() {
         <div className="container relative z-10 mx-auto px-4 py-16 sm:py-24">
           <div className="mx-auto items-center px-4 sm:flex">
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.5 }}
+              initial={{
+                scale: 0.9,
+                opacity: 0,
+              }}
+              whileInView={{
+                scale: 1,
+                opacity: 1,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.5,
+              }}
+              transition={{
+                duration: 0.5,
+              }}
               className="flex-1 sm:pe-20 sm:pr-8 lg:pe-28 xl:pe-40"
             >
               <VideoSection />
@@ -103,8 +129,9 @@ export default function page() {
                 variant="nexaRegular"
                 className="mb-8 text-center text-base text-[#4b0325] sm:text-justify sm:text-lg"
               >
-                Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius
-                quam facilisis etiam. Nunc id aliquam
+                Lorem ipsum dolor sit amet consectetur.
+                Scelerisque mi varius quam facilisis etiam.
+                Nunc id aliquam
               </Typography>
               <CustomButton
                 variant="tertiary"
@@ -113,8 +140,12 @@ export default function page() {
               />
               <div className="mt-16 flex justify-start gap-4 md:gap-16">
                 <motion.button
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.96 }}
+                  whileHover={{
+                    scale: 1.04,
+                  }}
+                  whileTap={{
+                    scale: 0.96,
+                  }}
                   className="rounded-2xl"
                 >
                   <Image
@@ -125,8 +156,12 @@ export default function page() {
                   />
                 </motion.button>
                 <motion.button
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.96 }}
+                  whileHover={{
+                    scale: 1.04,
+                  }}
+                  whileTap={{
+                    scale: 0.96,
+                  }}
                   className="rounded-2xl"
                 >
                   <Image

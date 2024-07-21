@@ -4,12 +4,14 @@ import HeroSection from '@/components/HeroSection';
 import { useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Typography } from '@/components/Typography';
-import ContactUsForm from '@/components/contact-us-form';
 import { ContactDetails } from '@/bin/ContactDetails';
 import Image from 'next/image';
+import ContactUsForm from '@/components/ContactUsForm';
 
 export default function page() {
-  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+  const [windowWidth, setWindowWidth] = useState<
+    number | null
+  >(null);
 
   useEffect(() => {
     function handleResize() {
@@ -17,22 +19,45 @@ export default function page() {
     }
     window.addEventListener('resize', handleResize);
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    return () =>
+      window.removeEventListener('resize', handleResize);
   }, []);
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
   };
 
   const getImageSize = () => {
     if (windowWidth !== null && windowWidth <= 639)
-      return { width: 50, height: 50 };
-    if (windowWidth !== null && windowWidth >= 639 && windowWidth <= 1028)
-      return { width: 18, height: 18 };
+      return {
+        width: 50,
+        height: 50,
+      };
+    if (
+      windowWidth !== null &&
+      windowWidth >= 639 &&
+      windowWidth <= 1028
+    )
+      return {
+        width: 18,
+        height: 18,
+      };
     if (windowWidth !== null && windowWidth >= 1024)
-      return { width: 70, height: 70 };
-    return { width: 50, height: 50 };
+      return {
+        width: 70,
+        height: 70,
+      };
+    return {
+      width: 50,
+      height: 50,
+    };
   };
 
   const imageSize = getImageSize();

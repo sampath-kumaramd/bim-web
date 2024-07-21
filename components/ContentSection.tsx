@@ -1,8 +1,15 @@
 'use client';
-import React, { useState, useEffect, forwardRef, useRef } from 'react';
+
+import React, {
+  useState,
+  useEffect,
+  forwardRef,
+  useRef,
+} from 'react';
+import { motion, useInView } from 'framer-motion';
+
 import { Typography } from './Typography';
 import CustomButton from './CustomButton';
-import { motion, useInView } from 'framer-motion';
 
 interface ContentSectionProps {
   title: string;
@@ -23,7 +30,10 @@ interface ContentSectionProps {
   children?: React.ReactNode;
 }
 
-const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
+const ContentSection = forwardRef<
+  HTMLDivElement,
+  ContentSectionProps
+>(
   (
     {
       title,
@@ -39,9 +49,14 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
     },
     ref,
   ) => {
-    const [windowWidth, setWindowWidth] = useState<number | null>(null);
+    const [windowWidth, setWindowWidth] = useState<
+      number | null
+    >(null);
     const sectionRef = useRef(null);
-    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+    const isInView = useInView(sectionRef, {
+      once: true,
+      amount: 0.3,
+    });
 
     useEffect(() => {
       function handleResize() {
@@ -49,11 +64,14 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
       }
       window.addEventListener('resize', handleResize);
       handleResize();
-      return () => window.removeEventListener('resize', handleResize);
+      return () =>
+        window.removeEventListener('resize', handleResize);
     }, []);
 
     const containerVariants = {
-      hidden: { opacity: 0 },
+      hidden: {
+        opacity: 0,
+      },
       visible: {
         opacity: 1,
         transition: {
@@ -63,8 +81,14 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
     };
 
     const itemVariants = {
-      hidden: { opacity: 0, y: 20 },
-      visible: { opacity: 1, y: 0 },
+      hidden: {
+        opacity: 0,
+        y: 20,
+      },
+      visible: {
+        opacity: 1,
+        y: 0,
+      },
     };
 
     return (
@@ -101,7 +125,11 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
                 variants={itemVariants}
                 className={`order-1 flex-1 sm:order-2 ${reverse ? 'sm:pe-20 lg:pe-28 xl:pe-40' : 'sm:ps-20 lg:ps-28 xl:ps-40'}`}
               >
-                <img src={image} alt={title} className="h-auto w-full" />
+                <img
+                  src={image}
+                  alt={title}
+                  className="h-auto w-full"
+                />
               </motion.div>
             )}
 
@@ -119,7 +147,9 @@ const ContentSection = forwardRef<HTMLDivElement, ContentSectionProps>(
                 variant="Bim4Regular"
                 className="mb-8 text-center text-base text-[#4b0325] sm:text-justify sm:text-lg"
               >
-                <span className="font-bold text-pink">{startingWord}</span>{' '}
+                <span className="font-bold text-pink">
+                  {startingWord}
+                </span>{' '}
                 {description}
               </Typography>
               <div className="flex justify-start">
