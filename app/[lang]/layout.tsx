@@ -68,3 +68,12 @@ export default async function RootLayout({
     </html>
   );
 }
+
+
+export async function generateStaticParams() {
+  return [
+    { lang: 'en' },
+    { lang: 'fr' },
+    // Add more languages as needed
+  ];
+}

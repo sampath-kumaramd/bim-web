@@ -22,15 +22,18 @@ import aboutUsGetStartMobileBg from '../../../public/images/about-us-get-start-m
 import aboutUsGetStartBg from '../../../public/images/about-us-get-start-bg.png';
 import { getDictionary } from '@/lib/getDictionary';
 import { useDictionary } from '@/hooks/useDictionary';
+import { useParams } from 'next/navigation';
 
 
-export default  function page({ params: { lang } }: Readonly<{ params: { lang: 'en' | 'fr' } }>)  {
+export default  function page()  {
   const [windowWidth, setWindowWidth] = useState<
     number | null
   >(null);
   const getStartedRef = useRef<HTMLDivElement>(null);
   const ourConceptRef = useRef<HTMLDivElement>(null);
- const dict = useDictionary(lang);
+  const params = useParams();
+  const lang = params.lang as 'en' | 'fr'; 
+  const dict = useDictionary(lang);
 
   useEffect(() => {
     function handleResize() {

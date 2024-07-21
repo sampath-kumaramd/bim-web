@@ -5,8 +5,10 @@ import { getDictionary } from '@/lib/getDictionary';
 import { Dictionary } from '@/types/dictionary';
 import { useEffect, useState } from 'react';
 
-export function useDictionary() {
-  const { language } = useLanguage();
+export function useDictionary(
+  language = 'en' as 'en' | 'fr',
+) {
+  // const { language } = useLanguage();
   const [dict, setDict] = useState<Dictionary | null>(null);
 
   useEffect(() => {
