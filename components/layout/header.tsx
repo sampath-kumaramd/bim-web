@@ -23,7 +23,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogoClick = () => {
-    router.push('/en');
+    router.push(`/${lang}`);
     setIsMenuOpen(false);
   };
 
@@ -77,7 +77,7 @@ export function Header() {
                 className="h-auto w-[30px] lg:w-[45px]"
                 loading="lazy"
               />
-              <span className="text-xs text-white sm:text-base min-w-48">
+              <span className="min-w-48 text-xs text-white sm:text-base">
                 {dict.header.logo}
               </span>
             </button>
@@ -96,8 +96,8 @@ export function Header() {
                 {dict.header.button}
               </Button>
             </Link>
-            <div className=''>
-            <LanguageSwitcher />
+            <div className="">
+              <LanguageSwitcher />
             </div>
           </div>
         </div>

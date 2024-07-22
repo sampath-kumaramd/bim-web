@@ -162,4 +162,9 @@ export interface Dictionary {
       description: string;
     }[];
   };
+  cookies: {
+    description: string;
+    accept: string;
+    cancel: string;
+  };
 }

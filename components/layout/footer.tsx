@@ -107,7 +107,7 @@ export function Footer() {
                 variant="Bim4Regular"
               >
                 {' '}
-                <a href={`/${lang}/legal`}>
+                <a target='_blank' href={`/${lang}/legal`}>
                   {' '}
                   {dict.footer.legal}
                 </a>

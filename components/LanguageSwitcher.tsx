@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
-import { useEffect , useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -59,7 +59,6 @@ export function LanguageSwitcher() {
       window.removeEventListener('resize', handleResize);
   }, []);
 
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -68,11 +67,11 @@ export function LanguageSwitcher() {
           className="bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 flex items-center gap-2 rounded-md border-none px-3 py-2 text-white hover:text-rose-100 focus:ring-0 focus:ring-offset-0"
         >
           <selectedLanguage.flag className="h-5 w-5" />
-          <span>{
-              windowWidth !== null && windowWidth <= 640
-                ?selectedLanguage.label.slice(0, 2)
-                :selectedLanguage.label
-            }</span>
+          <span>
+            {windowWidth !== null && windowWidth <= 640
+              ? selectedLanguage.label.slice(0, 2)
+              : selectedLanguage.label}
+          </span>
           <ChevronDown className="ml-2 h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>

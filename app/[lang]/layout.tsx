@@ -1,24 +1,3 @@
-// import { ReactNode } from 'react'
-// import { getDictionary } from '@/lib/getDictionary'
-
-// export default async function Layout({
-//   children,
-//   params: { lang }
-// }: {
-//   children: ReactNode
-//   params: { lang: 'en' | 'fr' }
-// }) {
-//   const dict = await getDictionary(lang)
-
-//   return (
-//     <html lang={lang}>
-//       <body>
-//         {children}
-//       </body>
-//     </html>
-//   )
-// }
-
 import type { Metadata } from 'next';
 import './globals.css';
 import { Inter } from 'next/font/google';
@@ -30,6 +9,7 @@ import { ReactNode } from 'react';
 import { getDictionary } from '@/lib/getDictionary';
 import { LanguageProvider } from '@/components/LanguageContext';
 import { Languages } from '@/types/languages';
+import { CookieConsentDialog } from '@/components/CookieConsent';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -64,6 +44,7 @@ export default async function RootLayout({
           {children}
           <Toaster />
           <Footer />
+          <CookieConsentDialog />
         </LanguageProvider>
       </body>
     </html>

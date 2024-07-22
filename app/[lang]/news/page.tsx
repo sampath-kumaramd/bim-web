@@ -9,7 +9,7 @@ import newsBgMobile from '../../../public/images/news-bg-mobile.png';
 import newsHeadingImages from '../../../public/images/news-heading-images.svg';
 import newsHeadingImagesMobile from '../../../public/images/news-heading-images-mobile.svg';
 import newsImages from '../../../public/images/news-images.svg';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { Languages } from '@/types/languages';
 import { useDictionary } from '@/hooks/useDictionary';
 
@@ -17,6 +17,11 @@ export default function page() {
   const params = useParams();
   const lang = params.lang as Languages;
   const dict = useDictionary(lang);
+  const router = useRouter();
+
+  const handleButtonClick = () => { 
+   router.push(`/${lang}/news/1`);
+  }
 
   if (!dict) {
     return null;
@@ -44,6 +49,7 @@ export default function page() {
           reverse: true,
         }}
         reverse={true}
+        onButtonClick={handleButtonClick}
       />
 
       <ContentSection

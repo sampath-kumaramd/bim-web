@@ -176,5 +176,10 @@
         "description": "The Site ensures that the User collects and processes personal information in compliance with privacy in accordance with law n°78-17 of January 6, 1978 relating to computers, files and freedoms. Under the Data Protection Act, dated January 6, 1978, the User has a right of access, rectification, deletion and opposition of personal data. The user exercises this right: · by email to the email address contact@bim-dating.com Any use, reproduction, distribution, marketing, modification of all or part of the Site, without authorization from the Publisher is prohibited and may result in legal action and prosecution as provided in particular by the Intellectual Property Code and the Civil Code."
       }
     ]
+  },
+  "cookies": {
+    "description": "We use cookies to ensure you get the best experience on our website. By using our site, you agree to our use of cookies.",
+    "accept": "Accept all cookies",
+    "cancel": "Cancel"
   }
 }

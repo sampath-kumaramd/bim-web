@@ -159,7 +159,7 @@ export default function page() {
                 className="w-full bg-[#d10062] py-3 text-white"
                 text={dict.about.getStarted.button}
               />
-              <div className="mt-16 flex justify-evenly gap-4 ">
+              <div className="mt-16 flex justify-evenly gap-4">
                 <motion.button
                   whileHover={{
                     scale: 1.04,

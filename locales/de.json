@@ -176,5 +176,10 @@
     "legal": "Rechtliches",
     "privacy": "©2024 von BIM Group. Alle Rechte vorbehalten",
     "followUs": "Folgen Sie uns"
+  },
+   "cookies": {
+    "description": "Wir verwenden Cookies, um sicherzustellen, dass Sie die beste Erfahrung auf unserer Website machen. Durch die Nutzung unserer Seite stimmen Sie der Verwendung von Cookies zu.",
+    "accept": "Alle Cookies akzeptieren",
+    "cancel": "Abbrechen"
   }
 }

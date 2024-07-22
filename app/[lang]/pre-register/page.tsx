@@ -75,7 +75,7 @@ export default function page() {
           <div>
             <motion.div
               variants={itemVariants}
-              className="order-1 hidden flex-1 sm:order-2 sm:flex justify-center"
+              className="order-1 hidden flex-1 justify-center sm:order-2 sm:flex"
             >
               <img
                 src={preRegisterImage.src}
