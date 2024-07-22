@@ -1,7 +1,7 @@
 {
   "about": {
     "hero": {
-      "title": "AM VERTRAUTESTEN & SICHERSTEN",
+      "title": "AM VERTRAUTESTEN & SICHER",
       "description": "Lorem ipsum dolor sit amet consectetur. Purus venenatis sit egestas luctus proin amet lorem leo. Fringilla turpis id amet fermentum leo et dictum viverra. Consectetur fringilla in",
       "primaryButton": "Loslegen",
       "secondaryButton": "Unser Konzept"
@@ -9,20 +9,131 @@
     "aboutUs": {
       "title": "Über Uns",
       "startingWord": "BIM",
-      "description": "(Better International Match) ist eine globale Dating-App, die Singles weltweit verbindet. Sie verwendet fortschrittliche Matching-Algorithmen, unterstützt mehrere Sprachen und gewährleistet die Sicherheit der Benutzer durch strenge Verifizierung. Zu den Funktionen gehören Text-, Sprach- und Videokommunikation, Kulturaustausch und Reiseplanung. BIM bietet sowohl kostenlose als auch Premium-Pläne an, fördert eine unterstützende Gemeinschaft und bedeutungsvolle interkulturelle Verbindungen.",
+      "description": "(Better International Match) ist eine globale Dating-App, die Singles weltweit verbindet. Sie nutzt fortschrittliche Matching-Algorithmen, unterstützt mehrere Sprachen und gewährleistet die Sicherheit der Benutzer durch rigorose Überprüfung. Zu den Funktionen gehören Text-, Sprach- und Video-Kommunikation, kultureller Austausch und Reiseplanung. BIM bietet sowohl kostenlose als auch Premium-Pläne an und fördert eine unterstützende Gemeinschaft und bedeutungsvolle interkulturelle Verbindungen.",
       "button": "Mehr Erfahren"
     },
     "ourConcept": {
       "title": "Unser Konzept",
       "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam.",
-      "button": "Mehr Erfahren"
+      "button": "Erfahren Sie Mehr"
     },
     "getStarted": {
       "title": "Loslegen",
       "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam",
       "button": "Vorregistrierung",
-      "appStore": "Im App Store herunterladen",
-      "googlePlay": "Bei Google Play herunterladen"
+      "appStore": "Im App Store Herunterladen",
+      "googlePlay": "Im Google Play Store Erhalten"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "KONTAKT",
+      "description": "Wenn Sie Hilfe bei Problemen benötigen oder mehr über uns erfahren möchten, können Sie uns direkt kontaktieren. Wir sind immer bereit, Ihnen zu helfen."
+    },
+    "form": {
+      "title": "KONTAKTIEREN SIE UNS",
+      "name": {
+        "label": "Name",
+        "placeholder": "Ihr Name"
+      },
+      "email": {
+        "label": "E-Mail",
+        "placeholder": "Ihre E-Mail-Adresse"
+      },
+      "message": {
+        "label": "Nachricht",
+        "placeholder": "Geben Sie hier Ihre Nachricht ein."
+      },
+      "submit": "Absenden",
+      "toast": {
+        "success": {
+          "title": "Nachricht erfolgreich gesendet!",
+          "description": "Wir werden uns bald bei Ihnen melden."
+        },
+        "error": {
+          "title": "Fehler",
+          "description": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
+        }
+      },
+      "validation": {
+        "name": "Der Benutzername muss mindestens 2 Zeichen lang sein.",
+        "email": "Ungültige E-Mail-Adresse.",
+        "message": {
+          "required": "Nachricht ist erforderlich.",
+          "maxLength": "Die Nachricht darf maximal 250 Zeichen lang sein."
+        }
+      }
+    }
+  },
+  "legal": {
+    "hero": {
+      "title": "RECHTLICHES",
+      "description": "Wenn Sie Hilfe bei Problemen benötigen oder mehr über uns erfahren möchten, können Sie uns direkt kontaktieren. Wir sind immer bereit, Ihnen zu helfen."
+    },
+    "legalNotice": {
+      "title": "Rechtlicher Hinweis",
+      "description": "In Übereinstimmung mit den Bestimmungen der Artikel 6-III und 19 des Gesetzes Nr. 2004-575 vom 21. Juni 2004 für das Vertrauen in die digitale Wirtschaft, bekannt als L.C.E.N., wird den Nutzern und Besuchern, nachstehend der „Nutzer“, der Website www.bim-dating.com, nachstehend die „Website“, der vorliegende Rechtliche Hinweis zur Kenntnis gebracht.",
+      "acceptanceText": "Die Verbindung und Navigation auf der Website durch den Nutzer impliziert die vollständige und vorbehaltlose Annahme dieses rechtlichen Hinweises. Diese sind auf der Website in der Rubrik „Rechtliche Hinweise“ zugänglich."
+    }
+  },
+  "news": {
+    "hero": {
+      "title": "NEUIGKEITEN",
+      "description": "Lorem ipsum dolor sit amet consectetur. Nulla odio interdum fames aliquam consequat elit fusce penatibus. Arcu libero magna eros augue odio est. Id morbi aenean nisl quis et molestie."
+    },
+    "section1": {
+      "title": "Lorem IPSUM",
+      "startingWord": "BIM",
+      "description": "(Better International Match) ist eine globale Dating-App, die Singles weltweit verbindet. Sie nutzt fortschrittliche Matching-Algorithmen, unterstützt mehrere Sprachen und gewährleistet die Sicherheit der Benutzer durch rigorose Überprüfung. Zu den Funktionen gehören Text-, Sprach- und Video-Kommunikation, kultureller Austausch und Reiseplanung. BIM bietet sowohl kostenlose als auch Premium-Pläne an und fördert eine unterstützende Gemeinschaft und bedeutungsvolle interkulturelle Verbindungen.",
+      "button": "Mehr Erfahren"
+    },
+    "section2": {
+      "title": "Nachrichtentitel",
+      "startingWord": "BIM",
+      "description": "(Better International Match) ist eine globale Dating-App, die Singles weltweit verbindet. Sie nutzt fortschrittliche Matching-Algorithmen, unterstützt mehrere Sprachen und gewährleistet die Sicherheit der Benutzer durch rigorose Überprüfung. Zu den Funktionen gehören Text-, Sprach- und Video-Kommunikation, kultureller Austausch und Reiseplanung. BIM bietet sowohl kostenlose als auch Premium-Pläne an und fördert eine unterstützende Gemeinschaft und bedeutungsvolle interkulturelle Verbindungen.",
+      "button": "Mehr Erfahren"
+    }
+  },
+  "preRegister": {
+    "hero": {
+      "title": "VORREGISTRIEREN",
+      "description": "Wenn Sie Hilfe bei Problemen benötigen oder mehr über uns erfahren möchten, können Sie uns direkt kontaktieren. Wir sind immer bereit, Ihnen zu helfen."
+    },
+    "content": {
+      "title": "Lorem ipsum",
+      "description": "Lorem ipsum dolor sit amet consectetur. Varius blandit urna magna enim adipiscing magna quisque vitae. Vel id vel sodales venenatis nulla fermentum. Sagittis pharetra sed vitae at. At dui lacus nulla massa scelerisque interdum tellus arcu mi. Amet laoreet pulvinar mattis scelerisque amet egestas ac magna aenean."
+    },
+    "form": {
+      "title": "GRUNDINFORMATIONEN",
+      "name": {
+        "label": "Name",
+        "placeholder": "Ihr Name"
+      },
+      "email": {
+        "label": "E-Mail",
+        "placeholder": "Ihre E-Mail-Adresse"
+      },
+      "phone": {
+        "label": "Telefon",
+        "placeholder": "Ihre Telefonnummer",
+        "countryCode": {
+          "placeholder": "Wählen Sie einen Ländercode",
+          "label": "Ländercodes"
+        }
+      },
+      "dob": {
+        "label": "Geburtsdatum",
+        "placeholder": "Wählen Sie ein Datum"
+      },
+      "submit": "Absenden",
+      "toast": {
+        "title": "Sie haben die folgenden Werte übermittelt:"
+      },
+      "validation": {
+        "name": "Der Benutzername muss mindestens 2 Zeichen lang sein.",
+        "email": "Ungültige E-Mail-Adresse.",
+        "dob": "Ein Geburtsdatum ist erforderlich."
+      }
     }
   }
 }

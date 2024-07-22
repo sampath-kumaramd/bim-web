@@ -1,28 +1,139 @@
 {
-  "about":{
-  "hero": {
-    "title": "MOST TRUSTED & SECURE",
-    "description": "Lorem ipsum dolor sit amet consectetur. Purus venenatis sit egestas luctus proin amet lorem leo. Fringilla turpis id amet fermentum leo et dictum viverra. Consectetur fringilla in",
-    "primaryButton": "Get Started",
-    "secondaryButton": "Our Concept"
+  "about": {
+    "hero": {
+      "title": "MOST TRUSTED & SECURE",
+      "description": "Lorem ipsum dolor sit amet consectetur. Purus venenatis sit egestas luctus proin amet lorem leo. Fringilla turpis id amet fermentum leo et dictum viverra. Consectetur fringilla in",
+      "primaryButton": "Get Started",
+      "secondaryButton": "Our Concept"
+    },
+    "aboutUs": {
+      "title": "About Us",
+      "startingWord": "BIM",
+      "description": "(Better International Match) is a global dating app connecting singles worldwide. It uses advanced matching algorithms, supports multiple languages, and ensures user safety through rigorous verification. Features include text, voice, and video communication, cultural exchange, and travel planning. BIM offers both free and premium plans, fostering a supportive community and meaningful cross-cultural connections.",
+      "button": "Read More"
+    },
+    "ourConcept": {
+      "title": "Our Concept",
+      "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam.",
+      "button": "Learn More"
+    },
+    "getStarted": {
+      "title": "Get Started",
+      "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam",
+      "button": "Pre-Registration",
+      "appStore": "Download on the App Store",
+      "googlePlay": "Get it on Google Play"
+    }
   },
-  "aboutUs": {
-    "title": "About Us",
-    "startingWord": "BIM",
-    "description": "(Better International Match) is a global dating app connecting singles worldwide. It uses advanced matching algorithms, supports multiple languages, and ensures user safety through rigorous verification. Features include text, voice, and video communication, cultural exchange, and travel planning. BIM offers both free and premium plans, fostering a supportive community and meaningful cross-cultural connections.",
-    "button": "Read More"
+  "contact": {
+    "hero": {
+      "title": "CONTACT",
+      "description": "If you need any help for any issues or if you want to know any more about us you can contact us directly us we always ready to help you."
+    },
+    "form": {
+      "title": "REACH OUT TO US",
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Your email address"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Type your message here."
+      },
+      "submit": "Submit",
+      "toast": {
+        "success": {
+          "title": "Message sent successfully!",
+          "description": "We will get back to you soon."
+        },
+        "error": {
+          "title": "Error",
+          "description": "Failed to send message. Please try again."
+        }
+      },
+      "validation": {
+        "name": "Username must be at least 2 characters.",
+        "email": "Invalid email address.",
+        "message": {
+          "required": "Message is required.",
+          "maxLength": "Message must be at maximum 250 characters."
+        }
+      }
+    }
   },
-  "ourConcept": {
-    "title": "Our Concept",
-    "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam.",
-    "button": "Learn More"
+  "legal": {
+    "hero": {
+      "title": "Legal",
+      "description": "If you need any help for any issues or If you want to know any more about us you can contact us directly. We always ready to help you."
+    },
+    "legalNotice": {
+      "title": "Legal Notice",
+      "description": "In accordance with the provisions of Articles 6-III and 19 of Law No. 2004-575 of June 21, 2004 for the Confidence in the digital conomy, known as L.C.E.N., it is brought to the attention of users and visitors, hereinafter the \"User\", of the site www.bim-dating.com, hereinafter the \"Site\", herein Legal Notice.",
+      "acceptanceText": "Connection and navigation on the Site by the User implies full acceptance and without subject to these legal notices.These are accessible on the Site in the \"Legal notices\" section."
+    }
   },
-  "getStarted": {
-    "title": "Get Started",
-    "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam",
-    "button": "Pre-Registration",
-    "appStore": "Download on the App Store",
-    "googlePlay": "Get it on Google Play"
+  "news": {
+    "hero": {
+      "title": "News",
+      "description": "Lorem ipsum dolor sit amet consectetur. Nulla odio interdum fames aliquam consequat elit fusce penatibus. Arcu libero magna eros augue odio est. Id morbi aenean nisl quis et molestie."
+    },
+    "section1": {
+      "title": "Lorem IPSUM",
+      "startingWord": "BIM",
+      "description": "(Better International Match) is a global dating app connecting singles worldwide. It uses advanced matching algorithms, supports multiple languages, and ensures user safety through rigorous verification. Features include text, voice, and video communication, cultural exchange, and travel planning. BIM offers both free and premium plans, fostering a supportive community and meaningful cross-cultural connections.",
+      "button": "Read More"
+    },
+    "section2": {
+      "title": "News Heading",
+      "startingWord": "BIM",
+      "description": "(Better International Match) is a global dating app connecting singles worldwide. It uses advanced matching algorithms, supports multiple languages, and ensures user safety through rigorous verification. Features include text, voice, and video communication, cultural exchange, and travel planning. BIM offers both free and premium plans, fostering a supportive community and meaningful cross-cultural connections.",
+      "button": "Read More"
+    }
+  },
+  "preRegister": {
+    "hero": {
+      "title": "PRE REGISTER",
+      "description": "If you need any help for any issues or if you want to know any more about us you can contact us directly us we always ready to help you."
+    },
+    "content": {
+      "title": "Lorem ipsum",
+      "description": "Lorem ipsum dolor sit amet consectetur. Varius blandit urna magna enim adipiscing magna quisque vitae. Vel id vel sodales venenatis nulla fermentum. Sagittis pharetra sed vitae at. At dui lacus nulla massa scelerisque interdum tellus arcu mi. Amet laoreet pulvinar mattis scelerisque amet egestas ac magna aenean."
+    },
+    "form": {
+      "title": "BASIC INFORMATIONS",
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Your email address"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Your phone number",
+        "countryCode": {
+          "placeholder": "Select a country code",
+          "label": "Country codes"
+        }
+      },
+      "dob": {
+        "label": "Date of birth",
+        "placeholder": "Pick a date"
+      },
+      "submit": "Submit",
+      "toast": {
+        "title": "You submitted the following values:"
+      },
+      "validation": {
+        "name": "Username must be at least 2 characters.",
+        "email": "Invalid email address.",
+        "dob": "A date of birth is required."
+      }
+    }
   }
-}
 }

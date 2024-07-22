@@ -12,9 +12,15 @@ import contactUsHeroImage from '../../../public/images/contact-us-hero.png';
 import contactUsHeroMobileImage from '../../../public/images/contact-us-hero-mobile.png';
 import contactUsBg from '../../../public/images/contact-us-bg.png';
 import contactUsBgMobile from '../../../public/images/contact-us-bg-mobile.png';
+import { Languages } from '@/types/languages';
+import { useParams } from 'next/navigation';
+import { useDictionary } from '@/hooks/useDictionary';
 
 
 export default function page() {
+      const params = useParams();
+  const lang = params.lang as Languages; 
+  const dict = useDictionary(lang);
   const [windowWidth, setWindowWidth] = useState<
     number | null
   >(null);
@@ -68,11 +74,14 @@ export default function page() {
 
   const imageSize = getImageSize();
 
+  if (!dict) {
+    return null;
+  }
   return (
     <div className="min-h-screen">
       <HeroSection
-        title="CONTACT"
-        description="If you need any help for any issues or if you want to know any more about us you can contact us directly us we always ready to help you."
+        title={dict.contact.hero.title}
+        description = {dict.contact.hero.description}
         backgroundImage={contactUsHeroImage.src}
         backgroundImageMobile={contactUsHeroMobileImage.src}
       />

@@ -20,6 +20,9 @@ import { Textarea } from '@/components/ui/textarea';
 
 import { Typography } from './Typography';
 import CustomButton from './CustomButton';
+import { useParams } from 'next/navigation';
+import { Languages } from '@/types/languages';
+import { useDictionary } from '@/hooks/useDictionary';
 
 const FormSchema = z.object({
   name: z.string().min(2, {
@@ -37,6 +40,9 @@ const FormSchema = z.object({
 });
 
 function ContactUsForm() {
+      const params = useParams();
+  const lang = params.lang as Languages; 
+  const dict = useDictionary(lang);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -66,17 +72,17 @@ function ContactUsForm() {
       }
 
       toast({
-        title: 'Message sent successfully!',
-        description: 'We will get back to you soon.',
+        title: dict?.contact.form.toast.success.title,
+        description: dict?.contact.form.toast.success.description,
       });
 
       form.reset();
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
-        title: 'Error',
+        title: dict?.contact.form.toast.error.title,
         description:
-          'Failed to send message. Please try again.',
+          dict?.contact.form.toast.error.description,
         variant: 'destructive',
       });
     } finally {
@@ -94,7 +100,7 @@ function ContactUsForm() {
           variant="Bim1"
           className="mb-8 text-center text-xl text-[#D10062] sm:text-3xl"
         >
-          REACH OUT TO US
+          {dict?.contact.form.title}
         </Typography>
 
         <FormField
@@ -102,9 +108,9 @@ function ContactUsForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>{dict?.contact.form.name.label}</FormLabel>
               <FormControl>
-                <Input placeholder="Your name" {...field} />
+                <Input placeholder= {dict?.contact.form.name.placeholder} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -116,10 +122,10 @@ function ContactUsForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{dict?.contact.form.email.label}</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Your email address"
+                  placeholder= {dict?.contact.form.email.placeholder}
                   {...field}
                 />
               </FormControl>
@@ -133,9 +139,9 @@ function ContactUsForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>{dict?.contact.form.message.label}</FormLabel>
               <Textarea
-                placeholder="Type your message here."
+                placeholder= {dict?.contact.form.message.placeholder}
                 id="message"
                 {...field}
               />
@@ -148,7 +154,7 @@ function ContactUsForm() {
           <CustomButton
             variant="tertiary"
             className="w-2/3 bg-[#d10062] py-3 text-white"
-            text="Submit"
+            text={dict?.contact.form.submit || 'Submit'}
             disabled={isSubmitting}
           />
         </div>

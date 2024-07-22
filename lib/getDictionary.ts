@@ -1,4 +1,5 @@
 type Locale = keyof typeof dictionaries;
+
 const dictionaries = {
   en: () =>
     import('../locales/en.json').then(

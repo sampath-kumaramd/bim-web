@@ -1,7 +1,7 @@
 {
   "about": {
     "hero": {
-      "title": "EL MÁS CONFIABLE & SEGURO",
+      "title": "EL MÁS CONFIABLE Y SEGURO",
       "description": "Lorem ipsum dolor sit amet consectetur. Purus venenatis sit egestas luctus proin amet lorem leo. Fringilla turpis id amet fermentum leo et dictum viverra. Consectetur fringilla in",
       "primaryButton": "Empezar",
       "secondaryButton": "Nuestro Concepto"
@@ -9,7 +9,7 @@
     "aboutUs": {
       "title": "Sobre Nosotros",
       "startingWord": "BIM",
-      "description": "(Better International Match) es una aplicación de citas global que conecta a solteros de todo el mundo. Utiliza algoritmos de coincidencia avanzados, admite varios idiomas y garantiza la seguridad del usuario a través de una rigurosa verificación. Las funciones incluyen comunicación por texto, voz y video, intercambio cultural y planificación de viajes. BIM ofrece planes gratuitos y premium, fomentando una comunidad solidaria y conexiones interculturales significativas.",
+      "description": "(Better International Match) es una aplicación de citas global que conecta solteros en todo el mundo. Utiliza algoritmos de emparejamiento avanzados, admite varios idiomas y garantiza la seguridad de los usuarios mediante una rigurosa verificación. Las funciones incluyen comunicación por texto, voz y video, intercambio cultural y planificación de viajes. BIM ofrece tanto planes gratuitos como premium, fomentando una comunidad solidaria y conexiones interculturales significativas.",
       "button": "Leer Más"
     },
     "ourConcept": {
@@ -21,8 +21,119 @@
       "title": "Empezar",
       "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam",
       "button": "Pre-Registro",
-      "appStore": "Descargar en el App Store",
-      "googlePlay": "Consíguelo en Google Play"
+      "appStore": "Descargar en App Store",
+      "googlePlay": "Obtener en Google Play"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "CONTACTO",
+      "description": "Si necesitas ayuda para cualquier problema o si quieres saber más sobre nosotros, puedes contactarnos directamente. Siempre estamos listos para ayudarte."
+    },
+    "form": {
+      "title": "CONTÁCTANOS",
+      "name": {
+        "label": "Nombre",
+        "placeholder": "Tu nombre"
+      },
+      "email": {
+        "label": "Correo Electrónico",
+        "placeholder": "Tu dirección de correo electrónico"
+      },
+      "message": {
+        "label": "Mensaje",
+        "placeholder": "Escribe tu mensaje aquí."
+      },
+      "submit": "Enviar",
+      "toast": {
+        "success": {
+          "title": "¡Mensaje enviado con éxito!",
+          "description": "Nos pondremos en contacto contigo pronto."
+        },
+        "error": {
+          "title": "Error",
+          "description": "No se pudo enviar el mensaje. Por favor, inténtalo de nuevo."
+        }
+      },
+      "validation": {
+        "name": "El nombre de usuario debe tener al menos 2 caracteres.",
+        "email": "Dirección de correo electrónico no válida.",
+        "message": {
+          "required": "El mensaje es obligatorio.",
+          "maxLength": "El mensaje debe tener un máximo de 250 caracteres."
+        }
+      }
+    }
+  },
+  "legal": {
+    "hero": {
+      "title": "LEGAL",
+      "description": "Si necesitas ayuda para cualquier problema o si quieres saber más sobre nosotros, puedes contactarnos directamente. Siempre estamos listos para ayudarte."
+    },
+    "legalNotice": {
+      "title": "Aviso Legal",
+      "description": "De acuerdo con las disposiciones de los artículos 6-III y 19 de la Ley n.º 2004-575 del 21 de junio de 2004 para la Confianza en la Economía Digital, conocida como L.C.E.N., se pone en conocimiento de los usuarios y visitantes, en adelante el \"Usuario\", del sitio www.bim-dating.com, en adelante el \"Sitio\", el presente Aviso Legal.",
+      "acceptanceText": "La conexión y navegación en el Sitio por parte del Usuario implica la aceptación plena y sin reservas de este aviso legal. Estos son accesibles en el Sitio en la sección \"Aviso legal\"."
+    }
+  },
+  "news": {
+    "hero": {
+      "title": "NOTICIAS",
+      "description": "Lorem ipsum dolor sit amet consectetur. Nulla odio interdum fames aliquam consequat elit fusce penatibus. Arcu libero magna eros augue odio est. Id morbi aenean nisl quis et molestie."
+    },
+    "section1": {
+      "title": "Lorem IPSUM",
+      "startingWord": "BIM",
+      "description": "(Better International Match) es una aplicación de citas global que conecta solteros en todo el mundo. Utiliza algoritmos de emparejamiento avanzados, admite varios idiomas y garantiza la seguridad de los usuarios mediante una rigurosa verificación. Las funciones incluyen comunicación por texto, voz y video, intercambio cultural y planificación de viajes. BIM ofrece tanto planes gratuitos como premium, fomentando una comunidad solidaria y conexiones interculturales significativas.",
+      "button": "Leer Más"
+    },
+    "section2": {
+      "title": "Titular de Noticias",
+      "startingWord": "BIM",
+      "description": "(Better International Match) es una aplicación de citas global que conecta solteros en todo el mundo. Utiliza algoritmos de emparejamiento avanzados, admite varios idiomas y garantiza la seguridad de los usuarios mediante una rigurosa verificación. Las funciones incluyen comunicación por texto, voz y video, intercambio cultural y planificación de viajes. BIM ofrece tanto planes gratuitos como premium, fomentando una comunidad solidaria y conexiones interculturales significativas.",
+      "button": "Leer Más"
+    }
+  },
+  "preRegister": {
+    "hero": {
+      "title": "PRE-REGISTRO",
+      "description": "Si necesitas ayuda para cualquier problema o si quieres saber más sobre nosotros, puedes contactarnos directamente. Siempre estamos listos para ayudarte."
+    },
+    "content": {
+      "title": "Lorem ipsum",
+      "description": "Lorem ipsum dolor sit amet consectetur. Varius blandit urna magna enim adipiscing magna quisque vitae. Vel id vel sodales venenatis nulla fermentum. Sagittis pharetra sed vitae at. At dui lacus nulla massa scelerisque interdum tellus arcu mi. Amet laoreet pulvinar mattis scelerisque amet egestas ac magna aenean."
+    },
+    "form": {
+      "title": "INFORMACIÓN BÁSICA",
+      "name": {
+        "label": "Nombre",
+        "placeholder": "Tu nombre"
+      },
+      "email": {
+        "label": "Correo Electrónico",
+        "placeholder": "Tu dirección de correo electrónico"
+      },
+      "phone": {
+        "label": "Teléfono",
+        "placeholder": "Tu número de teléfono",
+        "countryCode": {
+          "placeholder": "Selecciona un código de país",
+          "label": "Códigos de país"
+        }
+      },
+      "dob": {
+        "label": "Fecha de Nacimiento",
+        "placeholder": "Elige una fecha"
+      },
+      "submit": "Enviar",
+      "toast": {
+        "title": "Has enviado los siguientes valores:"
+      },
+      "validation": {
+        "name": "El nombre de usuario debe tener al menos 2 caracteres.",
+        "email": "Dirección de correo electrónico no válida.",
+        "dob": "Se requiere una fecha de nacimiento."
+      }
     }
   }
 }

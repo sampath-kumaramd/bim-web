@@ -10,8 +10,16 @@ import legalHero from '../../../public/images/legal-hero.png';
 import legalHeroMobile from '../../../public/images/legal-hero-mobile.png';
 import legalBg from '../../../public/images/legal-bg.png';
 import legalBgMobile from '../../../public/images/legal-bg-mobile.png';
+import { Languages } from '@/types/languages';
+import { useParams } from 'next/navigation';
+import { useDictionary } from '@/hooks/useDictionary';
 
 export default function page() {
+
+      const params = useParams();
+  const lang = params.lang as Languages; 
+  const dict = useDictionary(lang);
+
   const [windowWidth, setWindowWidth] = useState<
     number | null
   >(null);
@@ -26,12 +34,15 @@ export default function page() {
       window.removeEventListener('resize', handleResize);
   }, []);
 
+  if (!dict) {
+    return null;
+  }
   return (
     <div className="min-h-screen">
       <HeroSection
-        title="Legal"
-        description="If you need any help for any issues or If you want to know any more about us you can contact us directly. We always ready to help you."
-        backgroundImage={legalHero.src}
+        title={dict.legal.hero.title}
+        description= {dict.legal.hero.description}
+               backgroundImage={legalHero.src}
         backgroundImageMobile={legalHeroMobile.src}
       />
 
@@ -51,22 +62,13 @@ export default function page() {
             variant="Bim4Regular"
             className="mb-8 text-justify text-base text-[#4b0325] sm:text-lg"
           >
-            In accordance with the provisions of Articles
-            6-III and 19 of Law No. 2004-575 of June 21,
-            2004 for the Confidence in the digital conomy,
-            known as L.C.E.N., it is brought to the
-            attention of users and visitors, hereinafter the
-            "User", of the site www.bim-dating.com,
-            hereinafter the "Site", herein Legal Notice.
+            {dict.legal.legalNotice.title}
           </Typography>
           <Typography
             variant="Bim4Regular"
             className="text-justify text-base text-[#4b0325] sm:text-lg"
           >
-            Connection and navigation on the Site by the
-            User implies full acceptance and without subject
-            to these legal notices.These are accessible on
-            the Site in the “Legal notices” section.
+            {dict.legal.legalNotice.description}
           </Typography>
         </div>
       </section>

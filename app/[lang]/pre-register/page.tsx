@@ -13,9 +13,16 @@ import preRegisterHeroMobile from '../../../public/images/pre-registration-hero-
 import preRegisterBg from '../../../public/images/pre-registration-bg.png';
 import preRegisterBgMobile from '../../../public/images/pre-registration-bg-mobile.png';
 import preRegisterImage from '../../../public/images/pre-registration-image.png';
+import { useParams } from 'next/navigation';
+import { Languages } from '@/types/languages';
+import { useDictionary } from '@/hooks/useDictionary';
 
 
 export default function page() {
+     const params = useParams();
+  const lang = params.lang as Languages; 
+  const dict = useDictionary(lang);
+
   const [windowWidth, setWindowWidth] = useState<
     number | null
   >(null);
@@ -41,12 +48,16 @@ export default function page() {
     },
   };
 
+  if (!dict) {
+    return null;
+  }
+
   return (
     <div className="min-h-screen">
       <HeroSection
-        title="PRE REGISTER"
-        description="If you need any help for any issues or if you want to know any more about us you can contact us directly us we always ready to help you."
-        backgroundImage={preRegisterHero.src}
+        title={dict.preRegister.hero.title}
+        description= {dict.preRegister.hero.description}       
+         backgroundImage={preRegisterHero.src}
         backgroundImageMobile=  {preRegisterHeroMobile.src}
       />
 
@@ -77,20 +88,13 @@ export default function page() {
               variant="Bim1"
               className="mb-4 mt-4 text-center text-xl text-[#4b0325] sm:mb-8 sm:mt-8 sm:text-justify sm:text-3xl"
             >
-              Lorem ipsum
+              {dict.preRegister.content.title}
             </Typography>
             <Typography
               variant="Bim4Regular"
               className="text-center text-base text-[#4b0325] sm:text-justify sm:text-lg"
             >
-              Lorem ipsum dolor sit amet consectetur. Varius
-              blandit urna magna enim adipiscing magna
-              quisque vitae. Vel id vel sodales venenatis
-              nulla fermentum. Sagittis pharetra sed vitae
-              at. At dui lacus nulla massa scelerisque
-              interdum tellus arcu mi. Amet laoreet pulvinar
-              mattis scelerisque amet egestas ac magna
-              aenean.
+              {dict.preRegister.content.description}
             </Typography>
           </div>
           <div className="rounded-l-3xl rounded-t-3xl bg-white p-8 shadow-lg sm:p-12">

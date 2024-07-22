@@ -37,6 +37,9 @@ import {
 } from '@/components/ui/select';
 import { Typography } from './Typography';
 import CustomButton from './CustomButton';
+import { useParams } from 'next/navigation';
+import { Languages } from '@/types/languages';
+import { useDictionary } from '@/hooks/useDictionary';
 
 const FormSchema = z.object({
   name: z.string().min(2, {
@@ -52,6 +55,10 @@ const FormSchema = z.object({
 });
 
 function PreRegistrationForm() {
+   const params = useParams();
+  const lang = params.lang as Languages; 
+  const dict = useDictionary(lang);
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -75,6 +82,10 @@ function PreRegistrationForm() {
   }
 
   const [countryCode, setCountryCode] = useState('+880');
+
+  if (!dict) {
+    return null;
+  }
   return (
     <Form {...form}>
       <form
@@ -85,7 +96,7 @@ function PreRegistrationForm() {
           variant="Bim1"
           className="mb-8 text-center text-xl text-[#D10062] sm:text-3xl"
         >
-          BASIC INFORMATIONS
+          {dict.preRegister.content.title}
         </Typography>
 
         <FormField
@@ -93,9 +104,9 @@ function PreRegistrationForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>{dict?.preRegister.form.name.label}</FormLabel>
               <FormControl>
-                <Input placeholder="Your name" {...field} />
+                <Input placeholder={dict?.preRegister.form.name.placeholder} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -107,10 +118,10 @@ function PreRegistrationForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{dict?.preRegister.form.email.label}</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Your email address"
+                  placeholder={dict?.preRegister.form.email.placeholder}
                   {...field}
                 />
               </FormControl>
@@ -124,7 +135,7 @@ function PreRegistrationForm() {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Phone</FormLabel>
+              <FormLabel>{dict?.preRegister.form.phone.label}</FormLabel>
               <FormControl>
                 <div className="flex items-center rounded-xl border border-gray-200">
                   <Select>
@@ -134,7 +145,9 @@ function PreRegistrationForm() {
                     <SelectContent>
                       <SelectGroup>
                         <SelectLabel>
-                          Country codes
+                          <>
+                          {dict?.preRegister.form.phone.countryCode}
+                          </>
                         </SelectLabel>
                         <SelectItem
                           value="apple"
@@ -147,7 +160,7 @@ function PreRegistrationForm() {
                     </SelectContent>
                   </Select>
                   <Input
-                    placeholder="Your phone number"
+                  placeholder={dict?.preRegister.form.phone.placeholder}
                     {...field}
                     className="border-none"
                   />
@@ -163,7 +176,7 @@ function PreRegistrationForm() {
           name="dob"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel>Date of birth</FormLabel>
+              <FormLabel>{dict?.preRegister.form.dob.label}</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
@@ -178,7 +191,7 @@ function PreRegistrationForm() {
                       {field.value ? (
                         format(field.value, 'PPP')
                       ) : (
-                        <span>Pick a date</span>
+                        <span>{dict?.preRegister.form.dob.placeholder}</span>
                       )}
                       <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                     </Button>
@@ -209,7 +222,7 @@ function PreRegistrationForm() {
           <CustomButton
             variant="tertiary"
             className="w-2/3 bg-[#d10062] py-3 text-white"
-            text="Submit"
+            text={dict?.preRegister.form.submit || 'Submit'}
           />
         </div>
       </form>

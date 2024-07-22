@@ -1,28 +1,139 @@
 {
   "about": {
     "hero": {
-      "title": "AM MEESCHTEN VERTRAUT & SÉCHER",
+      "title": "MEESCHT VERTRAUT & SÉCHER",
       "description": "Lorem ipsum dolor sit amet consectetur. Purus venenatis sit egestas luctus proin amet lorem leo. Fringilla turpis id amet fermentum leo et dictum viverra. Consectetur fringilla in",
-      "primaryButton": "Uffänken",
-      "secondaryButton": "Eise Konzept"
+      "primaryButton": "Ufänken",
+      "secondaryButton": "Eis Konzept"
     },
     "aboutUs": {
       "title": "Iwwert Eis",
       "startingWord": "BIM",
-      "description": "(Better International Match) ass eng global Dating App déi Single weltwäit verbënnt. Si benotzt fortgeschratt Matching Algorithmen, ënnerstëtzt vill Sproochen a garantéiert Benotzersécherheet duerch streng Verifikatioun. Funktioune beinhalteten Text-, Stëmm- a Videokommunikatioun, kulturellen Austausch a Reesplanung. BIM bitt souwuel gratis wéi premium Pläng un, a fördert eng ënnerstëtzend Gemeinschaft a bedeitend interkulturell Verbindungen.",
-      "button": "Weiderliesen"
+      "description": "(Better International Match) ass eng global Dating-App, déi Singlen weltwäit verbënnt. Et benotzt fortgeschratt Matching Algorithmen, ënnerstëtzt méi Sproochen a suergt fir Benotzersécherheet duerch rigoréis Verifikatioun. Features enthalen Text, Stëmm a Videokommunikatioun, kulturellen Austausch a Reesplanung. BIM bitt souwuel gratis wéi och Premium Pläng un, an encouragéiert eng ënnerstëtzende Gemeinschaft a bedeitend interkulturell Verbindungen.",
+      "button": "Méi liesen"
     },
     "ourConcept": {
-      "title": "Eise Konzept",
+      "title": "Eis Konzept",
       "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam.",
-      "button": "Méi Léieren"
+      "button": "Méi léieren"
     },
     "getStarted": {
-      "title": "Uffänken",
+      "title": "Ufänken",
       "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam",
       "button": "Virregistréierung",
-      "appStore": "Eroflueden op den App Store",
+      "appStore": "Eroflueden op der App Store",
       "googlePlay": "Kritt et op Google Play"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "KONTAKT",
+      "description": "Wann Dir Hëllef braucht fir all Problemer oder wann Dir méi iwwer eis wëllt wëssen, kënnt Dir eis direkt kontaktéieren. Mir si ëmmer bereet Iech ze hëllefen."
+    },
+    "form": {
+      "title": "KONTAKTÉIERT EIS",
+      "name": {
+        "label": "Numm",
+        "placeholder": "Ären Numm"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Är E-Mail-Adress"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tippt Äre Message hei."
+      },
+      "submit": "Schécken",
+      "toast": {
+        "success": {
+          "title": "Message erfollegräich geschéckt!",
+          "description": "Mir kommen geschwënn zréck bei Iech."
+        },
+        "error": {
+          "title": "Feeler",
+          "description": "Message schécken ass gescheitert. Probéiert w.e.g. nach eng Kéier."
+        }
+      },
+      "validation": {
+        "name": "Den Benotzernumm muss op d'mannst 2 Zeeche laang sinn.",
+        "email": "Ongëlteg E-Mail-Adress.",
+        "message": {
+          "required": "Message ass erfuerderlech.",
+          "maxLength": "De Message däerf maximal 250 Zeeche laang sinn."
+        }
+      }
+    }
+  },
+  "legal": {
+    "hero": {
+      "title": "Legal",
+      "description": "Wann Dir Hëllef braucht fir all Problemer oder wann Dir méi iwwer eis wëllt wëssen, kënnt Dir eis direkt kontaktéieren. Mir si ëmmer bereet Iech ze hëllefen."
+    },
+    "legalNotice": {
+      "title": "Legal Notiz",
+      "description": "Geméiss den Bestëmmunge vun den Artikelen 6-III an 19 vum Gesetz Nr. 2004-575 vum 21. Juni 2004 fir d'Vertraue an d'Digital Ekonomie, bekannt als L.C.E.N., gëtt et den Benotzer an de Visiteuren, hei nom \"Benotzer\", vum Site www.bim-dating.com, hei nom \"Site\", dës rechtlech Notiz matgedeelt.",
+      "acceptanceText": "D'Verbindung an d'Navigatioun op de Site duerch de Benotzer implizéiert d'voll Akzeptanz vun dëse rechtlechen Notizen. Dës si verfügbar op de Site an der Sektioun \"Legal Notizen\"."
+    }
+  },
+  "news": {
+    "hero": {
+      "title": "Neiegkeeten",
+      "description": "Lorem ipsum dolor sit amet consectetur. Nulla odio interdum fames aliquam consequat elit fusce penatibus. Arcu libero magna eros augue odio est. Id morbi aenean nisl quis et molestie."
+    },
+    "section1": {
+      "title": "Lorem IPSUM",
+      "startingWord": "BIM",
+      "description": "(Better International Match) ass eng global Dating-App, déi Singlen weltwäit verbënnt. Et benotzt fortgeschratt Matching Algorithmen, ënnerstëtzt méi Sproochen a suergt fir Benotzersécherheet duerch rigoréis Verifikatioun. Features enthalen Text, Stëmm a Videokommunikatioun, kulturellen Austausch a Reesplanung. BIM bitt souwuel gratis wéi och Premium Pläng un, an encouragéiert eng ënnerstëtzende Gemeinschaft a bedeitend interkulturell Verbindungen.",
+      "button": "Méi liesen"
+    },
+    "section2": {
+      "title": "Neiegkeeten Rubrik",
+      "startingWord": "BIM",
+      "description": "(Better International Match) ass eng global Dating-App, déi Singlen weltwäit verbënnt. Et benotzt fortgeschratt Matching Algorithmen, ënnerstëtzt méi Sproochen a suergt fir Benotzersécherheet duerch rigoréis Verifikatioun. Features enthalen Text, Stëmm a Videokommunikatioun, kulturellen Austausch a Reesplanung. BIM bitt souwuel gratis wéi och Premium Pläng un, an encouragéiert eng ënnerstëtzende Gemeinschaft a bedeitend interkulturell Verbindungen.",
+      "button": "Méi liesen"
+    }
+  },
+  "preRegister": {
+    "hero": {
+      "title": "Virregistréieren",
+      "description": "Wann Dir Hëllef braucht fir all Problemer oder wann Dir méi iwwer eis wëllt wëssen, kënnt Dir eis direkt kontaktéieren. Mir si ëmmer bereet Iech ze hëllefen."
+    },
+    "content": {
+      "title": "Lorem ipsum",
+      "description": "Lorem ipsum dolor sit amet consectetur. Varius blandit urna magna enim adipiscing magna quisque vitae. Vel id vel sodales venenatis nulla fermentum. Sagittis pharetra sed vitae at. At dui lacus nulla massa scelerisque interdum tellus arcu mi. Amet laoreet pulvinar mattis scelerisque amet egestas ac magna aenean."
+    },
+    "form": {
+      "title": "GRONDSAACHEN",
+      "name": {
+        "label": "Numm",
+        "placeholder": "Ären Numm"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Är E-Mail-Adress"
+      },
+      "phone": {
+        "label": "Telefon",
+        "placeholder": "Är Telefonsnummer",
+        "countryCode": {
+          "placeholder": "Wielt e Lännercode",
+          "label": "Lännercodes"
+        }
+      },
+      "dob": {
+        "label": "Gebuertsdatum",
+        "placeholder": "Wielt en Datum"
+      },
+      "submit": "Schécken",
+      "toast": {
+        "title": "Dir hutt déi folgend Wäerter agereecht:"
+      },
+      "validation": {
+        "name": "Den Benotzernumm muss op d'mannst 2 Zeeche laang sinn.",
+        "email": "Ongëlteg E-Mail-Adress.",
+        "dob": "En Gebuertsdatum ass erfuerderlech."
+      }
     }
   }
 }

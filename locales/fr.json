@@ -7,9 +7,9 @@
       "secondaryButton": "Notre Concept"
     },
     "aboutUs": {
-      "title": "À Propos De Nous",
+      "title": "À Propos de Nous",
       "startingWord": "BIM",
-      "description": "(Better International Match) est une application de rencontre mondiale connectant des célibataires du monde entier. Elle utilise des algorithmes de correspondance avancés, prend en charge plusieurs langues et assure la sécurité des utilisateurs grâce à une vérification rigoureuse. Les fonctionnalités incluent la communication par texte, voix et vidéo, l'échange culturel et la planification de voyages. BIM propose des plans gratuits et premium, favorisant une communauté solidaire et des connexions interculturelles significatives.",
+      "description": "(Better International Match) est une application de rencontre mondiale connectant des célibataires du monde entier. Elle utilise des algorithmes de correspondance avancés, prend en charge plusieurs langues et assure la sécurité des utilisateurs grâce à une vérification rigoureuse. Les fonctionnalités incluent la communication par texte, voix et vidéo, l'échange culturel et la planification de voyages. BIM offre des plans gratuits et premium, favorisant une communauté solidaire et des connexions interculturelles significatives.",
       "button": "Lire Plus"
     },
     "ourConcept": {
@@ -23,6 +23,117 @@
       "button": "Pré-Inscription",
       "appStore": "Télécharger sur l'App Store",
       "googlePlay": "Disponible sur Google Play"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "CONTACT",
+      "description": "Si vous avez besoin d'aide pour des problèmes ou si vous voulez en savoir plus sur nous, vous pouvez nous contacter directement. Nous sommes toujours prêts à vous aider."
+    },
+    "form": {
+      "title": "CONTACTEZ-NOUS",
+      "name": {
+        "label": "Nom",
+        "placeholder": "Votre nom"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Votre adresse email"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tapez votre message ici."
+      },
+      "submit": "Envoyer",
+      "toast": {
+        "success": {
+          "title": "Message envoyé avec succès!",
+          "description": "Nous vous répondrons bientôt."
+        },
+        "error": {
+          "title": "Erreur",
+          "description": "Échec de l'envoi du message. Veuillez réessayer."
+        }
+      },
+      "validation": {
+        "name": "Le nom d'utilisateur doit contenir au moins 2 caractères.",
+        "email": "Adresse email invalide.",
+        "message": {
+          "required": "Le message est obligatoire.",
+          "maxLength": "Le message doit contenir au maximum 250 caractères."
+        }
+      }
+    }
+  },
+  "legal": {
+    "hero": {
+      "title": "Légal",
+      "description": "Si vous avez besoin d'aide pour des problèmes ou si vous voulez en savoir plus sur nous, vous pouvez nous contacter directement. Nous sommes toujours prêts à vous aider."
+    },
+    "legalNotice": {
+      "title": "Mentions Légales",
+      "description": "Conformément aux dispositions des articles 6-III et 19 de la loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l'économie numérique, connue sous le nom de L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs, ci-après l'« Utilisateur », du site www.bim-dating.com, ci-après le « Site », les présentes mentions légales.",
+      "acceptanceText": "La connexion et la navigation sur le Site par l'Utilisateur impliquent l'acceptation pleine et entière des présentes mentions légales. Celles-ci sont accessibles sur le Site dans la section « Mentions légales »."
+    }
+  },
+  "news": {
+    "hero": {
+      "title": "Actualités",
+      "description": "Lorem ipsum dolor sit amet consectetur. Nulla odio interdum fames aliquam consequat elit fusce penatibus. Arcu libero magna eros augue odio est. Id morbi aenean nisl quis et molestie."
+    },
+    "section1": {
+      "title": "Lorem IPSUM",
+      "startingWord": "BIM",
+      "description": "(Better International Match) est une application de rencontre mondiale connectant des célibataires du monde entier. Elle utilise des algorithmes de correspondance avancés, prend en charge plusieurs langues et assure la sécurité des utilisateurs grâce à une vérification rigoureuse. Les fonctionnalités incluent la communication par texte, voix et vidéo, l'échange culturel et la planification de voyages. BIM offre des plans gratuits et premium, favorisant une communauté solidaire et des connexions interculturelles significatives.",
+      "button": "Lire Plus"
+    },
+    "section2": {
+      "title": "Titre des Nouvelles",
+      "startingWord": "BIM",
+      "description": "(Better International Match) est une application de rencontre mondiale connectant des célibataires du monde entier. Elle utilise des algorithmes de correspondance avancés, prend en charge plusieurs langues et assure la sécurité des utilisateurs grâce à une vérification rigoureuse. Les fonctionnalités incluent la communication par texte, voix et vidéo, l'échange culturel et la planification de voyages. BIM offre des plans gratuits et premium, favorisant une communauté solidaire et des connexions interculturelles significatives.",
+      "button": "Lire Plus"
+    }
+  },
+  "preRegister": {
+    "hero": {
+      "title": "PRÉ-INSCRIPTION",
+      "description": "Si vous avez besoin d'aide pour des problèmes ou si vous voulez en savoir plus sur nous, vous pouvez nous contacter directement. Nous sommes toujours prêts à vous aider."
+    },
+    "content": {
+      "title": "Lorem ipsum",
+      "description": "Lorem ipsum dolor sit amet consectetur. Varius blandit urna magna enim adipiscing magna quisque vitae. Vel id vel sodales venenatis nulla fermentum. Sagittis pharetra sed vitae at. At dui lacus nulla massa scelerisque interdum tellus arcu mi. Amet laoreet pulvinar mattis scelerisque amet egestas ac magna aenean."
+    },
+    "form": {
+      "title": "INFORMATIONS DE BASE",
+      "name": {
+        "label": "Nom",
+        "placeholder": "Votre nom"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Votre adresse email"
+      },
+      "phone": {
+        "label": "Téléphone",
+        "placeholder": "Votre numéro de téléphone",
+        "countryCode": {
+          "placeholder": "Sélectionnez un indicatif de pays",
+          "label": "Indicatifs des pays"
+        }
+      },
+      "dob": {
+        "label": "Date de naissance",
+        "placeholder": "Choisissez une date"
+      },
+      "submit": "Envoyer",
+      "toast": {
+        "title": "Vous avez soumis les valeurs suivantes :"
+      },
+      "validation": {
+        "name": "Le nom d'utilisateur doit contenir au moins 2 caractères.",
+        "email": "Adresse email invalide.",
+        "dob": "Une date de naissance est requise."
+      }
     }
   }
 }
