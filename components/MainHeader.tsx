@@ -104,7 +104,7 @@ export function MainHeader({
               } w-full justify-start`}
             >
               <Typography
-                variant="HempaSansSm"
+                variant="Bim4Regular"
                 className="ms-2 text-white"
               >
                 {route.label}

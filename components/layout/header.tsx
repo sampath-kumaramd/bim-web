@@ -77,7 +77,7 @@ export function Header() {
                 className="h-auto w-[30px] lg:w-[45px]"
                 loading="lazy"
               />
-              <span className="text-xs text-white sm:text-base">
+              <span className="text-xs text-white sm:text-base min-w-48">
                 {dict.header.logo}
               </span>
             </button>
@@ -89,14 +89,16 @@ export function Header() {
               <Button
                 className="hidden rounded-lg bg-white text-[#4B0325] hover:bg-yellow-400 md:block"
                 onClick={() => {
-                  router.push('/pre-register');
+                  router.push(`/${lang}/pre-register`);
                   closeMenu?.();
                 }}
               >
                 {dict.header.button}
               </Button>
             </Link>
+            <div className=''>
             <LanguageSwitcher />
+            </div>
           </div>
         </div>
       </div>

@@ -150,7 +150,7 @@ function PreRegistrationForm() {
                 {dict?.preRegister.form.phone.label}
               </FormLabel>
               <FormControl>
-                <div className="flex items-center rounded-xl border border-gray-200">
+                {/* <div className="flex items-center rounded-xl border border-gray-200">
                   <Select>
                     <SelectTrigger className="w-[180px]">
                       <SelectValue placeholder="Select a country code" />
@@ -183,7 +183,7 @@ function PreRegistrationForm() {
                     {...field}
                     className="border-none"
                   />
-                </div>
+                </div> */}
               </FormControl>
               <FormMessage />
             </FormItem>

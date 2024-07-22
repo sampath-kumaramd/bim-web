@@ -96,14 +96,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {primaryButton && (
               <CustomButton
                 variant="primary"
-                className="w-52"
+                className="w-60"
                 text={primaryButton}
                 onClick={onPrimaryButtonClick}
               />
             )}
             {secondaryButton && (
               <CustomButton
-                className="w-52 px-8"
+                className="w-60 px-8"
                 variant="secondary"
                 text={secondaryButton}
                 onClick={onSecondaryButtonClick}
