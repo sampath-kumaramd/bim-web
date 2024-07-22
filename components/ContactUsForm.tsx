@@ -40,8 +40,8 @@ const FormSchema = z.object({
 });
 
 function ContactUsForm() {
-      const params = useParams();
-  const lang = params.lang as Languages; 
+  const params = useParams();
+  const lang = params.lang as Languages;
   const dict = useDictionary(lang);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -73,7 +73,8 @@ function ContactUsForm() {
 
       toast({
         title: dict?.contact.form.toast.success.title,
-        description: dict?.contact.form.toast.success.description,
+        description:
+          dict?.contact.form.toast.success.description,
       });
 
       form.reset();
@@ -108,9 +109,16 @@ function ContactUsForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{dict?.contact.form.name.label}</FormLabel>
+              <FormLabel>
+                {dict?.contact.form.name.label}
+              </FormLabel>
               <FormControl>
-                <Input placeholder= {dict?.contact.form.name.placeholder} {...field} />
+                <Input
+                  placeholder={
+                    dict?.contact.form.name.placeholder
+                  }
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -122,10 +130,14 @@ function ContactUsForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{dict?.contact.form.email.label}</FormLabel>
+              <FormLabel>
+                {dict?.contact.form.email.label}
+              </FormLabel>
               <FormControl>
                 <Input
-                  placeholder= {dict?.contact.form.email.placeholder}
+                  placeholder={
+                    dict?.contact.form.email.placeholder
+                  }
                   {...field}
                 />
               </FormControl>
@@ -139,9 +151,13 @@ function ContactUsForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{dict?.contact.form.message.label}</FormLabel>
+              <FormLabel>
+                {dict?.contact.form.message.label}
+              </FormLabel>
               <Textarea
-                placeholder= {dict?.contact.form.message.placeholder}
+                placeholder={
+                  dict?.contact.form.message.placeholder
+                }
                 id="message"
                 {...field}
               />

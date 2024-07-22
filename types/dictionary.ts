@@ -62,16 +62,13 @@ export interface Dictionary {
         };
       };
     };
-  };
-  legal: {
-    hero: {
-      title: string;
-      description: string;
-    };
-    legalNotice: {
-      title: string;
-      description: string;
-      acceptanceText: string;
+    details: {
+      callUs: string;
+      phoneNumber: string;
+      email: string;
+      emailAddress: string;
+      location: string;
+      address: string;
     };
   };
   news: {
@@ -133,5 +130,36 @@ export interface Dictionary {
         dob: string;
       };
     };
+  };
+  header: {
+    logo: string;
+    button: string;
+    MainHeader: {
+      Home: string;
+      About: string;
+      News: string;
+      Contact: string;
+      PreRegister: string;
+    };
+  };
+
+  footer: {
+    legal: string;
+    privacy: string;
+    followUs: string;
+  };
+  legal: {
+    hero: {
+      title: string;
+      description: string;
+    };
+    legalNotice: {
+      title: string;
+      description: string;
+    };
+    articles: {
+      title: string;
+      description: string;
+    }[];
   };
 }

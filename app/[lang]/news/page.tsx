@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import ContentSection from '@/components/ContentSection';
 import HeroSection from '@/components/HeroSection';
 
@@ -13,10 +13,9 @@ import { useParams } from 'next/navigation';
 import { Languages } from '@/types/languages';
 import { useDictionary } from '@/hooks/useDictionary';
 
-
 export default function page() {
-    const params = useParams();
-  const lang = params.lang as Languages; 
+  const params = useParams();
+  const lang = params.lang as Languages;
   const dict = useDictionary(lang);
 
   if (!dict) {
@@ -26,7 +25,7 @@ export default function page() {
     <div className="min-h-screen">
       <HeroSection
         title={dict.news.hero.title}
-        description= {dict.news.hero.description}   
+        description={dict.news.hero.description}
         backgroundImage={newsHero.src}
         backgroundImageMobile={newsHeroMobile.src}
       />
@@ -34,7 +33,7 @@ export default function page() {
       <ContentSection
         title={dict.news.section1.title}
         startingWord={dict.news.section1.startingWord}
-        description={dict.news.section1.description}        
+        description={dict.news.section1.description}
         image={newsImages.src}
         backgroundImage={newsBg.src}
         backgroundImageMobile={newsBgMobile.src}
@@ -50,7 +49,7 @@ export default function page() {
       <ContentSection
         title={dict.news.section2.title}
         startingWord={dict.news.section2.startingWord}
-        description= {dict.news.section2.description}        
+        description={dict.news.section2.description}
         image={newsHeadingImages.src}
         backgroundImageMobile={newsHeadingImagesMobile.src}
         button={{

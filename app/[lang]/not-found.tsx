@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 text-center">
       <Image
-        src="/images/404-illustration.jpg" 
+        src="/images/404-illustration.jpg"
         alt="404 Illustration"
         width={600}
         height={600}

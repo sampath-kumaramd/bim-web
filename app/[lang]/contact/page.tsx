@@ -16,10 +16,9 @@ import { Languages } from '@/types/languages';
 import { useParams } from 'next/navigation';
 import { useDictionary } from '@/hooks/useDictionary';
 
-
 export default function page() {
-      const params = useParams();
-  const lang = params.lang as Languages; 
+  const params = useParams();
+  const lang = params.lang as Languages;
   const dict = useDictionary(lang);
   const [windowWidth, setWindowWidth] = useState<
     number | null
@@ -81,7 +80,7 @@ export default function page() {
     <div className="min-h-screen">
       <HeroSection
         title={dict.contact.hero.title}
-        description = {dict.contact.hero.description}
+        description={dict.contact.hero.description}
         backgroundImage={contactUsHeroImage.src}
         backgroundImageMobile={contactUsHeroMobileImage.src}
       />
@@ -118,13 +117,21 @@ export default function page() {
                       variant="Bim1"
                       className="text-md text-justify text-[#4B0325] sm:text-xl lg:mb-2 lg:text-3xl"
                     >
-                      {ContactDetail.name}
+                      {
+                        dict.contact.details[
+                          ContactDetail.nameKey
+                        ]
+                      }
                     </Typography>
                     <Typography
                       variant="Bim4Regular"
                       className="text-md text-justify text-[#4B0325] sm:text-sm lg:text-xl"
                     >
-                      {ContactDetail.value}
+                      {
+                        dict.contact.details[
+                          ContactDetail.valueKey
+                        ]
+                      }
                     </Typography>
                   </div>
                 </div>

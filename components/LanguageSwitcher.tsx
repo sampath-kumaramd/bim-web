@@ -34,10 +34,15 @@ export function LanguageSwitcher() {
   const pathname = usePathname();
 
   const currentLang = pathname.split('/')[1];
-  const selectedLanguage = languages.find((lang) => lang.value === currentLang) || languages[0];
+  const selectedLanguage =
+    languages.find((lang) => lang.value === currentLang) ||
+    languages[0];
 
   const handleLanguageChange = (value: string) => {
-    const newPathname = pathname.replace(`/${currentLang}`, `/${value}`);
+    const newPathname = pathname.replace(
+      `/${currentLang}`,
+      `/${value}`,
+    );
     router.push(newPathname);
   };
 

@@ -42,12 +42,12 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params: { lang }
+  params: { lang },
 }: {
-  children: ReactNode
-  params: { lang:Languages }
+  children: ReactNode;
+  params: { lang: Languages };
 }) {
-  const dict = await getDictionary(lang)
+  const dict = await getDictionary(lang);
 
   return (
     <html lang={lang}>
@@ -60,16 +60,15 @@ export default async function RootLayout({
       </head>
       <body className={inter.className}>
         <LanguageProvider>
-        <Header />
-        {children}
-        <Toaster />
-        <Footer />
-         </LanguageProvider>
+          <Header />
+          {children}
+          <Toaster />
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );
 }
-
 
 export async function generateStaticParams() {
   return [

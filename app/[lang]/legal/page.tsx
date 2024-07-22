@@ -15,9 +15,8 @@ import { useParams } from 'next/navigation';
 import { useDictionary } from '@/hooks/useDictionary';
 
 export default function page() {
-
-      const params = useParams();
-  const lang = params.lang as Languages; 
+  const params = useParams();
+  const lang = params.lang as Languages;
   const dict = useDictionary(lang);
 
   const [windowWidth, setWindowWidth] = useState<
@@ -41,8 +40,8 @@ export default function page() {
     <div className="min-h-screen">
       <HeroSection
         title={dict.legal.hero.title}
-        description= {dict.legal.hero.description}
-               backgroundImage={legalHero.src}
+        description={dict.legal.hero.description}
+        backgroundImage={legalHero.src}
         backgroundImageMobile={legalHeroMobile.src}
       />
 
@@ -83,13 +82,19 @@ export default function page() {
                   className="mb-3 text-justify text-base text-[#4B0325] sm:text-3xl"
                 >
                   Article {legalArticle.id} -{' '}
-                  {legalArticle.title}
+                  {
+                    dict.legal.articles[legalArticle.id - 1]
+                      .title
+                  }
                 </Typography>
                 <Typography
                   variant="Bim4Regular"
                   className="text-justify text-base text-[#4B0325] sm:text-lg"
                 >
-                  {legalArticle.description}
+                  {
+                    dict.legal.articles[legalArticle.id - 1]
+                      .description
+                  }
                 </Typography>
               </div>
             ))}

@@ -1,12 +1,19 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import {
+  useParams,
+  usePathname,
+  useRouter,
+} from 'next/navigation';
 import { motion } from 'framer-motion';
 
 import { Button } from './ui/button';
 import { Typography } from './Typography';
+import { useDictionary } from '@/hooks/useDictionary';
+import { Languages } from '@/types/languages';
 
-interface MainHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+interface MainHeaderProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   closeMenu?: () => void;
 }
@@ -17,27 +24,34 @@ export function MainHeader({
   ...props
 }: MainHeaderProps) {
   const pathname = usePathname();
-  const lang = pathname.split('/')[1];
-  
+  const lang = pathname.split('/')[1] as Languages;
+  const params = useParams();
+  // const lang = params.lang as Languages;
+  const dict = useDictionary(lang);
+
+  if (!dict) {
+    return null;
+  }
   const routes = [
     {
       href: `/${lang}`,
-      label: 'Home',
-      active: pathname === `/${lang}` || pathname === `/${lang}/`,
+      label: dict.header.MainHeader.Home,
+      active:
+        pathname === `/${lang}` || pathname === `/${lang}/`,
     },
     {
       href: `/${lang}/about`,
-      label: 'About',
+      label: dict.header.MainHeader.About,
       active: pathname === `/${lang}/about`,
     },
     {
       href: `/${lang}/news`,
-      label: 'News',
+      label: dict.header.MainHeader.News,
       active: pathname === `/${lang}/news`,
     },
     {
       href: `/${lang}/contact`,
-      label: 'Contact',
+      label: dict.header.MainHeader.Contact,
       active: pathname === `/${lang}/contact`,
     },
   ];
@@ -105,7 +119,7 @@ export function MainHeader({
             closeMenu?.();
           }}
         >
-          Pre-Register
+          {dict.header.MainHeader.PreRegister}
         </Button>
       </div>
     </motion.div>

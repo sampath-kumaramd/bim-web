@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 import { MainHeader } from '../MainHeader';
@@ -12,9 +12,14 @@ import { Button } from '../ui/button';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 
 import logoIcon from '../../public/logo.svg';
+import { useDictionary } from '@/hooks/useDictionary';
+import { Languages } from '@/types/languages';
 
 export function Header() {
   const router = useRouter();
+  const params = useParams();
+  const lang = params.lang as Languages;
+  const dict = useDictionary(lang);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogoClick = () => {
@@ -29,6 +34,10 @@ export function Header() {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  if (!dict) {
+    return null;
+  }
 
   return (
     <header>
@@ -69,7 +78,7 @@ export function Header() {
                 loading="lazy"
               />
               <span className="text-xs text-white sm:text-base">
-                The Dating Social Media
+                {dict.header.logo}
               </span>
             </button>
           </div>
@@ -84,7 +93,7 @@ export function Header() {
                   closeMenu?.();
                 }}
               >
-                Pre-Register
+                {dict.header.button}
               </Button>
             </Link>
             <LanguageSwitcher />

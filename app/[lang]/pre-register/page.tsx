@@ -17,10 +17,9 @@ import { useParams } from 'next/navigation';
 import { Languages } from '@/types/languages';
 import { useDictionary } from '@/hooks/useDictionary';
 
-
 export default function page() {
-     const params = useParams();
-  const lang = params.lang as Languages; 
+  const params = useParams();
+  const lang = params.lang as Languages;
   const dict = useDictionary(lang);
 
   const [windowWidth, setWindowWidth] = useState<
@@ -56,9 +55,9 @@ export default function page() {
     <div className="min-h-screen">
       <HeroSection
         title={dict.preRegister.hero.title}
-        description= {dict.preRegister.hero.description}       
-         backgroundImage={preRegisterHero.src}
-        backgroundImageMobile=  {preRegisterHeroMobile.src}
+        description={dict.preRegister.hero.description}
+        backgroundImage={preRegisterHero.src}
+        backgroundImageMobile={preRegisterHeroMobile.src}
       />
 
       <section className="relative overflow-hidden">

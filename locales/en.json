@@ -63,17 +63,14 @@
           "maxLength": "Message must be at maximum 250 characters."
         }
       }
-    }
-  },
-  "legal": {
-    "hero": {
-      "title": "Legal",
-      "description": "If you need any help for any issues or If you want to know any more about us you can contact us directly. We always ready to help you."
     },
-    "legalNotice": {
-      "title": "Legal Notice",
-      "description": "In accordance with the provisions of Articles 6-III and 19 of Law No. 2004-575 of June 21, 2004 for the Confidence in the digital conomy, known as L.C.E.N., it is brought to the attention of users and visitors, hereinafter the \"User\", of the site www.bim-dating.com, hereinafter the \"Site\", herein Legal Notice.",
-      "acceptanceText": "Connection and navigation on the Site by the User implies full acceptance and without subject to these legal notices.These are accessible on the Site in the \"Legal notices\" section."
+    "details": {
+      "callUs": "Call Us",
+      "phoneNumber": "+880 1763 27 2216",
+      "email": "Email",
+      "emailAddress": "bim.info@bim.com",
+      "location": "Location",
+      "address": "120/A, Block C, Road-3, New York, London"
     }
   },
   "news": {
@@ -135,5 +132,49 @@
         "dob": "A date of birth is required."
       }
     }
+  },
+  "header": {
+    "logo": "The Dating Social Media",
+    "button": " Pre-Register",
+    "MainHeader": {
+      "Home": "Home",
+      "About": "About",
+      "News": "News",
+      "Contact": "Contact",
+      "PreRegister": "Pre-Register"
+    }
+  },
+  "footer": {
+    "legal": "Legal",
+    "privacy": " ©2024 by BIM Group. All rights reserved",
+    "followUs": "Follow Us"
+  },
+  "legal": {
+    "hero": {
+      "title": "Legal Information",
+      "description": "Important legal details about our service"
+    },
+    "legalNotice": {
+      "title": "Legal Notice",
+      "description": "This legal notice applies to the entire contents of this website under the domain name www.bim-dating.com (hereinafter 'the Site'). Please read this legal notice carefully before browsing the Site. By accessing the Site, you unreservedly accept the following provisions."
+    },
+    "articles": [
+      {
+        "title": "THE PUBLISHER",
+        "description": "The publishing of the Site is ensured by Bim Group SARL-S with capital of 10,000 euros, registered with Luxembourg Trade and Companies Register under number 123456 whose head office is located at 36, route du succes, Telephone number 0427827257, Email address: contact@bim-dating.com. Intracommunity VAT number: 737286369 The Publication Director is Houzet Vincent hereinafter the 'Publisher'."
+      },
+      {
+        "title": "THE HOST",
+        "description": "The Site host is the company OVH, whose head office is located at 2, rue Kellermann, 59100 Roubaix, with telephone number: 1007 + contact email address"
+      },
+      {
+        "title": "ACCESS TO THE SITE",
+        "description": "The Site is accessible anywhere, 7 days a week, 24 hours a day except in cases of force majeure or interruption scheduled or not and which may arise from a need for maintenance. In the event of modification, interruption or suspension of the Site, the Publisher cannot be held responsible."
+      },
+      {
+        "title": "DATA COLLECTION",
+        "description": "The Site ensures that the User collects and processes personal information in compliance with privacy in accordance with law n°78-17 of January 6, 1978 relating to computers, files and freedoms. Under the Data Protection Act, dated January 6, 1978, the User has a right of access, rectification, deletion and opposition of personal data. The user exercises this right: · by email to the email address contact@bim-dating.com Any use, reproduction, distribution, marketing, modification of all or part of the Site, without authorization from the Publisher is prohibited and may result in legal action and prosecution as provided in particular by the Intellectual Property Code and the Civil Code."
+      }
+    ]
   }
 }

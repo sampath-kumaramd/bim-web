@@ -22,7 +22,6 @@ import homeBg from '../../public/images/home-bg.png';
 import homeBgMobile from '../../public/images/home-bg-mobile.png';
 import poligonImage from '../../public/images/home-bg-mobile.png';
 
-
 export default function Home() {
   const [windowWidth, setWindowWidth] = useState<
     number | null
@@ -46,14 +45,12 @@ export default function Home() {
           style={{
             backgroundImage: `url(${
               windowWidth !== null && windowWidth <= 768
-                ?   homeBgMobile.src
-                :  homeBg.src
+                ? homeBgMobile.src
+                : homeBg.src
             })`,
           }}
         />
-        <div className=' min-h-screen'>
-          hi
-        </div>
+        <div className="min-h-screen">hi</div>
 
         {/* <div className="relative z-10 grid grid-cols-1 gap-32 sm:py-24 md:grid-cols-2">
           <div className="relative">

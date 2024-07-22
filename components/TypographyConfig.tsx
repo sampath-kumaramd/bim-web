@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 export const typographyVariants = cva('', {
   variants: {
     variant: {
-      default: 'font-sans', 
+      default: 'font-sans',
       HempaSansSm:
         "font-['Hempa_Sans'] font-normal text-[18px] leading-[24px] tracking-normal",
       HempaSansLg:

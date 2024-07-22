@@ -28,15 +28,14 @@ import { useDictionary } from '@/hooks/useDictionary';
 import { useParams } from 'next/navigation';
 import { Languages } from '@/types/languages';
 
-
-export default  function page()  {
+export default function page() {
   const [windowWidth, setWindowWidth] = useState<
     number | null
   >(null);
   const getStartedRef = useRef<HTMLDivElement>(null);
   const ourConceptRef = useRef<HTMLDivElement>(null);
   const params = useParams();
-  const lang = params.lang as Languages; 
+  const lang = params.lang as Languages;
   const dict = useDictionary(lang);
 
   useEffect(() => {
@@ -56,7 +55,7 @@ export default  function page()  {
       behavior: 'smooth',
     });
   };
- if (!dict) return null;
+  if (!dict) return null;
   return (
     <div className="min-h-screen">
       <HeroSection
@@ -80,7 +79,7 @@ export default  function page()  {
         description={dict.about.aboutUs.description}
         image={aboutUsImages.src}
         backgroundImage={aboutUsBg.src}
-        backgroundImageMobile=  {aboutUsBgMobile.src}
+        backgroundImageMobile={aboutUsBgMobile.src}
         button={{
           text: dict.about.aboutUs.button,
           textColor: 'text-white',
@@ -95,7 +94,9 @@ export default  function page()  {
           description={dict.about.ourConcept.description}
           image={aboutUsOurConcept.src}
           backgroundImage={aboutUsOurConceptBg.src}
-          backgroundImageMobile={aboutUsOurConceptBgMobile.src}
+          backgroundImageMobile={
+            aboutUsOurConceptBgMobile.src
+          }
           button={{
             text: dict.about.ourConcept.button,
             textColor: 'text-[#4b0325]',
@@ -145,7 +146,7 @@ export default  function page()  {
                 variant="Bim1"
                 className="mb-4 text-center text-3xl text-[#4b0325] sm:text-start sm:text-4xl"
               >
-               {dict.about.getStarted.title}
+                {dict.about.getStarted.title}
               </Typography>
               <Typography
                 variant="nexaRegular"

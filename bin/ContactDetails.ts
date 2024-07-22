@@ -1,31 +1,33 @@
+// ContactDetails.ts
+
 import phoneContactDetails from '../public/icons/phone-contact-details.svg';
 import emailContactDetails from '../public/icons/email-contact-details.svg';
 import locationContactDetails from '../public/icons/location-contact-details.svg';
+import { Dictionary } from '@/types/dictionary';
 
-type ContactDetail = {
+export type ContactDetailItem = {
   id: string;
-  name: string;
+  nameKey: keyof Dictionary['contact']['details'];
   href: string;
-  value: string;
+  valueKey: keyof Dictionary['contact']['details'];
 };
-
-export const ContactDetails: ContactDetail[] = [
+export const ContactDetails: ContactDetailItem[] = [
   {
     id: '1',
-    name: 'Call Us',
+    nameKey: 'callUs',
     href: phoneContactDetails.src,
-    value: '+880 1763 27 2216',
+    valueKey: 'phoneNumber',
   },
   {
     id: '2',
-    name: 'Email',
+    nameKey: 'email',
     href: emailContactDetails.src,
-    value: 'bim.info@bim.com',
+    valueKey: 'emailAddress',
   },
   {
     id: '3',
-    name: 'Location',
+    nameKey: 'location',
     href: locationContactDetails.src,
-    value: '120/A, Block C, Road-3, New York, London',
+    valueKey: 'address',
   },
 ];

@@ -63,18 +63,43 @@
           "maxLength": "Le message doit contenir au maximum 250 caractères."
         }
       }
+    },
+    "details": {
+      "callUs": "Appelez-nous",
+      "phoneNumber": "+880 1763 27 2216",
+      "email": "Email",
+      "emailAddress": "bim.info@bim.com",
+      "location": "Localisation",
+      "address": "120/A, Block C, Road-3, New York, Londres"
     }
   },
   "legal": {
     "hero": {
-      "title": "Légal",
-      "description": "Si vous avez besoin d'aide pour des problèmes ou si vous voulez en savoir plus sur nous, vous pouvez nous contacter directement. Nous sommes toujours prêts à vous aider."
+      "title": "Informations Légales",
+      "description": "Détails juridiques importants sur notre service"
     },
     "legalNotice": {
       "title": "Mentions Légales",
-      "description": "Conformément aux dispositions des articles 6-III et 19 de la loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l'économie numérique, connue sous le nom de L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs, ci-après l'« Utilisateur », du site www.bim-dating.com, ci-après le « Site », les présentes mentions légales.",
-      "acceptanceText": "La connexion et la navigation sur le Site par l'Utilisateur impliquent l'acceptation pleine et entière des présentes mentions légales. Celles-ci sont accessibles sur le Site dans la section « Mentions légales »."
-    }
+      "description": "Ces mentions légales s'appliquent à l'ensemble du contenu de ce site web sous le nom de domaine www.bim-dating.com (ci-après 'le Site'). Veuillez lire attentivement ces mentions légales avant de naviguer sur le Site. En accédant au Site, vous acceptez sans réserve les dispositions suivantes."
+    },
+    "articles": [
+      {
+        "title": "L'ÉDITEUR",
+        "description": "L'édition du Site est assurée par Bim Group SARL-S avec un capital de 10 000 euros, enregistrée au Registre du Commerce et des Sociétés de Luxembourg sous le numéro 123456 dont le siège social est situé au 36, route du succès, Numéro de téléphone 0427827257, Adresse email : contact@bim-dating.com. Numéro de TVA intracommunautaire : 737286369 Le Directeur de la Publication est Houzet Vincent ci-après 'l'Éditeur'."
+      },
+      {
+        "title": "L'HÉBERGEUR",
+        "description": "L'hébergeur du Site est la société OVH, dont le siège social est situé au 2, rue Kellermann, 59100 Roubaix, avec numéro de téléphone : 1007 + adresse email de contact"
+      },
+      {
+        "title": "ACCÈS AU SITE",
+        "description": "Le Site est accessible partout, 7 jours sur 7, 24 heures sur 24 sauf en cas de force majeure ou d'interruption programmée ou non et pouvant résulter d'un besoin de maintenance. En cas de modification, interruption ou suspension du Site, l'Éditeur ne peut être tenu responsable."
+      },
+      {
+        "title": "COLLECTE DE DONNÉES",
+        "description": "Le Site veille à ce que l'Utilisateur collecte et traite les informations personnelles dans le respect de la vie privée conformément à la loi n°78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés. En vertu de la loi Informatique et Libertés, en date du 6 janvier 1978, l'Utilisateur dispose d'un droit d'accès, de rectification, de suppression et d'opposition des données personnelles. L'utilisateur exerce ce droit : · par email à l'adresse email contact@bim-dating.com Toute utilisation, reproduction, distribution, commercialisation, modification de tout ou partie du Site, sans autorisation de l'Éditeur est interdite et pourra entraîner des actions et poursuites judiciaires telles que notamment prévues par le Code de la propriété intellectuelle et le Code civil."
+      }
+    ]
   },
   "news": {
     "hero": {
@@ -135,5 +160,21 @@
         "dob": "Une date de naissance est requise."
       }
     }
+  },
+  "header": {
+    "logo": "Le Réseau Social de Rencontres",
+    "button": "Pré-Inscription",
+    "MainHeader": {
+      "Home": "Accueil",
+      "About": "À Propos",
+      "News": "Actualités",
+      "Contact": "Contact",
+      "PreRegister": "Pré-Inscription"
+    }
+  },
+  "footer": {
+    "legal": "Légal",
+    "privacy": "©2024 par BIM Group. Tous droits réservés",
+    "followUs": "Suivez-nous"
   }
 }

@@ -55,8 +55,8 @@ const FormSchema = z.object({
 });
 
 function PreRegistrationForm() {
-   const params = useParams();
-  const lang = params.lang as Languages; 
+  const params = useParams();
+  const lang = params.lang as Languages;
   const dict = useDictionary(lang);
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -104,9 +104,16 @@ function PreRegistrationForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{dict?.preRegister.form.name.label}</FormLabel>
+              <FormLabel>
+                {dict?.preRegister.form.name.label}
+              </FormLabel>
               <FormControl>
-                <Input placeholder={dict?.preRegister.form.name.placeholder} {...field} />
+                <Input
+                  placeholder={
+                    dict?.preRegister.form.name.placeholder
+                  }
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -118,10 +125,14 @@ function PreRegistrationForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{dict?.preRegister.form.email.label}</FormLabel>
+              <FormLabel>
+                {dict?.preRegister.form.email.label}
+              </FormLabel>
               <FormControl>
                 <Input
-                  placeholder={dict?.preRegister.form.email.placeholder}
+                  placeholder={
+                    dict?.preRegister.form.email.placeholder
+                  }
                   {...field}
                 />
               </FormControl>
@@ -135,7 +146,9 @@ function PreRegistrationForm() {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{dict?.preRegister.form.phone.label}</FormLabel>
+              <FormLabel>
+                {dict?.preRegister.form.phone.label}
+              </FormLabel>
               <FormControl>
                 <div className="flex items-center rounded-xl border border-gray-200">
                   <Select>
@@ -146,7 +159,10 @@ function PreRegistrationForm() {
                       <SelectGroup>
                         <SelectLabel>
                           <>
-                          {dict?.preRegister.form.phone.countryCode}
+                            {
+                              dict?.preRegister.form.phone
+                                .countryCode
+                            }
                           </>
                         </SelectLabel>
                         <SelectItem
@@ -160,7 +176,10 @@ function PreRegistrationForm() {
                     </SelectContent>
                   </Select>
                   <Input
-                  placeholder={dict?.preRegister.form.phone.placeholder}
+                    placeholder={
+                      dict?.preRegister.form.phone
+                        .placeholder
+                    }
                     {...field}
                     className="border-none"
                   />
@@ -176,7 +195,9 @@ function PreRegistrationForm() {
           name="dob"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel>{dict?.preRegister.form.dob.label}</FormLabel>
+              <FormLabel>
+                {dict?.preRegister.form.dob.label}
+              </FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
@@ -191,7 +212,12 @@ function PreRegistrationForm() {
                       {field.value ? (
                         format(field.value, 'PPP')
                       ) : (
-                        <span>{dict?.preRegister.form.dob.placeholder}</span>
+                        <span>
+                          {
+                            dict?.preRegister.form.dob
+                              .placeholder
+                          }
+                        </span>
                       )}
                       <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                     </Button>
