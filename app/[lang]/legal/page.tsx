@@ -5,12 +5,12 @@ import { useEffect, useState } from 'react';
 import HeroSection from '@/components/HeroSection';
 import { Typography } from '@/components/Typography';
 
-import { LegalArticles } from '@/bin/LegalData';
+import { LegalArticles } from '@/lib/bin/LegalData';
 import legalHero from '../../../public/images/legal-hero.png';
 import legalHeroMobile from '../../../public/images/legal-hero-mobile.png';
 import legalBg from '../../../public/images/legal-bg.png';
 import legalBgMobile from '../../../public/images/legal-bg-mobile.png';
-import { Languages } from '@/types/languages';
+import { Languages } from '@/lib/types/languages';
 import { useParams } from 'next/navigation';
 import { useDictionary } from '@/hooks/useDictionary';
 

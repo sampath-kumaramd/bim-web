@@ -10,7 +10,7 @@ import youtubeIcon from '../../public/icons/youtube.svg';
 import twitterIcon from '../../public/icons/x.svg';
 import { useRouter } from 'next/router';
 import { useParams } from 'next/navigation';
-import { Languages } from '@/types/languages';
+import { Languages } from '@/lib/types/languages';
 import { useDictionary } from '@/hooks/useDictionary';
 
 type SocialIcon = {
@@ -107,7 +107,7 @@ export function Footer() {
                 variant="Bim4Regular"
               >
                 {' '}
-                <a target='_blank' href={`/${lang}/legal`}>
+                <a target="_blank" href={`/${lang}/legal`}>
                   {' '}
                   {dict.footer.legal}
                 </a>

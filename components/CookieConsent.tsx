@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Typography } from './Typography';
 import { useParams } from 'next/navigation';
-import { Languages } from '@/types/languages';
+import { Languages } from '@/lib/types/languages';
 import { useDictionary } from '@/hooks/useDictionary';
 
 export const CookieConsentDialog = () => {

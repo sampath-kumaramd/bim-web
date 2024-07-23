@@ -1,24 +1,16 @@
+// app/api/pre-register/route.ts
+
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-async function verifyRecaptcha(token: string) {
-  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-  const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`;
-
-  const response = await fetch(verifyUrl, {
-    method: 'POST',
-  });
-  const data = await response.json();
-  return data.success;
-}
-
 export async function POST(request: Request) {
-  const { name, email, message, recaptcha } =
+  const { name, email, phone, dob, TOC, recaptcha } =
     await request.json();
-  const isHuman = await verifyRecaptcha(recaptcha);
-  if (!isHuman) {
+
+  // Validate TOC
+  if (!TOC) {
     return NextResponse.json(
-      { error: 'reCAPTCHA verification failed' },
+      { error: 'You must accept the terms and conditions' },
       { status: 400 },
     );
   }
@@ -28,11 +20,12 @@ export async function POST(request: Request) {
     port: 587,
     secure: false,
     auth: {
-      user: process.env.CONTACT_EMAIL_USER,
-      pass: process.env.CONTACT_EMAIL_PASSWORD,
+      user: process.env.PRE_REGISTER_EMAIL_USER,
+      pass: process.env.PRE_REGISTER_EMAIL_PASSWORD,
     },
   });
 
+  console.log('transporter', transporter);
   const htmlContent = `
     <html>
       <head>
@@ -65,7 +58,7 @@ export async function POST(request: Request) {
       </head>
       <body>
         <div class="container">
-          <h1>New Contact Form Submission</h1>
+          <h1>New Pre-Registration Submission</h1>
           <div class="field">
             <div class="label">Name:</div>
             <div class="value">${name}</div>
@@ -75,8 +68,12 @@ export async function POST(request: Request) {
             <div class="value">${email}</div>
           </div>
           <div class="field">
-            <div class="label">Message:</div>
-            <div class="value">${message}</div>
+            <div class="label">Phone:</div>
+            <div class="value">${phone}</div>
+          </div>
+          <div class="field">
+            <div class="label">Date of Birth:</div>
+            <div class="value">${dob}</div>
           </div>
         </div>
       </body>
@@ -84,9 +81,9 @@ export async function POST(request: Request) {
   `;
 
   const mailOptions = {
-    from: 'Contact Form',
-    to: process.env.CONTACT_EMAIL_USER,
-    subject: `New Contact Form Submission from ${name}`,
+    from: 'Pre-Registration Form',
+    to: process.env.PRE_REGISTER_EMAIL_USER,
+    subject: `New Pre-Registration Submission from ${name}`,
     html: htmlContent,
   };
 
@@ -95,7 +92,7 @@ export async function POST(request: Request) {
     console.log('Email sent successfully');
     return NextResponse.json(
       {
-        message: 'Email sent successfully',
+        message: 'Pre-registration submitted successfully',
       },
       { status: 200 },
     );
@@ -103,7 +100,7 @@ export async function POST(request: Request) {
     console.error('Error sending email', error);
     return NextResponse.json(
       {
-        error: 'Error sending email',
+        error: 'Error submitting pre-registration',
       },
       { status: 500 },
     );

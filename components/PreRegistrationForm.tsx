@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { format } from 'date-fns';
-import { CalendarIcon } from 'lucide-react';
+import { CalendarIcon, Flag } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -38,8 +38,16 @@ import {
 import { Typography } from './Typography';
 import CustomButton from './CustomButton';
 import { useParams } from 'next/navigation';
-import { Languages } from '@/types/languages';
+import { Languages } from '@/lib/types/languages';
 import { useDictionary } from '@/hooks/useDictionary';
+import { Checkbox } from './ui/checkbox';
+
+import { GB } from './ui/flags/GB';
+import { FR } from './ui/flags/FR';
+import { LU } from './ui/flags/LU';
+import { IT } from './ui/flags/IT';
+import { ES } from './ui/flags/ES';
+import { DE } from './ui/flags/DE';
 
 const FormSchema = z.object({
   name: z.string().min(2, {
@@ -48,9 +56,15 @@ const FormSchema = z.object({
   email: z.string().email({
     message: 'Invalid email address.',
   }),
-  phone: z.string(),
+  phone: z.string({
+    required_error: 'A phone number is required.',
+  }),
   dob: z.date({
     required_error: 'A date of birth is required.',
+  }),
+  TOC: z.boolean({
+    required_error:
+      'You must accept the terms and conditions.',
   }),
 });
 
@@ -58,6 +72,15 @@ function PreRegistrationForm() {
   const params = useParams();
   const lang = params.lang as Languages;
   const dict = useDictionary(lang);
+  const [countryCode, setCountryCode] = useState('+880');
+  const countryCodes = [
+    { value: '+44', label: 'United Kingdom', flag: GB },
+    { value: '+33', label: 'France', flag: FR },
+    { value: '+352', label: 'Luxembourg', flag: LU },
+    { value: '+39', label: 'Italy', flag: IT },
+    { value: '+34', label: 'Spain', flag: ES },
+    { value: '+49', label: 'Germany', flag: DE },
+  ];
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -65,23 +88,74 @@ function PreRegistrationForm() {
       name: '',
       email: '',
       phone: '',
+      dob: undefined,
+      TOC: false,
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast({
-      title: 'You submitted the following values:',
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">
-            {JSON.stringify(data, null, 2)}
-          </code>
-        </pre>
-      ),
-    });
-  }
+  async function onSubmit(
+    data: z.infer<typeof FormSchema>,
+  ) {
+    let phoneNumber = `${countryCode}${data.phone}`;
+    data.phone = phoneNumber;
 
-  const [countryCode, setCountryCode] = useState('+880');
+    if (data.TOC === false) {
+      toast({
+        title: 'You must accept the terms and conditions.',
+        description:
+          'Please accept the terms and conditions.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (data.phone.length < 10) {
+      toast({
+        title: 'Invalid Phone Number',
+        description: 'Please enter a valid phone number.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/pre-register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          'Failed to submit pre-registration',
+        );
+      }
+
+      toast({
+        title:
+          dict?.preRegister.form.submitToast.success.title,
+        description:
+          dict?.preRegister.form.submitToast.success
+            .description,
+      });
+
+      form.reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title:
+          dict?.preRegister.form.submitToast.error.title,
+        description:
+          dict?.preRegister.form.submitToast.error
+            .description,
+        variant: 'destructive',
+      });
+    }
+  }
 
   if (!dict) {
     return null;
@@ -105,7 +179,12 @@ function PreRegistrationForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>
-                {dict?.preRegister.form.name.label}
+                <Typography
+                  variant="Bim4Regular"
+                  className="text-start font-thin"
+                >
+                  {dict?.preRegister.form.name.label}
+                </Typography>
               </FormLabel>
               <FormControl>
                 <Input
@@ -126,7 +205,12 @@ function PreRegistrationForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>
-                {dict?.preRegister.form.email.label}
+                <Typography
+                  variant="Bim4Regular"
+                  className="text-start font-thin"
+                >
+                  {dict?.preRegister.form.email.label}
+                </Typography>
               </FormLabel>
               <FormControl>
                 <Input
@@ -146,44 +230,76 @@ function PreRegistrationForm() {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
+              <Typography
+                variant="Bim4Regular"
+                className="text-start font-thin"
+              >
                 {dict?.preRegister.form.phone.label}
-              </FormLabel>
+              </Typography>
               <FormControl>
-                {/* <div className="flex items-center rounded-xl border border-gray-200">
-                  <Select>
-                    <SelectTrigger className="w-[180px]">
-                      <SelectValue placeholder="Select a country code" />
+                <div className="flex">
+                  <Select
+                    value={countryCode}
+                    onValueChange={(value) =>
+                      setCountryCode(value)
+                    }
+                    defaultValue={countryCode}
+                  >
+                    <SelectTrigger className="w-[120px] focus:ring-0 focus:ring-offset-0">
+                      <SelectValue placeholder="code">
+                        {countryCodes.find(
+                          (code) =>
+                            code.value === countryCode,
+                        )?.flag ? (
+                          <div className="flex items-center">
+                            {React.createElement(
+                              countryCodes.find(
+                                (code) =>
+                                  code.value ===
+                                  countryCode,
+                              )!.flag,
+                              { className: 'h-4 w-4 mr-2' },
+                            )}
+                            {countryCode}
+                          </div>
+                        ) : (
+                          <div className="flex gap-2">
+                            <FR className="mr-2 h-4 w-4" />
+                            +33
+                          </div>
+                        )}
+                      </SelectValue>
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectGroup>
-                        <SelectLabel>
-                          <>
-                            {
-                              dict?.preRegister.form.phone
-                                .countryCode
-                            }
-                          </>
-                        </SelectLabel>
-                        <SelectItem
-                          value="apple"
-                          className="flex items-center"
-                        >
-                          <div></div>
-                          <div>+2</div>
-                        </SelectItem>
-                      </SelectGroup>
+                      {countryCodes.map(
+                        ({ value, label, flag: Flag }) => (
+                          <SelectItem
+                            key={value}
+                            value={value}
+                            className="flex items-center"
+                          >
+                            <div className="flex gap-2">
+                              <Flag className="mr-2 h-4 w-4" />
+                              <div>({value})</div>
+                            </div>
+                          </SelectItem>
+                        ),
+                      )}
                     </SelectContent>
                   </Select>
                   <Input
+                    className="flex-1"
                     placeholder={
                       dict?.preRegister.form.phone
                         .placeholder
                     }
                     {...field}
-                    className="border-none"
+                    onChange={(e) => {
+                      const phoneNumber = e.target.value;
+                      field.onChange(`${phoneNumber}`);
+                    }}
                   />
-                </div> */}
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -195,9 +311,13 @@ function PreRegistrationForm() {
           name="dob"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel>
+              <Typography
+                variant="Bim4Regular"
+                className="text-start font-thin"
+              >
                 {dict?.preRegister.form.dob.label}
-              </FormLabel>
+              </Typography>
+              <FormLabel></FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
@@ -233,13 +353,51 @@ function PreRegistrationForm() {
                     onSelect={field.onChange}
                     disabled={(date) =>
                       date > new Date() ||
-                      date < new Date('1900-01-01')
+                      date >
+                        new Date(
+                          new Date().setFullYear(
+                            new Date().getFullYear() - 18,
+                          ),
+                        )
                     }
                     initialFocus
+                    fromYear={1900}
+                    toYear={new Date().getFullYear() - 18}
                   />
                 </PopoverContent>
               </Popover>
               <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="TOC"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4">
+              <FormControl>
+                <Checkbox
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <div className="space-y-1 leading-none">
+                <FormLabel className="flex items-center">
+                  <Typography
+                    variant="Bim4Regular"
+                    className="font-thin"
+                  >
+                    {dict?.preRegister.form.TOS.label}
+                  </Typography>
+                  <Typography
+                    variant="Bim4Regular"
+                    className="font-semibold text-pink"
+                  >
+                    &nbsp; {dict?.preRegister.form.TOS.link}
+                  </Typography>
+                </FormLabel>
+              </div>
             </FormItem>
           )}
         />
@@ -255,5 +413,4 @@ function PreRegistrationForm() {
     </Form>
   );
 }
-
 export default PreRegistrationForm;

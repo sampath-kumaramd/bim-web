@@ -69,7 +69,7 @@ export function LanguageSwitcher() {
           <selectedLanguage.flag className="h-5 w-5" />
           <span>
             {windowWidth !== null && windowWidth <= 640
-              ? selectedLanguage.label.slice(0, 2)
+              ? ''
               : selectedLanguage.label}
           </span>
           <ChevronDown className="ml-2 h-4 w-4" />

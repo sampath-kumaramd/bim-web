@@ -1,8 +1,8 @@
 'use client';
 import { useLanguage } from '@/components/LanguageContext';
 import { getDictionary } from '@/lib/getDictionary';
-import { Dictionary } from '@/types/dictionary';
-import { Languages } from '@/types/languages';
+import { Dictionary } from '@/lib/types/dictionary';
+import { Languages } from '@/lib/types/languages';
 import { useEffect, useState } from 'react';
 
 export function useDictionary(

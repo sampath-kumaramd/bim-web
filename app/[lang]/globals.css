@@ -97,3 +97,18 @@
   font-style: normal;
   font-display: swap;
 }
+
+.custom-card {
+  transform: skew(-5deg);
+  transform-origin: right;
+  background: linear-gradient(
+    to bottom left,
+    #fae7f0,
+    #fffdf7
+  );
+}
+
+.transform {
+  transform: skew(5deg);
+  transform-origin: right;
+}

@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import { Typography } from './Typography';
 import { useDictionary } from '@/hooks/useDictionary';
-import { Languages } from '@/types/languages';
+import { Languages } from '@/lib/types/languages';
 
 interface MainHeaderProps
   extends React.HTMLAttributes<HTMLDivElement> {

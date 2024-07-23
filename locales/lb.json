@@ -150,9 +150,23 @@
         "label": "Gebuertsdatum",
         "placeholder": "Wielt en Datum"
       },
+      "TOS": {
+        "label": "Andeems ech op Schécken klicken, averstanen ech mat den",
+        "link": "Allgemeng Geschäftsbedingungen"
+      },
       "submit": "Schécken",
       "toast": {
         "title": "Dir hutt déi folgend Wäerter agereecht:"
+      },
+      "submitToast": {
+        "success": {
+          "title": "Message erfollegräich geschéckt!",
+          "description": "Mir kommen geschwënn zréck bei Iech."
+        },
+        "error": {
+          "title": "Feeler",
+          "description": "Message schécken ass gescheitert. Probéiert w.e.g. nach eng Kéier."
+        }
       },
       "validation": {
         "name": "Den Benotzernumm muss op d'mannst 2 Zeeche laang sinn.",

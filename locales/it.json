@@ -150,9 +150,23 @@
         "label": "Data di nascita",
         "placeholder": "Scegli una data"
       },
+      "TOS": {
+        "label": "Cliccando su Invia, accetto i",
+        "link": "Termini e Condizioni"
+      },
       "submit": "Invia",
       "toast": {
         "title": "Hai inviato i seguenti valori:"
+      },
+      "submitToast": {
+        "success": {
+          "title": "Messaggio inviato con successo!",
+          "description": "Ti risponderemo presto."
+        },
+        "error": {
+          "title": "Errore",
+          "description": "Invio del messaggio fallito. Per favore riprova."
+        }
       },
       "validation": {
         "name": "Il nome utente deve essere di almeno 2 caratteri.",

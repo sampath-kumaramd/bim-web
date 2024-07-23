@@ -14,7 +14,7 @@ import preRegisterBg from '../../../public/images/pre-registration-bg.png';
 import preRegisterBgMobile from '../../../public/images/pre-registration-bg-mobile.png';
 import preRegisterImage from '../../../public/images/pre-registration-image.png';
 import { useParams } from 'next/navigation';
-import { Languages } from '@/types/languages';
+import { Languages } from '@/lib/types/languages';
 import { useDictionary } from '@/hooks/useDictionary';
 
 export default function page() {

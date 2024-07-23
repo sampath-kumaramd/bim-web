@@ -13,7 +13,7 @@ import { LanguageSwitcher } from '../LanguageSwitcher';
 
 import logoIcon from '../../public/logo.svg';
 import { useDictionary } from '@/hooks/useDictionary';
-import { Languages } from '@/types/languages';
+import { Languages } from '@/lib/types/languages';
 
 export function Header() {
   const router = useRouter();
@@ -78,24 +78,24 @@ export function Header() {
                 loading="lazy"
               />
               <span className="min-w-48 text-xs text-white sm:text-base">
-                {dict.header.logo}
+                The Dating Social Media
               </span>
             </button>
           </div>
           <MainHeader className="hidden flex-row gap-4 lg:flex" />
 
           <div className="flex items-center gap-8 lg:gap-16">
-            <Link href="/pre-register">
-              <Button
-                className="hidden rounded-lg bg-white text-[#4B0325] hover:bg-yellow-400 md:block"
-                onClick={() => {
-                  router.push(`/${lang}/pre-register`);
-                  closeMenu?.();
-                }}
-              >
-                {dict.header.button}
-              </Button>
-            </Link>
+            {/* <Link href="/pre-register"> */}
+            <Button
+              className="hidden rounded-lg bg-white text-[#4B0325] hover:bg-yellow-400 md:block"
+              onClick={() => {
+                router.push(`/${lang}/pre-register`);
+                closeMenu?.();
+              }}
+            >
+              {dict.header.button}
+            </Button>
+            {/* </Link> */}
             <div className="">
               <LanguageSwitcher />
             </div>

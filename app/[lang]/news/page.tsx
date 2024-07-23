@@ -10,7 +10,7 @@ import newsHeadingImages from '../../../public/images/news-heading-images.svg';
 import newsHeadingImagesMobile from '../../../public/images/news-heading-images-mobile.svg';
 import newsImages from '../../../public/images/news-images.svg';
 import { useParams, useRouter } from 'next/navigation';
-import { Languages } from '@/types/languages';
+import { Languages } from '@/lib/types/languages';
 import { useDictionary } from '@/hooks/useDictionary';
 
 export default function page() {
@@ -19,9 +19,9 @@ export default function page() {
   const dict = useDictionary(lang);
   const router = useRouter();
 
-  const handleButtonClick = () => { 
-   router.push(`/${lang}/news/1`);
-  }
+  const handleButtonClick = () => {
+    router.push(`/${lang}/news/1`);
+  };
 
   if (!dict) {
     return null;

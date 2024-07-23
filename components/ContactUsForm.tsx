@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 import {
   Form,
@@ -21,7 +22,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Typography } from './Typography';
 import CustomButton from './CustomButton';
 import { useParams } from 'next/navigation';
-import { Languages } from '@/types/languages';
+import { Languages } from '@/lib/types/languages';
 import { useDictionary } from '@/hooks/useDictionary';
 
 const FormSchema = z.object({
@@ -37,6 +38,9 @@ const FormSchema = z.object({
     .max(250, {
       message: 'Message must be at maximum 250 characters.',
     }),
+  recaptcha: z
+    .string()
+    .min(1, 'Please complete the reCAPTCHA'),
 });
 
 function ContactUsForm() {
@@ -45,18 +49,32 @@ function ContactUsForm() {
   const dict = useDictionary(lang);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const [recaptchaValue, setRecaptchaValue] = useState<
+    string | null
+  >(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       name: '',
       email: '',
       message: '',
+      recaptcha: '',
     },
   });
 
   async function onSubmit(
     data: z.infer<typeof FormSchema>,
   ) {
+    if (!recaptchaValue) {
+      toast({
+        title: 'reCAPTCHA Error',
+        description: 'Please complete the reCAPTCHA',
+        variant: 'destructive',
+      });
+      return;
+    }
     setIsSubmitting(true);
     try {
       const response = await fetch('/api/contact', {
@@ -64,7 +82,10 @@ function ContactUsForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          recaptcha: recaptchaValue,
+        }),
       });
 
       if (!response.ok) {
@@ -88,6 +109,8 @@ function ContactUsForm() {
       });
     } finally {
       setIsSubmitting(false);
+      recaptchaRef.current?.reset();
+      setRecaptchaValue(null);
     }
   }
 
@@ -166,6 +189,19 @@ function ContactUsForm() {
           )}
         />
 
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          sitekey="6LfbqhUqAAAAANY9Au8M-15jS8rH8dF8oNyT2CtA"
+          onChange={(value) => {
+            setRecaptchaValue(value);
+            form.setValue('recaptcha', value || '');
+          }}
+        />
+        {form.formState.errors.recaptcha && (
+          <p className="text-red-500">
+            {form.formState.errors.recaptcha.message}
+          </p>
+        )}
         <div className="flex w-full flex-col items-center pt-4 sm:pt-8">
           <CustomButton
             variant="tertiary"

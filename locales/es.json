@@ -150,9 +150,23 @@
         "label": "Fecha de Nacimiento",
         "placeholder": "Elige una fecha"
       },
+      "TOS": {
+        "label": "Al hacer clic en Enviar, acepto los",
+        "link": "Términos y Condiciones"
+      },
       "submit": "Enviar",
       "toast": {
         "title": "Has enviado los siguientes valores:"
+      },
+      "submitToast": {
+        "success": {
+          "title": "¡Mensaje enviado con éxito!",
+          "description": "Nos pondremos en contacto contigo pronto."
+        },
+        "error": {
+          "title": "Error",
+          "description": "No se pudo enviar el mensaje. Por favor, inténtalo de nuevo."
+        }
       },
       "validation": {
         "name": "El nombre de usuario debe tener al menos 2 caracteres.",

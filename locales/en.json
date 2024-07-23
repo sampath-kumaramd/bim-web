@@ -122,6 +122,10 @@
         "label": "Date of birth",
         "placeholder": "Pick a date"
       },
+      "TOS": {
+        "label": "By clicking Submit I agree with",
+        "link": "Terms & Conditions"
+      },
       "submit": "Submit",
       "toast": {
         "title": "You submitted the following values:"
@@ -130,6 +134,16 @@
         "name": "Username must be at least 2 characters.",
         "email": "Invalid email address.",
         "dob": "A date of birth is required."
+      },
+      "submitToast": {
+        "success": {
+          "title": "Message sent successfully!",
+          "description": "We will get back to you soon."
+        },
+        "error": {
+          "title": "Error",
+          "description": "Failed to send message. Please try again."
+        }
       }
     }
   },

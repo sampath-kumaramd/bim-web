@@ -1,9 +1,9 @@
 // ContactDetails.ts
 
-import phoneContactDetails from '../public/icons/phone-contact-details.svg';
-import emailContactDetails from '../public/icons/email-contact-details.svg';
-import locationContactDetails from '../public/icons/location-contact-details.svg';
-import { Dictionary } from '@/types/dictionary';
+import phoneContactDetails from '../../public/icons/phone-contact-details.svg';
+import emailContactDetails from '../../public/icons/email-contact-details.svg';
+import locationContactDetails from '../../public/icons/location-contact-details.svg';
+import { Dictionary } from '@/lib/types/dictionary';
 
 export type ContactDetailItem = {
   id: string;

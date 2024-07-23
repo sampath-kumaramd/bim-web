@@ -120,9 +120,20 @@ export interface Dictionary {
         label: string;
         placeholder: string;
       };
+      TOS: {
+        label: string;
+        link: string;
+      };
       submit: string;
-      toast: {
-        title: string;
+      submitToast: {
+        success: {
+          title: string;
+          description: string;
+        };
+        error: {
+          title: string;
+          description: string;
+        };
       };
       validation: {
         name: string;

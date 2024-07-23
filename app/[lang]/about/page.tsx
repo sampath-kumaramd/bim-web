@@ -26,7 +26,7 @@ import googlePlayImage from '../../../public/images/google-play-badge.png';
 import { getDictionary } from '@/lib/getDictionary';
 import { useDictionary } from '@/hooks/useDictionary';
 import { useParams } from 'next/navigation';
-import { Languages } from '@/types/languages';
+import { Languages } from '@/lib/types/languages';
 
 export default function page() {
   const [windowWidth, setWindowWidth] = useState<

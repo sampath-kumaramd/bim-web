@@ -1,16 +1,3 @@
-// app/[lang]/page.tsx
-// import { getDictionary } from '@/lib/getDictionary'
-
-// export default async function Home({ params: { lang } }: Readonly<{ params: { lang: 'en' | 'fr' } }>) {
-//   const dict = await getDictionary(lang)
-
-//   return (
-//     <main>
-//       <h1>{dict.Home}</h1>
-//     </main>
-//   )
-// }
-
 'use client';
 
 import { Typography } from '@/components/Typography';
@@ -20,7 +7,6 @@ import { motion } from 'framer-motion';
 
 import homeBg from '../../public/images/home-bg.png';
 import homeBgMobile from '../../public/images/home-bg-mobile.png';
-import poligonImage from '../../public/images/home-bg-mobile.png';
 
 export default function Home() {
   const [windowWidth, setWindowWidth] = useState<
@@ -50,21 +36,12 @@ export default function Home() {
             })`,
           }}
         />
-        <div className="min-h-screen">hi</div>
-
-        {/* <div className="relative z-10 grid grid-cols-1 gap-32 sm:py-24 md:grid-cols-2">
-          <div className="relative">
-            <Image
-              src=  {poligonImage.src}
-              alt="poligon"
-              width="850"
-              height="700"
-            />
-            <div className="absolute top-0 max-w-3xl">
-              <div className="ms-64 py-20">
-                <Typography
+        <div className="bg-pink-100 flex h-screen w-full items-center justify-start">
+          <div className="custom-card -ms-40 h-[60%] w-[50%] rounded-[80px] p-10 pe-28 ">
+              <div className="ms-64 py-8 transform">
+                <Typography 
                   variant="Bim1"
-                  className="mb-12 space-y-3 text-justify text-base text-[#4b0325] sm:text-6xl"
+                  className="mb-8 space-y-3 text-justify text-base text-[#4b0325] sm:text-6xl"
                 >
                   <div>FIND SOMETHING</div>
                   <div>
@@ -88,7 +65,7 @@ export default function Home() {
                   mobile app from app store or google store.
                   Let’s have a try
                 </Typography>
-                <div className="mt-28 flex justify-start gap-4 md:gap-16">
+                <div className="mt-20 flex justify-between gap-4 md:gap-16">
                   <motion.button
                     whileHover={{
                       scale: 1.04,
@@ -123,10 +100,9 @@ export default function Home() {
                   </motion.button>
                 </div>
               </div>
-            </div>
           </div>
-          <div>gsfs</div>
-        </div> */}
+        </div>
+    
       </section>
     </div>
   );

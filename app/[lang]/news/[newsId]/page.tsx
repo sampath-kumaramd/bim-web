@@ -1,7 +1,7 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { Languages } from '@/types/languages';
+import { Languages } from '@/lib/types/languages';
 import { useDictionary } from '@/hooks/useDictionary';
 
 export default function page() {
@@ -13,8 +13,8 @@ export default function page() {
     return null;
   }
   return (
-      <div className="min-h-screen flex justify-center items-center">
-          this will be the news page
+    <div className="flex min-h-screen items-center justify-center">
+      this will be the news page
     </div>
   );
 }

@@ -8,7 +8,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { ReactNode } from 'react';
 import { getDictionary } from '@/lib/getDictionary';
 import { LanguageProvider } from '@/components/LanguageContext';
-import { Languages } from '@/types/languages';
+import { Languages } from '@/lib/types/languages';
 import { CookieConsentDialog } from '@/components/CookieConsent';
 
 const inter = Inter({

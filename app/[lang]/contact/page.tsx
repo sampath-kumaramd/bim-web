@@ -4,7 +4,7 @@ import HeroSection from '@/components/HeroSection';
 import { useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Typography } from '@/components/Typography';
-import { ContactDetails } from '@/bin/ContactDetails';
+import { ContactDetails } from '@/lib/bin/ContactDetails';
 import Image from 'next/image';
 import ContactUsForm from '@/components/ContactUsForm';
 
@@ -12,7 +12,7 @@ import contactUsHeroImage from '../../../public/images/contact-us-hero.png';
 import contactUsHeroMobileImage from '../../../public/images/contact-us-hero-mobile.png';
 import contactUsBg from '../../../public/images/contact-us-bg.png';
 import contactUsBgMobile from '../../../public/images/contact-us-bg-mobile.png';
-import { Languages } from '@/types/languages';
+import { Languages } from '@/lib/types/languages';
 import { useParams } from 'next/navigation';
 import { useDictionary } from '@/hooks/useDictionary';
 

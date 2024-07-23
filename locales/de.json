@@ -45,7 +45,7 @@
         "placeholder": "Geben Sie hier Ihre Nachricht ein."
       },
       "submit": "Absenden",
-      "toast": {
+      "submitToast": {
         "success": {
           "title": "Nachricht erfolgreich gesendet!",
           "description": "Wir werden uns bald bei Ihnen melden."
@@ -150,6 +150,20 @@
         "label": "Geburtsdatum",
         "placeholder": "Wählen Sie ein Datum"
       },
+      "TOS": {
+        "label": "Durch Klicken auf Absenden stimme ich den",
+        "link": "Allgemeinen Geschäftsbedingungen"
+      },
+      "submitToast": {
+        "success": {
+          "title": "Nachricht erfolgreich gesendet!",
+          "description": "Wir werden uns bald bei Ihnen melden."
+        },
+        "error": {
+          "title": "Fehler",
+          "description": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
+        }
+      },
       "submit": "Absenden",
       "toast": {
         "title": "Sie haben die folgenden Werte übermittelt:"
@@ -177,7 +191,7 @@
     "privacy": "©2024 von BIM Group. Alle Rechte vorbehalten",
     "followUs": "Folgen Sie uns"
   },
-   "cookies": {
+  "cookies": {
     "description": "Wir verwenden Cookies, um sicherzustellen, dass Sie die beste Erfahrung auf unserer Website machen. Durch die Nutzung unserer Seite stimmen Sie der Verwendung von Cookies zu.",
     "accept": "Alle Cookies akzeptieren",
     "cancel": "Abbrechen"

@@ -154,6 +154,16 @@
       "toast": {
         "title": "Vous avez soumis les valeurs suivantes :"
       },
+      "submitToast": {
+        "success": {
+          "title": "Message envoyé avec succès!",
+          "description": "Nous vous répondrons bientôt."
+        },
+        "error": {
+          "title": "Erreur",
+          "description": "Échec de l'envoi du message. Veuillez réessayer."
+        }
+      },
       "validation": {
         "name": "Le nom d'utilisateur doit contenir au moins 2 caractères.",
         "email": "Adresse email invalide.",
@@ -176,7 +186,8 @@
     "legal": "Légal",
     "privacy": "©2024 par BIM Group. Tous droits réservés",
     "followUs": "Suivez-nous"
-  }, "cookies": {
+  },
+  "cookies": {
     "description": "Nous utilisons des cookies pour nous assurer que vous obtenez la meilleure expérience sur notre site web. En utilisant notre site, vous acceptez notre utilisation des cookies.",
     "accept": "Accepter tous les cookies",
     "cancel": "Annuler"
