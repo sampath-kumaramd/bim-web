@@ -1,48 +1,51 @@
-'use client'
+'use client';
 
-import * as React from "react"
+import * as React from 'react';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
-import { type CarouselApi } from "@/components/ui/carousel"
-import VideoSection from "./VideoSection"
-import styles from '@/styles/VideoCarousel.module.css'
-import Autoplay from "embla-carousel-autoplay"
+} from '@/components/ui/carousel';
+import { type CarouselApi } from '@/components/ui/carousel';
+import VideoSection from './VideoSection';
+import styles from '@/styles/VideoCarousel.module.css';
+import Autoplay from 'embla-carousel-autoplay';
 
 export default function VideoCarousel() {
-  const [api, setApi] = React.useState<CarouselApi>()
-  const [current, setCurrent] = React.useState(0)
-  const [count, setCount] = React.useState(0)
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
 
   React.useEffect(() => {
     if (!api) {
-      return
+      return;
     }
 
-    setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap())
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap())
-    })
-  }, [api])
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   return (
     <div className={styles.carouselWrapper}>
-      <Carousel setApi={setApi} opts={{
-    align: "start",
-    loop: true,
-      }}
-  plugins={[
-        Autoplay({
-          delay: 2000,
-        }),
-      ]}
-        className="w-full max-w-[90vw] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto">
+      <Carousel
+        setApi={setApi}
+        opts={{
+          align: 'start',
+          loop: true,
+        }}
+        plugins={[
+          Autoplay({
+            delay: 3000,
+          }),
+        ]}
+        className="mx-auto w-full max-w-[90vw] p-5 sm:max-w-sm sm:p-0 md:max-w-md lg:max-w-lg xl:max-w-xl"
+      >
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem key={index}>
@@ -64,5 +67,5 @@ export default function VideoCarousel() {
         ))}
       </div>
     </div>
-  )
+  );
 }

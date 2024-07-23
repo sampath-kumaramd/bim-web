@@ -64,6 +64,10 @@ function ContactUsForm() {
     },
   });
 
+  const siteKey =
+    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
+    'your_fallback_site_key';
+
   async function onSubmit(
     data: z.infer<typeof FormSchema>,
   ) {
@@ -191,7 +195,7 @@ function ContactUsForm() {
 
         <ReCAPTCHA
           ref={recaptchaRef}
-          sitekey="6LfbqhUqAAAAANY9Au8M-15jS8rH8dF8oNyT2CtA"
+          sitekey={siteKey}
           onChange={(value) => {
             setRecaptchaValue(value);
             form.setValue('recaptcha', value || '');
