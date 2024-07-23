@@ -1,4 +1,12 @@
 export interface Dictionary {
+  home: {
+    findSomething: string;
+    perfect: string;
+    make: string;
+    some: string;
+    fun: string;
+    description: string;
+  };
   about: {
     hero: {
       title: string;

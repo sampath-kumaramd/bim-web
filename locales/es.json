@@ -1,4 +1,12 @@
 {
+  "home": {
+    "findSomething": "ENCUENTRA ALGO",
+    "perfect": "PERFECTO",
+    "make": "Y HAZ",
+    "some": "ALGO",
+    "fun": "DIVERTIDO",
+    "description": "Descarga la aplicación móvil de citas en línea más popular de la tienda de aplicaciones o de Google. Vamos a intentarlo"
+  },
   "about": {
     "hero": {
       "title": "EL MÁS CONFIABLE Y SEGURO",

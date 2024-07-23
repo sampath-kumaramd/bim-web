@@ -9,6 +9,9 @@ import homeBgMobile from '../../public/images/home-bg-mobile.png';
 import { VideoCarouselWrapper } from '@/components/VideoCarouselWrapper';
 import appSroteImage from '../../public/images/app-store-badge.png';
 import googlePlayImage from '../../public/images/google-play-badge.png';
+import { useParams } from 'next/navigation';
+import { Languages } from '@/lib/types/languages';
+import { useDictionary } from '@/hooks/useDictionary';
 
 export default function Home() {
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
@@ -22,6 +25,9 @@ export default function Home() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+ const params = useParams();
+  const lang = params.lang as Languages;
+  const dict = useDictionary(lang);
   return (
     <div className="min-h-screen">
       <div className="relative overflow-hidden">
@@ -39,21 +45,19 @@ export default function Home() {
           <div className="custom-card w-full lg:w-1/2 rounded-[40px] lg:rounded-[80px] p-6 lg:p-10 xl:pe-28 lg:pe-8  mb-8 lg:mb-0 -ms-40">
             <div className="sm:ms-40 ms-20  py-4 lg:py-8 transform">
               <Typography variant="Bim1" className="mb-2 text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#4b0325]">
-                FIND SOMETHING
+               {dict?.home.findSomething}
               </Typography>
               <Typography variant="Bim1" className="mb-2 text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#4b0325]">
-                <span className="text-[#D10062]">PERFECT</span> & MAKE
+                <span className="text-[#D10062]">{ dict?.home.perfect}</span> { dict?.home.make}
               </Typography>
               <Typography variant="Bim1" className="mb-4 lg:mb-8 text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#4b0325]">
-                SOME <span className="text-[#33AE9D]">FUN</span>
+                { dict?.home.some} <span className="text-[#33AE9D]">{ dict?.home.fun}</span>
               </Typography>
               <Typography
                 variant="Bim4Regular"
                 className="text-left text-sm lg:text-base  text-[#4b0325]"
               >
-                Download the most popular online dating
-                mobile app from app store or google store.
-                Let's have a try
+                { dict?.home.description}
               </Typography>
               <div className="mt-8 lg:mt-12 flex flex-row justify-between items-center gap-4  ">
                 <motion.button
