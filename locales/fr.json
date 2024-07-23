@@ -150,6 +150,10 @@
         "label": "Date de naissance",
         "placeholder": "Choisissez une date"
       },
+      "TOS": {
+        "label": "En cliquant sur Envoyer, j'accepte les",
+        "link": "Conditions Générales"
+      },
       "submit": "Envoyer",
       "toast": {
         "title": "Vous avez soumis les valeurs suivantes :"
