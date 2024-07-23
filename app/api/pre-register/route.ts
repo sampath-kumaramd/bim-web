@@ -25,7 +25,6 @@ export async function POST(request: Request) {
     },
   });
 
-  console.log('transporter', transporter);
   const htmlContent = `
     <html>
       <head>
