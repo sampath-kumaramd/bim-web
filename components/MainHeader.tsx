@@ -29,29 +29,26 @@ export function MainHeader({
   // const lang = params.lang as Languages;
   const dict = useDictionary(lang);
 
-  if (!dict) {
-    return null;
-  }
   const routes = [
     {
       href: `/${lang}`,
-      label: dict.header.MainHeader.Home,
+      label: dict?.header.MainHeader.Home,
       active:
         pathname === `/${lang}` || pathname === `/${lang}/`,
     },
     {
       href: `/${lang}/about`,
-      label: dict.header.MainHeader.About,
+      label: dict?.header.MainHeader.About,
       active: pathname === `/${lang}/about`,
     },
     {
       href: `/${lang}/news`,
-      label: dict.header.MainHeader.News,
+      label: dict?.header.MainHeader.News,
       active: pathname === `/${lang}/news`,
     },
     {
       href: `/${lang}/contact`,
-      label: dict.header.MainHeader.Contact,
+      label: dict?.header.MainHeader.Contact,
       active: pathname === `/${lang}/contact`,
     },
   ];
@@ -119,7 +116,7 @@ export function MainHeader({
             closeMenu?.();
           }}
         >
-          {dict.header.MainHeader.PreRegister}
+          {dict?.header.MainHeader.PreRegister}
         </Button>
       </div>
     </motion.div>

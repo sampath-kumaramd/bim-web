@@ -35,10 +35,10 @@ const VideoSection = () => {
                 className="rounded-2xl"
               />
               <button
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-white bg-opacity-80 p-4 transition-transform hover:scale-110"
+                className="absolute left-1/2 top-1/2  rounded-full bg-white bg-opacity-80 p-4"
                 onClick={handlePlayClick}
               >
-                <PlayIcon className="text-pink-600 h-8 w-8" />
+                <PlayIcon  fill='true' className="text-pink-600 h-8 w-8 " />
               </button>
             </div>
           </div>
@@ -61,7 +61,7 @@ const VideoSection = () => {
                 autoPlay
               >
                 <source
-                  src="../public/videos/video.mp4"
+                  src="../public/sample-video.mov"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
