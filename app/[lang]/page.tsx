@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <div className="h-auto">
-      <section className="relative overflow-hidden">
+      <div className="relative overflow-hidden">
         <div
           className="absolute inset-0 z-0 bg-cover bg-right"
           style={{
@@ -43,19 +43,19 @@ export default function Home() {
                   variant="Bim1"
                   className="mb-8 space-y-3 text-justify text-base text-[#4b0325] sm:text-6xl"
                 >
-                  <div>FIND SOMETHING</div>
-                  <div>
+                  <Typography  variant="Bim1" className="mb-8 space-y-3 text-justify text-base text-[#4b0325] sm:text-6xl">FIND SOMETHING</Typography>
+                  <Typography  variant="Bim1" className="mb-8 space-y-3 text-justify text-base text-[#4b0325] sm:text-6xl">
                     <span className="text-[#D10062]">
                       PERFECT
                     </span>{' '}
                     & MAKE
-                  </div>
-                  <div>
+                  </Typography>
+                  <Typography  variant="Bim1" className="mb-8 space-y-3 text-justify text-base text-[#4b0325] sm:text-6xl">
                     SOME{' '}
                     <span className="text-[#33AE9D]">
                       FUN
                     </span>
-                  </div>
+                  </Typography>
                 </Typography>
                 <Typography
                   variant="Bim4Regular"
@@ -103,7 +103,7 @@ export default function Home() {
           </div>
         </div>
     
-      </section>
+      </div>
     </div>
   );
 }
