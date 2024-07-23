@@ -1,20 +1,20 @@
 'use client';
 
-import HeroSection from '@/components/HeroSection';
 import { useEffect, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Typography } from '@/components/Typography';
-import { ContactDetails } from '@/lib/bin/ContactDetails';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
+
+import HeroSection from '@/components/HeroSection';
+import { Typography } from '@/components/Typography';
 import ContactUsForm from '@/components/ContactUsForm';
+import { ContactDetails } from '@/lib/bin/ContactDetails';
+import { Languages } from '@/lib/types/languages';
+import { useDictionary } from '@/hooks/useDictionary';
 
 import contactUsHeroImage from '../../../public/images/contact-us-hero.png';
 import contactUsHeroMobileImage from '../../../public/images/contact-us-hero-mobile.png';
 import contactUsBg from '../../../public/images/contact-us-bg.png';
 import contactUsBgMobile from '../../../public/images/contact-us-bg-mobile.png';
-import { Languages } from '@/lib/types/languages';
-import { useParams } from 'next/navigation';
-import { useDictionary } from '@/hooks/useDictionary';
 
 export default function page() {
   const params = useParams();

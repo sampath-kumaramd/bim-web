@@ -2,20 +2,19 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useParams } from 'next/navigation';
 
 import HeroSection from '@/components/HeroSection';
 import { Typography } from '@/components/Typography';
 import PreRegistrationForm from '@/components/PreRegistrationForm';
+import { Languages } from '@/lib/types/languages';
+import { useDictionary } from '@/hooks/useDictionary';
 
 import preRegisterHero from '../../../public/images/pre-registration-hero.png';
 import preRegisterHeroMobile from '../../../public/images/pre-registration-hero-mobile.png';
-
 import preRegisterBg from '../../../public/images/pre-registration-bg.png';
 import preRegisterBgMobile from '../../../public/images/pre-registration-bg-mobile.png';
 import preRegisterImage from '../../../public/images/pre-registration-image.png';
-import { useParams } from 'next/navigation';
-import { Languages } from '@/lib/types/languages';
-import { useDictionary } from '@/hooks/useDictionary';
 
 export default function page() {
   const params = useParams();

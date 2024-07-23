@@ -1,6 +1,9 @@
 'use client';
+import { useParams, useRouter } from 'next/navigation';
 import ContentSection from '@/components/ContentSection';
 import HeroSection from '@/components/HeroSection';
+import { Languages } from '@/lib/types/languages';
+import { useDictionary } from '@/hooks/useDictionary';
 
 import newsHero from '../../../public/images/news-hero.png';
 import newsHeroMobile from '../../../public/images/news-hero-mobile.png';
@@ -9,9 +12,6 @@ import newsBgMobile from '../../../public/images/news-bg-mobile.png';
 import newsHeadingImages from '../../../public/images/news-heading-images.svg';
 import newsHeadingImagesMobile from '../../../public/images/news-heading-images-mobile.svg';
 import newsImages from '../../../public/images/news-images.svg';
-import { useParams, useRouter } from 'next/navigation';
-import { Languages } from '@/lib/types/languages';
-import { useDictionary } from '@/hooks/useDictionary';
 
 export default function page() {
   const params = useParams();

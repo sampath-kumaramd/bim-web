@@ -1,17 +1,18 @@
 'use client';
 
-import { Typography } from '@/components/Typography';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import homeBg from '../../public/images/home-bg.png';
-import homeBgMobile from '../../public/images/home-bg-mobile.png';
-import { VideoCarouselWrapper } from '@/components/VideoCarouselWrapper';
-import appSroteImage from '../../public/images/app-store-badge.png';
-import googlePlayImage from '../../public/images/google-play-badge.png';
+import Image from 'next/image';
 import { useParams } from 'next/navigation';
+import { motion } from 'framer-motion';
+import { Typography } from '@/components/Typography';
+import { VideoCarouselWrapper } from '@/components/VideoCarouselWrapper';
 import { Languages } from '@/lib/types/languages';
 import { useDictionary } from '@/hooks/useDictionary';
+
+import homeBg from '../../public/images/home-bg.png';
+import homeBgMobile from '../../public/images/home-bg-mobile.png';
+import appSroteImage from '../../public/images/app-store-badge.png';
+import googlePlayImage from '../../public/images/google-play-badge.png';
 
 export default function Home() {
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
