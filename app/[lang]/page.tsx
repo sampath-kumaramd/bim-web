@@ -39,24 +39,19 @@ export default function Home() {
         <div className="bg-pink-100 flex h-screen w-full items-center justify-start">
           <div className="custom-card -ms-40 h-[60%] w-[50%] rounded-[80px] p-10 pe-28 ">
               <div className="ms-64 py-8 transform">
-                <Typography 
-                  variant="Bim1"
-                  className="mb-8 space-y-3 text-justify text-base text-[#4b0325] sm:text-6xl"
-                >
-                  <Typography  variant="Bim1" className="mb-8 space-y-3 text-justify text-base text-[#4b0325] sm:text-6xl">FIND SOMETHING</Typography>
-                  <Typography  variant="Bim1" className="mb-8 space-y-3 text-justify text-base text-[#4b0325] sm:text-6xl">
+                  <Typography  variant="Bim1" className="mb-2 text-justify text-base text-[#4b0325] sm:text-6xl">FIND SOMETHING</Typography>
+                  <Typography  variant="Bim1" className="mb-2 text-justify text-base text-[#4b0325] sm:text-6xl">
                     <span className="text-[#D10062]">
                       PERFECT
                     </span>{' '}
                     & MAKE
                   </Typography>
-                  <Typography  variant="Bim1" className="mb-8 space-y-3 text-justify text-base text-[#4b0325] sm:text-6xl">
+                  <Typography  variant="Bim1" className="mb-8 text-justify text-base text-[#4b0325] sm:text-6xl">
                     SOME{' '}
                     <span className="text-[#33AE9D]">
                       FUN
                     </span>
                   </Typography>
-                </Typography>
                 <Typography
                   variant="Bim4Regular"
                   className="text-justify text-base text-[#4b0325] sm:text-lg"
