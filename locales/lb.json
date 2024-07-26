@@ -201,7 +201,12 @@
         "email": "Ongëlteg E-Mail-Adress.",
         "dob": "En Gebuertsdatum ass erfuerderlech."
       }
-    }
+    },
+    "TOS": {
+  "title": "Allgemeng Geschäftsbedingungen",
+  "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam."
+}
+
   },
   "header": {
     "logo": "Das Dating Sozial Media",
