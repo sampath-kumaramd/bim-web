@@ -14,7 +14,7 @@
       "primaryButton": "Get Started",
       "secondaryButton": "Our Concept"
     },
-    "article":{
+    "article": {
       "title": "About Us",
       "subtitle": "Titile one title",
       "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam."
@@ -29,6 +29,11 @@
       "title": "Our Concept",
       "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam.",
       "button": "Learn More"
+    },
+    "ourConceptDetails": {
+      "title": "Our Concept",
+      "subtitle": "Titile one ",
+      "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam."
     },
     "getStarted": {
       "title": "Get Started",
@@ -90,6 +95,16 @@
     "hero": {
       "title": "News",
       "description": "Lorem ipsum dolor sit amet consectetur. Nulla odio interdum fames aliquam consequat elit fusce penatibus. Arcu libero magna eros augue odio est. Id morbi aenean nisl quis et molestie."
+    },
+    "article": {
+      "title": "Lorem Ipsum",
+      "subtitle": "Article Subtitle",
+      "description": "This is the full article description for Lorem Ipsum."
+    },
+    "ourConceptDetails": {
+      "title": "Our Concept",
+      "subtitle": "Concept Subtitle",
+      "description": "This is the full description of our concept."
     },
     "section1": {
       "title": "Lorem IPSUM",
@@ -158,6 +173,10 @@
           "description": "Failed to send message. Please try again."
         }
       }
+    },
+    "TOS": {
+      "title": "Terms & Conditions",
+      "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam."
     }
   },
   "header": {

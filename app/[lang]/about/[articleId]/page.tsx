@@ -14,20 +14,38 @@ export default function page() {
   if (!dict) {
     return null;
   }
-  return (
-    <div className="min-h-screen">
 
-       <HeroSection
-        title={dict.about.article.title}
-        description={dict.about.article.subtitle}
-        backgroundImage={aboutHeroImage.src}
-        backgroundImageMobile={aboutHeroMobileImage.src}
-       
-      />
-
-      <div className=' mt-8 justify-center text-center'>
-        {dict.about.article.description}
+  if (params.articleId === 'about-us') {
+    return (
+      <div className="min-h-screen">
+        <HeroSection
+          title={dict.about.article.title}
+          description={dict.about.article.subtitle}
+          backgroundImage={aboutHeroImage.src}
+          backgroundImageMobile={aboutHeroMobileImage.src}
+        />
+        <div className="mt-8 justify-center text-center">
+          {dict.about.article.description}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  if (params.articleId === 'our-concept') {
+    return (
+      <div className="min-h-screen">
+        <HeroSection
+          title={dict.about.ourConceptDetails.title}
+          description={
+            dict.about.ourConceptDetails.subtitle
+          }
+          backgroundImage={aboutHeroImage.src}
+          backgroundImageMobile={aboutHeroMobileImage.src}
+        />
+        <div className="mt-8 justify-center text-center">
+          {dict.about.ourConceptDetails.description}
+        </div>
+      </div>
+    );
+  }
 }

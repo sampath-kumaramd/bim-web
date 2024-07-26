@@ -4,7 +4,7 @@ const nextConfig = {
   //   appDir: true,
   // },
   images: {
-    domains: ['www.google.com'],
+    domains: ['www.google.com', 'flagcdn.com'],
   },
 };
 export default nextConfig;

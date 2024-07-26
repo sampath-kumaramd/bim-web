@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { DayPicker } from 'react-day-picker';
+import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
@@ -18,9 +19,23 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
+// Import date-fns locales
+import { enUS, fr, de, it, es, lb } from 'date-fns/locale';
+
+// Import your Luxembourgish locale if available, or create a custom one
+
 export type CalendarProps = React.ComponentProps<
   typeof DayPicker
 >;
+
+const locales = {
+  en: enUS,
+  fr: fr,
+  de: de,
+  it: it,
+  es: es,
+  lb: lb, // Use your custom Luxembourgish locale
+};
 
 function Calendar({
   className,
@@ -28,23 +43,24 @@ function Calendar({
   showOutsideDays = true,
   ...props
 }: CalendarProps) {
+  const pathname = usePathname();
+  const currentLang = pathname.split('/')[1];
+  const locale =
+    locales[currentLang as keyof typeof locales] || enUS;
+
   function CustomCaption({ displayMonth }: CaptionProps) {
     const { goToMonth, nextMonth, previousMonth } =
       useNavigation();
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
+
+    const months = React.useMemo(
+      () =>
+        Array.from({ length: 12 }).map((_, i) =>
+          new Date(2021, i, 1).toLocaleString(currentLang, {
+            month: 'long',
+          }),
+        ),
+      [currentLang],
+    );
 
     const years = Array.from(
       { length: props.toYear! - props.fromYear! + 1 },
@@ -107,6 +123,7 @@ function Calendar({
 
   return (
     <DayPicker
+      locale={locale}
       showOutsideDays={showOutsideDays}
       className={cn('p-3', className)}
       classNames={{

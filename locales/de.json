@@ -14,7 +14,11 @@
       "primaryButton": "Loslegen",
       "secondaryButton": "Unser Konzept"
     },
-    "article": { "title": "Über uns", "subtitle": "Titel ein Titel", "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam." } ,
+    "article": {
+      "title": "Über uns",
+      "subtitle": "Titel ein Titel",
+      "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam."
+    },
     "aboutUs": {
       "title": "Über Uns",
       "startingWord": "BIM",
@@ -25,6 +29,11 @@
       "title": "Unser Konzept",
       "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam.",
       "button": "Erfahren Sie Mehr"
+    },
+    "ourConceptDetails": {
+      "title": "Unser Konzept",
+      "subtitle": "Titel eins",
+      "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam."
     },
     "getStarted": {
       "title": "Loslegen",
@@ -114,6 +123,16 @@
     "hero": {
       "title": "NEUIGKEITEN",
       "description": "Lorem ipsum dolor sit amet consectetur. Nulla odio interdum fames aliquam consequat elit fusce penatibus. Arcu libero magna eros augue odio est. Id morbi aenean nisl quis et molestie."
+    },
+    "article": {
+      "title": "Lorem Ipsum",
+      "subtitle": "Artikel Untertitel",
+      "description": "Dies ist die vollständige Beschreibung des Lorem Ipsum Artikels."
+    },
+    "ourConceptDetails": {
+      "title": "Unser Konzept",
+      "subtitle": "Konzept Untertitel",
+      "description": "Dies ist die vollständige Beschreibung unseres Konzepts."
     },
     "section1": {
       "title": "Lorem IPSUM",

@@ -155,12 +155,14 @@ const ContentSection = forwardRef<
                 {description}
               </Typography>
               <div className="flex justify-start">
-                {button  && idPassedToButton && (
+                {button && idPassedToButton && (
                   <CustomButton
                     variant="custom"
                     className={`mx-auto w-[80%] sm:mx-0 ${button.backgroundColor} ${button.textColor} ${button.reverse ? 'rounded-br-3xl rounded-tr-3xl clip-customRight' : 'rounded-bl-3xl rounded-tl-3xl clip-customLeft'} ${button.className}`}
                     text={button.text}
-                   onClick={() => onButtonClick?.(idPassedToButton)}
+                    onClick={() =>
+                      onButtonClick?.(idPassedToButton)
+                    }
                   />
                 )}
               </div>

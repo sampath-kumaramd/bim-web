@@ -14,7 +14,11 @@
       "primaryButton": "Ufänken",
       "secondaryButton": "Eis Konzept"
     },
-     "article": { "title": "Iwwer eis", "subtitle": "Titel een Titel", "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam." },
+    "article": {
+      "title": "Iwwer eis",
+      "subtitle": "Titel een Titel",
+      "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam."
+    },
     "aboutUs": {
       "title": "Iwwert Eis",
       "startingWord": "BIM",
@@ -25,6 +29,11 @@
       "title": "Eis Konzept",
       "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam.",
       "button": "Méi léieren"
+    },
+    "ourConceptDetails": {
+      "title": "Eist Konzept",
+      "subtitle": "Titel een",
+      "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam."
     },
     "getStarted": {
       "title": "Ufänken",
@@ -114,6 +123,16 @@
     "hero": {
       "title": "Neiegkeeten",
       "description": "Lorem ipsum dolor sit amet consectetur. Nulla odio interdum fames aliquam consequat elit fusce penatibus. Arcu libero magna eros augue odio est. Id morbi aenean nisl quis et molestie."
+    },
+    "article": {
+      "title": "Lorem Ipsum",
+      "subtitle": "Artikel Ënnertitel",
+      "description": "Dëst ass déi komplett Beschreiwung vum Lorem Ipsum Artikel."
+    },
+    "ourConceptDetails": {
+      "title": "Eist Konzept",
+      "subtitle": "Konzept Ënnertitel",
+      "description": "Dëst ass déi komplett Beschreiwung vun eisem Konzept."
     },
     "section1": {
       "title": "Lorem IPSUM",

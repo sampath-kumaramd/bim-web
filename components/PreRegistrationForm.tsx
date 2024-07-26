@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { format } from 'date-fns';
-import { CalendarIcon, Flag } from 'lucide-react';
+import { CalendarIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -32,15 +32,26 @@ import {
   SelectGroup,
   SelectItem,
   SelectLabel,
+  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogClose,
+} from "@/components/ui/dialog";
 import { Typography } from './Typography';
 import CustomButton from './CustomButton';
 import { useParams } from 'next/navigation';
 import { Languages } from '@/lib/types/languages';
 import { useDictionary } from '@/hooks/useDictionary';
 import { Checkbox } from './ui/checkbox';
+import { countries } from 'countries-list';
 
 import { GB } from './ui/flags/GB';
 import { FR } from './ui/flags/FR';
@@ -48,6 +59,7 @@ import { LU } from './ui/flags/LU';
 import { IT } from './ui/flags/IT';
 import { ES } from './ui/flags/ES';
 import { DE } from './ui/flags/DE';
+import Image from 'next/image';
 
 const FormSchema = z.object({
   name: z.string().min(2, {
@@ -63,24 +75,58 @@ const FormSchema = z.object({
     required_error: 'A date of birth is required.',
   }),
   TOC: z.boolean({
-    required_error:
-      'You must accept the terms and conditions.',
+    required_error: 'You must accept the terms and conditions.',
   }),
 });
+const topCountryCodes = [
+  { value: '+44', label: 'United Kingdom', flag: GB },
+  { value: '+33', label: 'France', flag: FR },
+  { value: '+352', label: 'Luxembourg', flag: LU },
+  { value: '+39', label: 'Italy', flag: IT },
+  { value: '+34', label: 'Spain', flag: ES },
+  { value: '+49', label: 'Germany', flag: DE },
+];
+
 
 function PreRegistrationForm() {
   const params = useParams();
   const lang = params.lang as Languages;
   const dict = useDictionary(lang);
-  const [countryCode, setCountryCode] = useState('+880');
-  const countryCodes = [
-    { value: '+44', label: 'United Kingdom', flag: GB },
-    { value: '+33', label: 'France', flag: FR },
-    { value: '+352', label: 'Luxembourg', flag: LU },
-    { value: '+39', label: 'Italy', flag: IT },
-    { value: '+34', label: 'Spain', flag: ES },
-    { value: '+49', label: 'Germany', flag: DE },
-  ];
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+ const [countryCode, setCountryCode] = useState('+33');
+ const getCountryFlag = (code:string) => {
+    const topCountry = topCountryCodes.find(c => c.value === code);
+    if (topCountry) {
+      const FlagComponent = topCountry.flag;
+      return <FlagComponent className="h-4 w-6 mr-2" />;
+    } else {
+      const country = allCountries.find(c => c.value === code);
+      if (country) {
+        return (
+          <Image
+            src={`https://flagcdn.com/w20/${country.flag.toLowerCase()}.png`}
+            alt={country.label}
+            width={24}
+            height={16}
+            className="mr-2 object-contain"
+          />
+        );
+      }
+    }
+    return null;
+  };
+
+  
+   const allCountries = useMemo(() => {
+    return Object.entries(countries)
+      .map(([code, country]) => ({
+        value: `+${country.phone}`,
+        label: country.name,
+        flag: code, // We'll use this to display flags
+      }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+  }, []);
+
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -93,17 +139,14 @@ function PreRegistrationForm() {
     },
   });
 
-  async function onSubmit(
-    data: z.infer<typeof FormSchema>,
-  ) {
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
     let phoneNumber = `${countryCode}${data.phone}`;
     data.phone = phoneNumber;
 
     if (data.TOC === false) {
       toast({
         title: 'You must accept the terms and conditions.',
-        description:
-          'Please accept the terms and conditions.',
+        description: 'Please accept the terms and conditions.',
         variant: 'destructive',
       });
       return;
@@ -130,28 +173,20 @@ function PreRegistrationForm() {
       });
 
       if (!response.ok) {
-        throw new Error(
-          'Failed to submit pre-registration',
-        );
+        throw new Error('Failed to submit pre-registration');
       }
 
       toast({
-        title:
-          dict?.preRegister.form.submitToast.success.title,
-        description:
-          dict?.preRegister.form.submitToast.success
-            .description,
+        title: dict?.preRegister.form.submitToast.success.title,
+        description: dict?.preRegister.form.submitToast.success.description,
       });
 
       form.reset();
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
-        title:
-          dict?.preRegister.form.submitToast.error.title,
-        description:
-          dict?.preRegister.form.submitToast.error
-            .description,
+        title: dict?.preRegister.form.submitToast.error.title,
+        description: dict?.preRegister.form.submitToast.error.description,
         variant: 'destructive',
       });
     }
@@ -160,11 +195,12 @@ function PreRegistrationForm() {
   if (!dict) {
     return null;
   }
+
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-auto space-y-6"
+        className="w-full max-w-md space-y-6 px-4 sm:px-0"
       >
         <Typography
           variant="Bim1"
@@ -181,20 +217,19 @@ function PreRegistrationForm() {
               <FormLabel>
                 <Typography
                   variant="Bim4Regular"
-                  className="text-start font-thin"
+                  className="text-start font-thin text-sm sm:text-base"
                 >
                   {dict?.preRegister.form.name.label}
                 </Typography>
               </FormLabel>
               <FormControl>
                 <Input
-                  placeholder={
-                    dict?.preRegister.form.name.placeholder
-                  }
+                  placeholder={dict?.preRegister.form.name.placeholder}
                   {...field}
+                  className="text-sm sm:text-base"
                 />
               </FormControl>
-              <FormMessage />
+              <FormMessage className="text-xs sm:text-sm" />
             </FormItem>
           )}
         />
@@ -207,104 +242,99 @@ function PreRegistrationForm() {
               <FormLabel>
                 <Typography
                   variant="Bim4Regular"
-                  className="text-start font-thin"
+                  className="text-start font-thin text-sm sm:text-base"
                 >
                   {dict?.preRegister.form.email.label}
                 </Typography>
               </FormLabel>
               <FormControl>
                 <Input
-                  placeholder={
-                    dict?.preRegister.form.email.placeholder
-                  }
+                  placeholder={dict?.preRegister.form.email.placeholder}
                   {...field}
+                  className="text-sm sm:text-base"
                 />
               </FormControl>
-              <FormMessage />
+              <FormMessage className="text-xs sm:text-sm" />
             </FormItem>
           )}
         />
 
-        <FormField
-          control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <FormItem>
-              <Typography
-                variant="Bim4Regular"
-                className="text-start font-thin"
+
+    <FormField
+      control={form.control}
+      name="phone"
+      render={({ field }) => (
+        <FormItem className="w-full">
+          <Typography
+            variant="Bim4Regular"
+            className="text-start font-thin text-sm sm:text-base mb-2"
+          >
+            {dict?.preRegister.form.phone.label}
+          </Typography>
+          <FormControl>
+            <div className="flex flex-col sm:flex-row w-full gap-2">
+              <Select
+                value={countryCode}
+                onValueChange={(value) => setCountryCode(value)}
+                defaultValue={countryCode}
               >
-                {dict?.preRegister.form.phone.label}
-              </Typography>
-              <FormControl>
-                <div className="flex">
-                  <Select
-                    value={countryCode}
-                    onValueChange={(value) =>
-                      setCountryCode(value)
-                    }
-                    defaultValue={countryCode}
-                  >
-                    <SelectTrigger className="w-[120px] focus:ring-0 focus:ring-offset-0">
-                      <SelectValue placeholder="code">
-                        {countryCodes.find(
-                          (code) =>
-                            code.value === countryCode,
-                        )?.flag ? (
-                          <div className="flex items-center">
-                            {React.createElement(
-                              countryCodes.find(
-                                (code) =>
-                                  code.value ===
-                                  countryCode,
-                              )!.flag,
-                              { className: 'h-4 w-4 mr-2' },
-                            )}
-                            {countryCode}
-                          </div>
-                        ) : (
-                          <div className="flex gap-2">
-                            <FR className="mr-2 h-4 w-4" />
-                            +33
-                          </div>
-                        )}
-                      </SelectValue>
-                    </SelectTrigger>
-                    <SelectContent>
-                      {countryCodes.map(
-                        ({ value, label, flag: Flag }) => (
-                          <SelectItem
-                            key={value}
-                            value={value}
-                            className="flex items-center"
-                          >
-                            <div className="flex gap-2">
-                              <Flag className="mr-2 h-4 w-4" />
-                              <div>({value})</div>
-                            </div>
-                          </SelectItem>
-                        ),
-                      )}
-                    </SelectContent>
-                  </Select>
-                  <Input
-                    className="flex-1"
-                    placeholder={
-                      dict?.preRegister.form.phone
-                        .placeholder
-                    }
-                    {...field}
-                    onChange={(e) => {
-                      const phoneNumber = e.target.value;
-                      field.onChange(`${phoneNumber}`);
-                    }}
-                  />
-                </div>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                <SelectTrigger className="w-full sm:w-[140px] text-sm sm:text-base">
+                  <SelectValue placeholder="code">
+                    <div className="flex items-center">
+                      {getCountryFlag(countryCode)}
+                      {countryCode}
+                    </div>
+                  </SelectValue>
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>Top Countries</SelectLabel>
+                    {topCountryCodes.map(({ value, label, flag: Flag }) => (
+                      <SelectItem key={value} value={value}>
+                        <div className="flex items-center gap-2">
+                          <Flag className="h-4 w-6" />
+                          <span>{label}</span>
+                          <span className="ml-auto">{value}</span>
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                  <SelectSeparator />
+                  <SelectGroup>
+                    <SelectLabel>All Countries</SelectLabel>
+                    {allCountries.map(({ value, label, flag }) => (
+                      <SelectItem key={value} value={value}>
+                        <div className="flex items-center gap-2">
+                          <Image
+                            src={`https://flagcdn.com/w20/${flag.toLowerCase()}.png`}
+                            alt={label}
+                            width={24}
+                            height={16}
+                            className="object-contain"
+                          />
+                          <span>{label}</span>
+                          <span className="ml-auto">{value}</span>
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+              <Input
+                className="flex-1 text-sm sm:text-base"
+                placeholder={dict?.preRegister.form.phone.placeholder}
+                {...field}
+                onChange={(e) => {
+                  const phoneNumber = e.target.value;
+                  field.onChange(`${phoneNumber}`);
+                }}
+              />
+            </div>
+          </FormControl>
+          <FormMessage className="text-xs sm:text-sm" />
+        </FormItem>
+      )}
+    />
 
         <FormField
           control={form.control}
@@ -313,7 +343,7 @@ function PreRegistrationForm() {
             <FormItem className="flex flex-col">
               <Typography
                 variant="Bim4Regular"
-                className="text-start font-thin"
+                className="text-start font-thin text-sm sm:text-base"
               >
                 {dict?.preRegister.form.dob.label}
               </Typography>
@@ -324,41 +354,28 @@ function PreRegistrationForm() {
                     <Button
                       variant={'outline'}
                       className={cn(
-                        'w-auto pl-3 text-left font-normal',
-                        !field.value &&
-                          'text-muted-foreground',
+                        'w-full pl-3 text-left font-normal text-sm sm:text-base',
+                        !field.value && 'text-muted-foreground',
                       )}
                     >
                       {field.value ? (
                         format(field.value, 'PPP')
                       ) : (
-                        <span>
-                          {
-                            dict?.preRegister.form.dob
-                              .placeholder
-                          }
-                        </span>
+                        <span>{dict?.preRegister.form.dob.placeholder}</span>
                       )}
                       <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                     </Button>
                   </FormControl>
                 </PopoverTrigger>
-                <PopoverContent
-                  className="w-auto p-0"
-                  align="start"
-                >
+                <PopoverContent className="w-auto p-0" align="start">
                   <Calendar
+                    lang={lang}
                     mode="single"
                     selected={field.value}
                     onSelect={field.onChange}
                     disabled={(date) =>
                       date > new Date() ||
-                      date >
-                        new Date(
-                          new Date().setFullYear(
-                            new Date().getFullYear() - 18,
-                          ),
-                        )
+                      date > new Date(new Date().setFullYear(new Date().getFullYear() - 18))
                     }
                     initialFocus
                     fromYear={1900}
@@ -366,7 +383,7 @@ function PreRegistrationForm() {
                   />
                 </PopoverContent>
               </Popover>
-              <FormMessage />
+              <FormMessage className="text-xs sm:text-sm" />
             </FormItem>
           )}
         />
@@ -377,25 +394,36 @@ function PreRegistrationForm() {
           render={({ field }) => (
             <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4">
               <FormControl>
-                <Checkbox
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
+                <Checkbox checked={field.value} onCheckedChange={field.onChange} />
               </FormControl>
               <div className="space-y-1 leading-none">
-                <FormLabel className="flex items-center">
-                  <Typography
-                    variant="Bim4Regular"
-                    className="font-thin"
-                  >
+                <FormLabel className="flex items-center flex-wrap">
+                  <Typography variant="Bim4Regular" className="font-thin text-sm sm:text-base">
                     {dict?.preRegister.form.TOS.label}
                   </Typography>
-                  <Typography
-                    variant="Bim4Regular"
-                    className="font-semibold text-pink"
-                  >
-                    &nbsp; {dict?.preRegister.form.TOS.link}
-                  </Typography>
+                  <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                    <DialogTrigger asChild>
+                      <Typography
+                        variant="Bim4Regular"
+                        className="font-semibold text-pink text-sm sm:text-base cursor-pointer"
+                      >
+                        &nbsp; {dict?.preRegister.form.TOS.link}
+                      </Typography>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogHeader>
+                        <DialogTitle>{dict?.preRegister.TOS.title || "Terms and Conditions"}</DialogTitle>
+                      </DialogHeader>
+                      <DialogDescription>
+                        {dict?.preRegister.TOS.description || "Your Terms and Conditions text goes here."}
+                      </DialogDescription>
+                      <DialogClose asChild>
+                        <Button type="button" variant="secondary">
+                          Close
+                        </Button>
+                      </DialogClose>
+                    </DialogContent>
+                  </Dialog>
                 </FormLabel>
               </div>
             </FormItem>
@@ -405,7 +433,7 @@ function PreRegistrationForm() {
         <div className="flex w-full flex-col items-center pt-4 sm:pt-8">
           <CustomButton
             variant="tertiary"
-            className="w-2/3 bg-[#d10062] py-3 text-white"
+            className="w-full sm:w-2/3 bg-[#d10062] py-3 text-white text-lg"
             text={dict?.preRegister.form.submit || 'Submit'}
           />
         </div>
@@ -413,4 +441,5 @@ function PreRegistrationForm() {
     </Form>
   );
 }
+
 export default PreRegistrationForm;

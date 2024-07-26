@@ -14,11 +14,6 @@ export interface Dictionary {
       primaryButton: string;
       secondaryButton: string;
     };
-    article: {
-      title: string;
-      subtitle: string;
-      description: string;
-    };
     aboutUs: {
       title: string;
       startingWord: string;
@@ -29,6 +24,16 @@ export interface Dictionary {
       title: string;
       description: string;
       button: string;
+    };
+    article: {
+      title: string;
+      subtitle: string;
+      description: string;
+    };
+    ourConceptDetails: {
+      title: string;
+      subtitle: string;
+      description: string;
     };
     getStarted: {
       title: string;
@@ -87,6 +92,16 @@ export interface Dictionary {
   news: {
     hero: {
       title: string;
+      description: string;
+    };
+    article: {
+      title: string;
+      subtitle: string;
+      description: string;
+    };
+    ourConceptDetails: {
+      title: string;
+      subtitle: string;
       description: string;
     };
     section1: {
@@ -153,6 +168,10 @@ export interface Dictionary {
         email: string;
         dob: string;
       };
+    };
+    TOS: {
+      title: string;
+      description: string;
     };
   };
   header: {

@@ -19,8 +19,8 @@ export default function page() {
   const dict = useDictionary(lang);
   const router = useRouter();
 
-  const handleButtonClick = () => {
-    router.push(`/${lang}/news/1`);
+  const handleButtonClick = (id: string) => {
+    router.push(`/${lang}/news/${id}`);
   };
 
   if (!dict) {
@@ -49,7 +49,8 @@ export default function page() {
           reverse: true,
         }}
         reverse={true}
-        onButtonClick={handleButtonClick}
+        onButtonClick={(id) => handleButtonClick(id)}
+        idPassedToButton="lorem-ipsum"
       />
 
       <ContentSection
@@ -64,6 +65,8 @@ export default function page() {
           backgroundColor: 'bg-[#d10062]',
           reverse: false,
         }}
+        onButtonClick={(id) => handleButtonClick(id)}
+        idPassedToButton="news-heading"
       />
       <div className="bg-[#fbf1ef] sm:py-16"></div>
     </div>

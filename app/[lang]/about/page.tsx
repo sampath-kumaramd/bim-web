@@ -56,11 +56,14 @@ export default function page() {
     });
   };
 
-    const handleButtonClick = (id:string) => {
+  const handleButtonClick = (id: string) => {
     router.push(`/${lang}/about/${id}`);
-    };
-  
-  
+  };
+
+  const routeToPreRegisterPage = () => {
+    router.push(`/${lang}/pre-register`);
+  };
+
   if (!dict) return null;
   return (
     <div className="min-h-screen">
@@ -92,7 +95,7 @@ export default function page() {
           backgroundColor: 'bg-[#d10062]',
           reverse: true,
         }}
-        idPassedToButton='1'
+        idPassedToButton="about-us"
         onButtonClick={(id) => handleButtonClick(id)}
         reverse={true}
       />
@@ -111,6 +114,8 @@ export default function page() {
             backgroundColor: 'bg-white',
             reverse: true,
           }}
+          idPassedToButton="our-concept"
+          onButtonClick={(id) => handleButtonClick(id)}
         />
       </div>
       <section
@@ -163,6 +168,7 @@ export default function page() {
                 {dict.about.getStarted.description}
               </Typography>
               <CustomButton
+                onClick={() => routeToPreRegisterPage()}
                 variant="tertiary"
                 className="w-full bg-[#d10062] py-3 text-white"
                 text={dict.about.getStarted.button}
