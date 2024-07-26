@@ -14,6 +14,11 @@ export interface Dictionary {
       primaryButton: string;
       secondaryButton: string;
     };
+    article: {
+      title: string;
+      subtitle: string;
+      description: string;
+    };
     aboutUs: {
       title: string;
       startingWord: string;

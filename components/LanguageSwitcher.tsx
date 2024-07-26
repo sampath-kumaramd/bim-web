@@ -64,7 +64,7 @@ export function LanguageSwitcher() {
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"
-          className="bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 flex items-center gap-2 rounded-md border-none px-3 py-2 text-white hover:text-rose-100 focus:ring-0 focus:ring-offset-0"
+          className="bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 flex items-center rounded-md border-none px-3 py-2 text-white hover:text-rose-100 focus:ring-0 focus:ring-offset-0 sm:gap-2"
         >
           <selectedLanguage.flag className="h-5 w-5" />
           <span>

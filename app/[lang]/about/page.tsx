@@ -24,7 +24,7 @@ import appSroteImage from '../../../public/images/app-store-badge.png';
 import googlePlayImage from '../../../public/images/google-play-badge.png';
 
 import { useDictionary } from '@/hooks/useDictionary';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { Languages } from '@/lib/types/languages';
 
 export default function page() {
@@ -36,6 +36,7 @@ export default function page() {
   const params = useParams();
   const lang = params.lang as Languages;
   const dict = useDictionary(lang);
+  const router = useRouter();
 
   useEffect(() => {
     function handleResize() {
@@ -54,6 +55,12 @@ export default function page() {
       behavior: 'smooth',
     });
   };
+
+    const handleButtonClick = (id:string) => {
+    router.push(`/${lang}/about/${id}`);
+    };
+  
+  
   if (!dict) return null;
   return (
     <div className="min-h-screen">
@@ -85,6 +92,8 @@ export default function page() {
           backgroundColor: 'bg-[#d10062]',
           reverse: true,
         }}
+        idPassedToButton='1'
+        onButtonClick={(id) => handleButtonClick(id)}
         reverse={true}
       />
       <div ref={ourConceptRef}>

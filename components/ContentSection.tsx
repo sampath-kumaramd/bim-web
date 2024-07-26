@@ -26,7 +26,8 @@ interface ContentSectionProps {
     className?: string;
   };
   reverse?: boolean;
-  onButtonClick?: () => void;
+  onButtonClick?: (id: string) => void;
+  idPassedToButton?: string;
   children?: React.ReactNode;
 }
 
@@ -44,6 +45,7 @@ const ContentSection = forwardRef<
       backgroundImageMobile,
       button,
       onButtonClick,
+      idPassedToButton,
       children,
       reverse = false,
     },
@@ -153,12 +155,12 @@ const ContentSection = forwardRef<
                 {description}
               </Typography>
               <div className="flex justify-start">
-                {button && (
+                {button  && idPassedToButton && (
                   <CustomButton
                     variant="custom"
                     className={`mx-auto w-[80%] sm:mx-0 ${button.backgroundColor} ${button.textColor} ${button.reverse ? 'rounded-br-3xl rounded-tr-3xl clip-customRight' : 'rounded-bl-3xl rounded-tl-3xl clip-customLeft'} ${button.className}`}
                     text={button.text}
-                    onClick={onButtonClick}
+                   onClick={() => onButtonClick?.(idPassedToButton)}
                   />
                 )}
               </div>

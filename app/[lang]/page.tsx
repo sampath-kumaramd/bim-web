@@ -15,7 +15,9 @@ import appSroteImage from '../../public/images/app-store-badge.png';
 import googlePlayImage from '../../public/images/google-play-badge.png';
 
 export default function Home() {
-  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+  const [windowWidth, setWindowWidth] = useState<
+    number | null
+  >(null);
 
   useEffect(() => {
     function handleResize() {
@@ -23,10 +25,11 @@ export default function Home() {
     }
     window.addEventListener('resize', handleResize);
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    return () =>
+      window.removeEventListener('resize', handleResize);
   }, []);
 
- const params = useParams();
+  const params = useParams();
   const lang = params.lang as Languages;
   const dict = useDictionary(lang);
   return (
@@ -42,25 +45,40 @@ export default function Home() {
             })`,
           }}
         />
-        <div className="bg-pink-100 min-h-screen w-full flex flex-col lg:flex-row items-center justify-between p-4 lg:p-8">
-          <div className="custom-card w-full lg:w-1/2 rounded-[40px] lg:rounded-[80px] p-6 lg:p-10 xl:pe-28 lg:pe-8  mb-8 lg:mb-0 -ms-40">
-            <div className="sm:ms-40 ms-20  py-4 lg:py-8 transform">
-              <Typography variant="Bim1" className="mb-2 text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#4b0325]">
-               {dict?.home.findSomething}
+        <div className="bg-pink-100 flex min-h-screen w-full flex-col items-center justify-between p-4 lg:flex-row lg:p-8">
+          <div className="custom-card -ms-40 mb-8 w-full rounded-[40px] p-6 lg:mb-0 lg:w-1/2 lg:rounded-[80px] lg:p-10 lg:pe-8 xl:pe-28">
+            <div className="ms-20 transform py-4 sm:ms-40 lg:py-8">
+              <Typography
+                variant="Bim1"
+                className="mb-2 text-left text-3xl text-[#4b0325] sm:text-4xl md:text-5xl lg:text-6xl"
+              >
+                {dict?.home.findSomething}
               </Typography>
-              <Typography variant="Bim1" className="mb-2 text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#4b0325]">
-                <span className="text-[#D10062]">{ dict?.home.perfect}</span> { dict?.home.make}
+              <Typography
+                variant="Bim1"
+                className="mb-2 text-left text-3xl text-[#4b0325] sm:text-4xl md:text-5xl lg:text-6xl"
+              >
+                <span className="text-[#D10062]">
+                  {dict?.home.perfect}
+                </span>{' '}
+                {dict?.home.make}
               </Typography>
-              <Typography variant="Bim1" className="mb-4 lg:mb-8 text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#4b0325]">
-                { dict?.home.some} <span className="text-[#33AE9D]">{ dict?.home.fun}</span>
+              <Typography
+                variant="Bim1"
+                className="mb-4 text-left text-3xl text-[#4b0325] sm:text-4xl md:text-5xl lg:mb-8 lg:text-6xl"
+              >
+                {dict?.home.some}{' '}
+                <span className="text-[#33AE9D]">
+                  {dict?.home.fun}
+                </span>
               </Typography>
               <Typography
                 variant="Bim4Regular"
-                className="text-left text-sm lg:text-base  text-[#4b0325]"
+                className="text-left text-sm text-[#4b0325] lg:text-base"
               >
-                { dict?.home.description}
+                {dict?.home.description}
               </Typography>
-              <div className="mt-8 lg:mt-12 flex flex-row justify-between items-center gap-4  ">
+              <div className="mt-8 flex flex-row items-center justify-start gap-4 sm:gap-16 lg:mt-12">
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
@@ -69,9 +87,9 @@ export default function Home() {
                   <Image
                     src={appSroteImage.src}
                     alt="Download on the App Store"
-                    width={150}
-                    height={50}
-                    className="w-auto h-auto"
+                    width={180}
+                    height={60}
+                    className="h-[60px] w-[180px]"
                   />
                 </motion.button>
                 <motion.button
@@ -82,15 +100,15 @@ export default function Home() {
                   <Image
                     src={googlePlayImage.src}
                     alt="Get it on Google Play"
-                    width={150}
-                    height={50}
-                    className="w-auto h-auto"
+                    width={180}
+                    height={60}
+                    className="h-[60px] w-[180px] py-[2px]"
                   />
                 </motion.button>
               </div>
             </div>
           </div>
-          <div className='w-full lg:w-1/2 mb-8 lg:mb-0 '>
+          <div className="mb-8 w-full lg:mb-0 lg:w-1/2">
             <VideoCarouselWrapper />
           </div>
         </div>

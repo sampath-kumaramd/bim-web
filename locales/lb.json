@@ -1,4 +1,5 @@
-{  "home": {
+{
+  "home": {
     "findSomething": "FANN EPPES",
     "perfect": "PERFEKT",
     "make": "AN MAACH",
@@ -13,6 +14,7 @@
       "primaryButton": "Ufänken",
       "secondaryButton": "Eis Konzept"
     },
+     "article": { "title": "Iwwer eis", "subtitle": "Titel een Titel", "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam." },
     "aboutUs": {
       "title": "Iwwert Eis",
       "startingWord": "BIM",

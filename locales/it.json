@@ -14,6 +14,7 @@
       "primaryButton": "Inizia",
       "secondaryButton": "Il Nostro Concetto"
     },
+    "article": { "title": "Chi siamo", "subtitle": "Titolo un titolo", "description": "Lorem ipsum dolor sit amet consectetur. Scelerisque mi varius quam facilisis etiam. Nunc id aliquam suscipit cursus condimentum augue pellentesque commodo. Turpis dignissim vestibulum diam et interdum. Viverra sed et sit id amet quam egestas quis. Massa dolor posuere dui bibendum fusce. Dignissim eu amet quam." },
     "aboutUs": {
       "title": "Chi Siamo",
       "startingWord": "BIM",
