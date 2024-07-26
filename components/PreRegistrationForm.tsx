@@ -104,7 +104,8 @@ function PreRegistrationForm() {
       if (country) {
         return (
           <Image
-            src={`https://flagcdn.com/w20/${country.flag.toLowerCase()}.png`}
+              src={`https://flagsapi.com/${country.flag.toUpperCase()}/flat/64.png`}
+            // src={`https://flagcdn.com/w20/${country.flag.toLowerCase()}.png`}
             alt={country.label}
             width={24}
             height={16}
@@ -306,7 +307,8 @@ function PreRegistrationForm() {
                       <SelectItem key={value} value={value}>
                         <div className="flex items-center gap-2">
                           <Image
-                            src={`https://flagcdn.com/w20/${flag.toLowerCase()}.png`}
+                            // src={`https://flagcdn.com/w20/${flag.toLowerCase()}.png`}
+                              src={`https://flagsapi.com/${flag.toUpperCase()}/flat/64.png`}
                             alt={label}
                             width={24}
                             height={16}
