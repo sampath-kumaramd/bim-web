@@ -11,8 +11,8 @@ import { useDictionary } from '@/hooks/useDictionary';
 
 import homeBg from '../../public/images/home-bg.png';
 import homeBgMobile from '../../public/images/home-bg-mobile.png';
-import appSroteImage from '../../public/images/app-store-badge.png';
-import googlePlayImage from '../../public/images/google-play-badge.png';
+import appSroteImage from '../../public/images/apple-play-store-icon.png';
+import googlePlayImage from '../../public/images/google-play-store-icon.png';
 
 export default function Home() {
   const [windowWidth, setWindowWidth] = useState<
@@ -32,6 +32,35 @@ export default function Home() {
   const params = useParams();
   const lang = params.lang as Languages;
   const dict = useDictionary(lang);
+
+  const getImageSize = () => {
+    if (windowWidth !== null && windowWidth <= 639)
+      return {
+        width: 140,
+        height: 60,
+      };
+    if (
+      windowWidth !== null &&
+      windowWidth >= 639 &&
+      windowWidth < 1024
+    )
+      return {
+        width: 180,
+        height: 60,
+      };
+    if (windowWidth !== null && windowWidth >= 1024)
+      return {
+        width: 220,
+        height: 60,
+      };
+    return {
+      width: 100,
+      height: 40,
+    };
+  };
+
+  const imageSize = getImageSize();
+
   return (
     <div className="min-h-screen">
       <div className="relative overflow-hidden">
@@ -50,13 +79,13 @@ export default function Home() {
             <div className="ms-20 transform py-4 sm:ms-40 lg:py-8">
               <Typography
                 variant="Bim1"
-                className="mb-2 text-left text-3xl text-[#4b0325] sm:text-4xl md:text-5xl lg:text-6xl"
+                className="mb-1 text-left text-2xl text-[#4b0325] sm:text-4xl md:text-5xl lg:text-6xl"
               >
                 {dict?.home.findSomething}
               </Typography>
               <Typography
                 variant="Bim1"
-                className="mb-2 text-left text-3xl text-[#4b0325] sm:text-4xl md:text-5xl lg:text-6xl"
+                className="mb-1 text-left text-2xl text-[#4b0325] sm:text-4xl md:text-5xl lg:text-6xl"
               >
                 <span className="text-[#D10062]">
                   {dict?.home.perfect}
@@ -65,7 +94,7 @@ export default function Home() {
               </Typography>
               <Typography
                 variant="Bim1"
-                className="mb-4 text-left text-3xl text-[#4b0325] sm:text-4xl md:text-5xl lg:mb-8 lg:text-6xl"
+                className="mb-4 text-left text-2xl text-[#4b0325] sm:text-4xl md:text-5xl lg:mb-8 lg:text-6xl"
               >
                 {dict?.home.some}{' '}
                 <span className="text-[#33AE9D]">
@@ -78,7 +107,7 @@ export default function Home() {
               >
                 {dict?.home.description}
               </Typography>
-              <div className="mt-8 flex flex-row items-center justify-start gap-4 sm:gap-16 lg:mt-12">
+              <div className="mt-8 flex flex-row items-center justify-start gap-4 sm:gap-8 md:gap-12 lg:mt-12 xl:gap-16">
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
@@ -87,9 +116,8 @@ export default function Home() {
                   <Image
                     src={appSroteImage.src}
                     alt="Download on the App Store"
-                    width={180}
-                    height={60}
-                    className="h-[60px] w-[180px]"
+                    width={imageSize.width}
+                    height={imageSize.height}
                   />
                 </motion.button>
                 <motion.button
@@ -100,9 +128,8 @@ export default function Home() {
                   <Image
                     src={googlePlayImage.src}
                     alt="Get it on Google Play"
-                    width={180}
-                    height={60}
-                    className="h-[60px] w-[180px] py-[2px]"
+                    width={imageSize.width}
+                    height={imageSize.height}
                   />
                 </motion.button>
               </div>
