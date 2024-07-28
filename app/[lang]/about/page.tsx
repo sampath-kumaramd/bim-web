@@ -20,8 +20,8 @@ import aboutUsOurConceptBg from '../../../public/images/about-us-our-concept-bg.
 import aboutUsOurConceptBgMobile from '../../../public/images/about-us-our-concept-bg-mobile.png';
 import aboutUsGetStartMobileBg from '../../../public/images/about-us-get-start-mobile-bg.png';
 import aboutUsGetStartBg from '../../../public/images/about-us-get-start-bg.png';
-import appSroteImage from '../../../public/images/app-store-badge.png';
-import googlePlayImage from '../../../public/images/google-play-badge.png';
+import appSroteImage from '../../../public/images/apple-play-store-icon.png';
+import googlePlayImage from '../../../public/images/google-play-store-icon.png';
 
 import { useDictionary } from '@/hooks/useDictionary';
 import { useParams, useRouter } from 'next/navigation';
@@ -202,8 +202,8 @@ export default function page() {
                   <Image
                     src={googlePlayImage.src}
                     alt="Get it on Google Play"
-                    width={170}
-                    height={20}
+                    width={190}
+                    height={60}
                   />
                 </motion.button>
               </div>
