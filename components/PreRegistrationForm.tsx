@@ -21,7 +21,10 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
-import { Calendar, formatDate } from '@/components/ui/calendar';
+import {
+  Calendar,
+  formatDate,
+} from '@/components/ui/calendar';
 import {
   Popover,
   PopoverContent,
@@ -73,8 +76,10 @@ const FormSchema = z.object({
   }),
   phone: z
     .string()
-    .refine(isValidPhoneNumber, { message: "Invalid phone number" })
-    .or(z.literal("")),
+    .refine(isValidPhoneNumber, {
+      message: 'Invalid phone number',
+    })
+    .or(z.literal('')),
   dob: z.date({
     required_error: 'A date of birth is required.',
   }),
@@ -148,7 +153,6 @@ function PreRegistrationForm() {
   async function onSubmit(
     data: z.infer<typeof FormSchema>,
   ) {
-
     if (data.TOC === false) {
       toast({
         title: 'You must accept the terms and conditions.',
@@ -278,181 +282,98 @@ function PreRegistrationForm() {
           )}
         />
 
-        {/* <FormField
+        <FormField
           control={form.control}
           name="phone"
           render={({ field }) => (
-            <FormItem className="w-full">
+            <FormItem className="flex flex-col items-start">
+              <FormControl className="w-full">
+                <PhoneInput
+                  placeholder={
+                    dict?.preRegister.form.phone
+                      .placeholder || 'Enter a phone number'
+                  }
+                  value={field.value}
+                  onChange={field.onChange}
+                  defaultCountry="FR"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="dob"
+          render={({ field }) => (
+            <FormItem className="flex flex-col">
               <Typography
                 variant="Bim4Regular"
-                className="mb-2 text-start text-sm font-thin sm:text-base"
+                className="text-start text-sm font-thin sm:text-base"
               >
-                {dict?.preRegister.form.phone.label}
+                {dict?.preRegister.form.dob.label}
               </Typography>
-              <FormControl>
-                <div className="flex w-full flex-col gap-2 sm:flex-row">
-                  <Select
-                    value={countryCode}
-                    onValueChange={(value) =>
-                      setCountryCode(value)
+              <FormLabel></FormLabel>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <FormControl>
+                    <Button
+                      variant={'outline'}
+                      className={cn(
+                        'w-full pl-3 text-left text-sm font-normal sm:text-base',
+                        !field.value &&
+                          'text-muted-foreground',
+                      )}
+                    >
+                      {field.value ? (
+                        formatDate(field.value, lang)
+                      ) : (
+                        <span>
+                          {
+                            dict?.preRegister.form.dob
+                              .placeholder
+                          }
+                        </span>
+                      )}
+                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                    </Button>
+                  </FormControl>
+                </PopoverTrigger>
+                <PopoverContent
+                  className="w-auto p-0"
+                  align="start"
+                >
+                  <Calendar
+                    mode="single"
+                    selected={
+                      field.value
+                        ? new Date(field.value)
+                        : undefined
                     }
-                    defaultValue={countryCode}
-                  >
-                    <SelectTrigger className="w-full text-sm sm:w-[140px] sm:text-base">
-                      <SelectValue placeholder="code">
-                        <div className="flex items-center">
-                          {getCountryFlag(countryCode)}
-                          {countryCode}
-                        </div>
-                      </SelectValue>
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        <SelectLabel>
-                          Top Countries
-                        </SelectLabel>
-                        {topCountryCodes.map(
-                          ({
-                            value,
-                            label,
-                            flag: Flag,
-                          }) => (
-                            <SelectItem
-                              key={value}
-                              value={value}
-                            >
-                              <div className="flex items-center gap-2">
-                                <Flag className="h-4 w-6" />
-                                <span>{label}</span>
-                                <span className="ml-auto">
-                                  {value}
-                                </span>
-                              </div>
-                            </SelectItem>
-                          ),
-                        )}
-                      </SelectGroup>
-                      <SelectSeparator />
-                      <SelectGroup>
-                        <SelectLabel>
-                          All Countries
-                        </SelectLabel>
-                        {allCountries.map(
-                          ({ value, label, flag }) => (
-                            <SelectItem
-                              key={value}
-                              value={value}
-                            >
-                              <div className="flex items-center gap-2">
-                                <Image
-                                  // src={`https://flagcdn.com/w20/${flag.toLowerCase()}.png`}
-                                  src={`https://flagsapi.com/${flag.toUpperCase()}/flat/64.png`}
-                                  alt={label}
-                                  width={24}
-                                  height={16}
-                                  className="object-contain"
-                                />
-                                <span>{label}</span>
-                                <span className="ml-auto">
-                                  {value}
-                                </span>
-                              </div>
-                            </SelectItem>
-                          ),
-                        )}
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                  <Input
-                    className="flex-1 text-sm sm:text-base"
-                    placeholder={
-                      dict?.preRegister.form.phone
-                        .placeholder
-                    }
-                    {...field}
-                    onChange={(e) => {
-                      const phoneNumber = e.target.value;
-                      field.onChange(`${phoneNumber}`);
+                    onDateSelect={(date, formattedDate) => {
+                      field.onChange(date);
+                      // You can use formattedDate here if needed
                     }}
+                    disabled={(date) =>
+                      date > new Date() ||
+                      date >
+                        new Date(
+                          new Date().setFullYear(
+                            new Date().getFullYear() - 18,
+                          ),
+                        )
+                    }
+                    initialFocus
+                    fromYear={1900}
+                    toYear={new Date().getFullYear() - 18}
                   />
-                </div>
-              </FormControl>
+                </PopoverContent>
+              </Popover>
               <FormMessage className="text-xs sm:text-sm" />
             </FormItem>
           )}
-        /> */}
-
-        <FormField
-  control={form.control}
-  name="phone"
-  render={({ field }) => (
-    <FormItem className="flex flex-col items-start">
-      <FormControl className="w-full">
-        <PhoneInput
-          placeholder={dict?.preRegister.form.phone.placeholder || "Enter a phone number"}
-          value={field.value}
-          onChange={field.onChange}
-          defaultCountry="FR"
         />
-      </FormControl>
-      <FormMessage />
-    </FormItem>
-  )}
-/>
-
-     <FormField
-  control={form.control}
-  name="dob"
-  render={({ field }) => (
-    <FormItem className="flex flex-col">
-      <Typography
-        variant="Bim4Regular"
-        className="text-start text-sm font-thin sm:text-base"
-      >
-        {dict?.preRegister.form.dob.label}
-      </Typography>
-      <FormLabel></FormLabel>
-      <Popover>
-        <PopoverTrigger asChild>
-          <FormControl>
-            <Button
-              variant={'outline'}
-              className={cn(
-                'w-full pl-3 text-left text-sm font-normal sm:text-base',
-                !field.value && 'text-muted-foreground'
-              )}
-            >
-              {field.value ? (
-                formatDate(field.value, lang)
-              ) : (
-                <span>{dict?.preRegister.form.dob.placeholder}</span>
-              )}
-              <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-            </Button>
-          </FormControl>
-        </PopoverTrigger>
-        <PopoverContent className="w-auto p-0" align="start">
-          <Calendar
-            mode="single"
-            selected={field.value ? new Date(field.value) : undefined}
-            onDateSelect={(date, formattedDate) => {
-              field.onChange(date);
-              // You can use formattedDate here if needed
-            }}
-            disabled={(date) =>
-              date > new Date() ||
-              date > new Date(new Date().setFullYear(new Date().getFullYear() - 18))
-            }
-            initialFocus
-            fromYear={1900}
-            toYear={new Date().getFullYear() - 18}
-          />
-        </PopoverContent>
-      </Popover>
-      <FormMessage className="text-xs sm:text-sm" />
-    </FormItem>
-  )}
-/>
 
         <FormField
           control={form.control}
@@ -469,7 +390,7 @@ function PreRegistrationForm() {
                 <FormLabel className="flex flex-wrap items-start text-left sm:text-center">
                   <Typography
                     variant="Bim4Regular"
-                    className="ms-2 text-sm font-thin sm:ms-0 sm:text-base"
+                    className="ms-2 text-sm font-thin sm:ms-0 sm:text-base text-left" 
                   >
                     {dict?.preRegister.form.TOS.label}
                   </Typography>
@@ -480,7 +401,7 @@ function PreRegistrationForm() {
                     <DialogTrigger asChild>
                       <Typography
                         variant="Bim4Regular"
-                        className="cursor-pointer text-sm font-semibold text-pink sm:text-base"
+                        className="cursor-pointer text-sm font-semibold text-pink sm:text-base text-left"
                       >
                         &nbsp;{' '}
                         {dict?.preRegister.form.TOS.link}

@@ -15,7 +15,7 @@ import aboutHeroMobileImage from '../../../public/images/about-hero-mobile.png';
 import aboutUsImages from '../../../public/images/about-us-images.svg';
 import aboutUsBg from '../../../public/images/about-us-bg.png';
 import aboutUsBgMobile from '../../../public/images/about-us-bg-mobile.png';
-import aboutUsOurConcept from '../../../public/images/about-us-our-concept.svg';
+import aboutUsOurConcept from '../../../public/images/about-us-our-concept-mobile.svg';
 import aboutUsOurConceptBg from '../../../public/images/about-us-our-concept-bg.png';
 import aboutUsOurConceptBgMobile from '../../../public/images/about-us-our-concept-bg-mobile.png';
 import aboutUsGetStartMobileBg from '../../../public/images/about-us-get-start-mobile-bg.png';
