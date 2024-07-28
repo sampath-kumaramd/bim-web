@@ -96,10 +96,7 @@ export const reducer = (
         ...state,
         toasts: state.toasts.map((t) =>
           t.id === action.toast.id
-            ? {
-                ...t,
-                ...action.toast,
-              }
+            ? { ...t, ...action.toast }
             : t,
         ),
       };
@@ -147,9 +144,7 @@ export const reducer = (
 
 const listeners: Array<(state: State) => void> = [];
 
-let memoryState: State = {
-  toasts: [],
-};
+let memoryState: State = { toasts: [] };
 
 function dispatch(action: Action) {
   memoryState = reducer(memoryState, action);
@@ -169,10 +164,7 @@ function toast({ ...props }: Toast) {
       toast: { ...props, id },
     });
   const dismiss = () =>
-    dispatch({
-      type: 'DISMISS_TOAST',
-      toastId: id,
-    });
+    dispatch({ type: 'DISMISS_TOAST', toastId: id });
 
   dispatch({
     type: 'ADD_TOAST',
@@ -211,10 +203,7 @@ function useToast() {
     ...state,
     toast,
     dismiss: (toastId?: string) =>
-      dispatch({
-        type: 'DISMISS_TOAST',
-        toastId,
-      }),
+      dispatch({ type: 'DISMISS_TOAST', toastId }),
   };
 }
 
