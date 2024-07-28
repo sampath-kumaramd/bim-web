@@ -97,7 +97,6 @@ function PreRegistrationForm() {
   const lang = params.lang as Languages;
   const dict = useDictionary(lang);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [countryCode, setCountryCode] = useState('+33');
   const getCountryFlag = (code: string) => {
     const topCountry = topCountryCodes.find(
       (c) => c.value === code,
@@ -149,8 +148,6 @@ function PreRegistrationForm() {
   async function onSubmit(
     data: z.infer<typeof FormSchema>,
   ) {
-    let phoneNumber = `${countryCode}${data.phone}`;
-    data.phone = phoneNumber;
 
     if (data.TOC === false) {
       toast({
