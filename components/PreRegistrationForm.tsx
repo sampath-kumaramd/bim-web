@@ -383,29 +383,22 @@ function PreRegistrationForm() {
         /> */}
 
         <FormField
-          control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <FormItem className="flex flex-col items-start">
-              <FormLabel className="text-left">Phone Number</FormLabel>
-              <FormControl className="w-full">
-<PhoneInput
-    placeholder="Enter a phone number"
-    value={field.value}
-    onChange={field.onChange}
-    // defaultCountry="FR"
-    disabled={false}
-    international
-    countryCallingCodeEditable={false}
-  />
-              </FormControl>
-              <FormDescription className="text-left">
-                Enter a phone number
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
+  control={form.control}
+  name="phone"
+  render={({ field }) => (
+    <FormItem className="flex flex-col items-start">
+      <FormControl className="w-full">
+        <PhoneInput
+          placeholder={dict?.preRegister.form.phone.placeholder || "Enter a phone number"}
+          value={field.value}
+          onChange={field.onChange}
+          defaultCountry="FR"
         />
+      </FormControl>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
 
      <FormField
   control={form.control}

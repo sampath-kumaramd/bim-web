@@ -71,15 +71,15 @@ type CountrySelectProps = {
   onChange: (value: RPNInput.Country) => void;
   options: CountrySelectOption[];
 };
-
+const topCountries = ['FR', 'GB', 'DE', 'IT', 'ES', 'LU'];
 const CountrySelect = ({
   disabled,
   value,
   onChange,
   options,
 }: CountrySelectProps) => {
- console.log('CountrySelect props:', { disabled, value, options });
-    if (!options || options.length === 0) {
+  console.log('CountrySelect props:', { disabled, value, options });
+  if (!options || options.length === 0) {
     return null; 
   }
 
@@ -89,6 +89,12 @@ const CountrySelect = ({
     },
     [onChange],
   );
+
+  const sortedOptions = [...options].sort((a, b) => {
+    if (topCountries.includes(a.value) && !topCountries.includes(b.value)) return -1;
+    if (!topCountries.includes(a.value) && topCountries.includes(b.value)) return 1;
+    return a.label.localeCompare(b.label);
+  });
 
   return (
     <Popover>
@@ -100,6 +106,7 @@ const CountrySelect = ({
           disabled={disabled}
         >
           <FlagComponent country={value} countryName={value} />
+          <span className="text-sm">+{RPNInput.getCountryCallingCode(value)}</span>
           <ChevronsUpDown
             className={cn(
               "-mr-2 h-4 w-4 opacity-50",
@@ -108,14 +115,14 @@ const CountrySelect = ({
           />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[300px] p-0">
-        <Command>
+      <PopoverContent className="w-[300px] p-0" sideOffset={5}>
+    <Command className="max-h-[300px] overflow-y-auto">
           <CommandList>
             <ScrollArea className="h-72">
               <CommandInput placeholder="Search country..." />
               <CommandEmpty>No country found.</CommandEmpty>
               <CommandGroup>
-                {options
+                {sortedOptions
                   .filter((x) => x.value)
                   .map((option) => (
                     <CommandItem
@@ -128,11 +135,9 @@ const CountrySelect = ({
                         countryName={option.label}
                       />
                       <span className="flex-1 text-sm">{option.label}</span>
-                      {option.value && (
-                        <span className="text-foreground/50 text-sm">
-                          {`+${RPNInput.getCountryCallingCode(option.value)}`}
-                        </span>
-                      )}
+                      <span className="text-foreground/50 text-sm">
+                        +{RPNInput.getCountryCallingCode(option.value)}
+                      </span>
                       <CheckIcon
                         className={cn(
                           "ml-auto h-4 w-4",
@@ -149,6 +154,7 @@ const CountrySelect = ({
     </Popover>
   );
 };
+
 
 const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
   const Flag = flags[country];
