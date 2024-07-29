@@ -10,6 +10,7 @@ import { getDictionary } from '@/lib/getDictionary';
 import { LanguageProvider } from '@/components/LanguageContext';
 import { Languages } from '@/lib/types/languages';
 import { CookieConsentDialog } from '@/components/CookieConsent';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -42,6 +43,7 @@ export default async function RootLayout({
         <LanguageProvider>
           <Header />
           {children}
+           <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID!} />
           <Toaster />
           <Footer />
           <CookieConsentDialog />

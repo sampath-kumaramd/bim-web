@@ -224,8 +224,13 @@
     "followUs": "Suivez-nous"
   },
   "cookies": {
-    "description": "Nous utilisons des cookies pour nous assurer que vous obtenez la meilleure expérience sur notre site web. En utilisant notre site, vous acceptez notre utilisation des cookies.",
-    "accept": "Accepter tous les cookies",
-    "cancel": "Annuler"
+    "title": "Nous respectons votre vie privée",
+    "description": "Nous utilisons des cookies strictement nécessaires au bon fonctionnement de cette plateforme, des cookies nous permettant d'effectuer des analyses de performance et des statistiques d'utilisation, ainsi que des cookies partagés avec des partenaires pour permettre l'interaction avec des fournisseurs de contenu.",
+    "necessary": "Cookies nécessaires",
+    "analytics": "Cookies d'analyse",
+    "thirdParty": "Cookies tiers de contenu",
+    "saveChoices": "Enregistrer les choix",
+    "acceptAll": "Tout accepter",
+    "rejectAll": "Tout refuser"
   }
 }

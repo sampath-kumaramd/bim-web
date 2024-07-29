@@ -224,8 +224,13 @@
     "followUs": "Follegt eis"
   },
   "cookies": {
-    "description": "Mir benotzen Cookies fir sécherzestellen, datt Dir déi bescht Erfahrung op eiser Websäit hutt. Andeems Dir eis Säit benotzt, averstanen Dir mat eiser Notzung vu Cookies.",
-    "accept": "All Cookies akzeptéieren",
-    "cancel": "Annuléieren"
+     "title": "Mir respektéieren Är Privatsphär",
+    "description": "Mir benotzen Cookien déi strikt néideg sinn fir de richtege Fonctionnement vun dëser Plattform, Cookien déi eis erlaben Leeschtungsanalysen an Notzungsstatistiken ze maachen, souwéi Cookien déi mat Partner gedeelt ginn fir Interaktioun mat Inhaltsprovider ze erméiglechen.",
+    "necessary": "Néideg Cookien",
+    "analytics": "Analysen-Cookien",
+    "thirdParty": "Drëttubidder-Inhalts-Cookien",
+    "saveChoices": "Choixen späicheren",
+    "acceptAll": "All akzeptéieren",
+    "rejectAll": "All ofwiessen"
   }
 }

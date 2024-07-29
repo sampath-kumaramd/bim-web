@@ -205,9 +205,15 @@ export interface Dictionary {
       description: string;
     }[];
   };
+  // In your dictionary file
   cookies: {
+    title: string;
     description: string;
-    accept: string;
-    cancel: string;
+    necessary: string;
+    analytics: string;
+    thirdParty: string;
+    saveChoices: string;
+    acceptAll: string;
+    rejectAll: string;
   };
 }

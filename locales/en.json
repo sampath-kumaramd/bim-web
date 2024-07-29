@@ -224,8 +224,13 @@
     ]
   },
   "cookies": {
-    "description": "We use cookies to ensure you get the best experience on our website. By using our site, you agree to our use of cookies.",
-    "accept": "Accept all cookies",
-    "cancel": "Cancel"
+     "title": "We respect your privacy",
+    "description": "We use cookies that are strictly necessary for the proper functioning of this platform, cookies that allow us to perform performance analysis and usage statistics, as well as cookies shared with partners to enable interaction with content providers.",
+    "necessary": "Necessary cookies",
+    "analytics": "Analytics cookies",
+    "thirdParty": "Third-party content cookies",
+    "saveChoices": "Save choices",
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject all"
   }
 }
