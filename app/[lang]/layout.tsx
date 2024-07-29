@@ -1,3 +1,8 @@
+import dynamic from 'next/dynamic';
+
+const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'), { ssr: false });
+
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { Inter } from 'next/font/google';
@@ -10,7 +15,6 @@ import { getDictionary } from '@/lib/getDictionary';
 import { LanguageProvider } from '@/components/LanguageContext';
 import { Languages } from '@/lib/types/languages';
 import { CookieConsentDialog } from '@/components/CookieConsent';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -30,7 +34,7 @@ export default async function RootLayout({
 }) {
   const dict = await getDictionary(lang);
 
-  return (
+ return (
     <html lang={lang}>
       <head>
         <link
@@ -43,7 +47,7 @@ export default async function RootLayout({
         <LanguageProvider>
           <Header />
           {children}
-           <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID!} />
+          <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID!} />
           <Toaster />
           <Footer />
           <CookieConsentDialog />

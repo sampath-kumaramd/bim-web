@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-export default function GoogleAnalytics({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_ID: string }) {
+function GoogleAnalyticsInner({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_ID: string }) {
   const [consentGiven, setConsentGiven] = useState(false);
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -52,5 +52,15 @@ export default function GoogleAnalytics({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_
         }}
       />
     </>
+  );
+}
+
+import { Suspense } from 'react';
+
+export default function GoogleAnalytics({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_ID: string }) {
+  return (
+    <Suspense fallback={null}>
+      <GoogleAnalyticsInner GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
+    </Suspense>
   );
 }
