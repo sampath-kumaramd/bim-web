@@ -1,7 +1,9 @@
 import dynamic from 'next/dynamic';
 
-// const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'), { ssr: false });
-
+const GoogleAnalytics = dynamic(
+  () => import('@/components/GoogleAnalytics'),
+  { ssr: true },
+);
 
 import type { Metadata } from 'next';
 import './globals.css';
@@ -15,7 +17,7 @@ import { getDictionary } from '@/lib/getDictionary';
 import { LanguageProvider } from '@/components/LanguageContext';
 import { Languages } from '@/lib/types/languages';
 import { CookieConsentDialog } from '@/components/CookieConsent';
-import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
+// import {  GoogleTagManager } from '@next/third-parties/google'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -35,7 +37,7 @@ export default async function RootLayout({
 }) {
   const dict = await getDictionary(lang);
 
- return (
+  return (
     <html lang={lang}>
       <head>
         <link
@@ -46,11 +48,14 @@ export default async function RootLayout({
       </head>
       <body className={inter.className}>
         <LanguageProvider>
-         <Header />
-          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
-         {children}
+          <Header />
+          {children}
           {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!}/> */}
-          {/* <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID!} /> */}
+          <GoogleAnalytics
+            GA_MEASUREMENT_ID={
+              process.env.NEXT_PUBLIC_GA_ID!
+            }
+          />
           <Toaster />
           <Footer />
           <CookieConsentDialog />

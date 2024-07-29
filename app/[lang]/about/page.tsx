@@ -63,8 +63,8 @@ export default function page() {
       event: 'click',
       category: 'about',
       action: 'click',
-      label : id,
-    })
+      label: id,
+    });
   };
 
   const routeToPreRegisterPage = () => {
@@ -74,7 +74,7 @@ export default function page() {
       category: 'get_started',
       action: 'click',
       label: 'get_started',
-    })
+    });
   };
 
   if (!dict) return null;

@@ -73,8 +73,6 @@ function ContactUsForm() {
   async function onSubmit(
     data: z.infer<typeof FormSchema>,
   ) {
-
-
     if (!recaptchaValue) {
       toast({
         title: 'reCAPTCHA Error',
@@ -90,7 +88,7 @@ function ContactUsForm() {
       category: 'contact',
       action: 'click',
       label: 'contact',
-    })
+    });
     setIsLoading(true);
     try {
       const response = await fetch('/api/contact', {
