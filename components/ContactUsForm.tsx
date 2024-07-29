@@ -49,6 +49,7 @@ function ContactUsForm() {
   const lang = params.lang as Languages;
   const dict = useDictionary(lang);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [recaptchaValue, setRecaptchaValue] = useState<
     string | null
@@ -90,7 +91,7 @@ function ContactUsForm() {
       action: 'click',
       label: 'contact',
     })
-
+    setIsLoading(true);
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',

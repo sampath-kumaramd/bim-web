@@ -119,6 +119,7 @@ export default function Home() {
                     width={imageSize.width}
                     height={imageSize.height}
                     layout="responsive"
+                    unoptimized
                   />
                 </motion.button>
                 <motion.button
@@ -132,6 +133,7 @@ export default function Home() {
                     width={imageSize.width}
                     height={imageSize.height}
                     layout="responsive"
+                    unoptimized
                   />
                 </motion.button>
               </div>

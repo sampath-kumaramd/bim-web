@@ -10,6 +10,7 @@ interface CustomButtonProps {
   className?: string;
   onClick?: () => void;
   disabled?: boolean;
+  children?: React.ReactNode;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -18,6 +19,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   className,
   onClick,
   disabled,
+  children,
 }) => {
   const primaryClasses =
     'bg-yellow-400 text-black hover:bg-yellow-500 clip-customLeft rounded-2xl rounded-tl-3xl rounded-bl-3xl  h-16';
@@ -59,6 +61,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       >
         {text}
       </Typography>
+      {children}
     </motion.button>
   );
 };

@@ -201,6 +201,7 @@ export default function page() {
                     alt="Download on the App Store"
                     width={190}
                     height={60}
+                    unoptimized
                   />
                 </motion.button>
                 <motion.button
@@ -217,6 +218,7 @@ export default function page() {
                     alt="Get it on Google Play"
                     width={190}
                     height={60}
+                    unoptimized
                   />
                 </motion.button>
               </div>
