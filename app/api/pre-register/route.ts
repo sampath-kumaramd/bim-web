@@ -1,18 +1,73 @@
 import { NextResponse } from 'next/server';
+import { google, drive_v3 } from 'googleapis';
+import { JWT } from 'google-auth-library';
+import { Readable } from 'stream';
 import nodemailer from 'nodemailer';
 
-export async function POST(request: Request) {
-  const { name, email, phone, dob, TOC, recaptcha } =
-    await request.json();
+async function getGoogleDriveClient() {
+  const auth = new JWT({
+    email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+    key: process.env.GOOGLE_PRIVATE_KEY!.replace(
+      /\\n/g,
+      '\n',
+    ),
+    scopes: ['https://www.googleapis.com/auth/drive'],
+  });
 
-  // Validate TOC
-  if (!TOC) {
-    return NextResponse.json(
-      { error: 'You must accept the terms and conditions' },
-      { status: 400 },
-    );
+  return google.drive({ version: 'v3', auth });
+}
+
+async function appendToDriveCsv(
+  fileId: string,
+  data: string,
+) {
+  const drive = await getGoogleDriveClient();
+
+  const response = await drive.files.get({
+    fileId: fileId,
+    fields: 'id, name, mimeType',
+  });
+
+  if (response.data.mimeType !== 'text/csv') {
+    throw new Error('The specified file is not a CSV file');
   }
 
+  const currentContent = await drive.files.get(
+    { fileId: fileId, alt: 'media' },
+    { responseType: 'stream' },
+  );
+
+  const currentContentString = await new Promise<string>(
+    (resolve, reject) => {
+      let content = '';
+      (currentContent.data as Readable).on(
+        'data',
+        (chunk) => (content += chunk),
+      );
+      (currentContent.data as Readable).on('end', () =>
+        resolve(content),
+      );
+      (currentContent.data as Readable).on('error', reject);
+    },
+  );
+
+  const newContent = currentContentString + data;
+
+  await drive.files.update({
+    fileId: fileId,
+    media: {
+      mimeType: 'text/csv',
+      body: Readable.from([newContent]),
+    },
+  });
+}
+
+async function sendEmail(
+  name: string,
+  email: string,
+  phone: string,
+  dob: string,
+) {
   const transporter = nodemailer.createTransport({
     host: 'ssl0.ovh.net',
     port: 587,
@@ -78,15 +133,43 @@ export async function POST(request: Request) {
   `;
 
   const mailOptions = {
-    from: 'Pre-Registration Form',
+    from:
+      'Pre-Registration Form <' +
+      process.env.PRE_REGISTER_EMAIL_USER +
+      '>',
     to: process.env.PRE_REGISTER_EMAIL_USER,
     subject: `New Pre-Registration Submission from ${name}`,
     html: htmlContent,
   };
 
+  await transporter.sendMail(mailOptions);
+}
+
+export async function POST(request: Request) {
+  const { name, email, phone, dob, TOC } =
+    await request.json();
+
+  if (!TOC) {
+    return NextResponse.json(
+      { error: 'You must accept the terms and conditions' },
+      { status: 400 },
+    );
+  }
+
+  const csvData = `${name},${email},${phone},${dob},${new Date().toISOString()}\n`;
+
   try {
-    await transporter.sendMail(mailOptions);
-    console.log('Email sent successfully');
+    await Promise.all([
+      appendToDriveCsv(
+        process.env.GOOGLE_DRIVE_FILE_ID!,
+        csvData,
+      ),
+      sendEmail(name, email, phone, dob),
+    ]);
+
+    console.log(
+      'Data appended to Google Drive CSV and email sent successfully',
+    );
     return NextResponse.json(
       {
         message: 'Pre-registration submitted successfully',
@@ -94,11 +177,12 @@ export async function POST(request: Request) {
       { status: 200 },
     );
   } catch (error) {
-    console.error('Error sending email', error);
+    console.error(
+      'Error processing pre-registration',
+      error,
+    );
     return NextResponse.json(
-      {
-        error: 'Error submitting pre-registration',
-      },
+      { error: 'Error submitting pre-registration' },
       { status: 500 },
     );
   }

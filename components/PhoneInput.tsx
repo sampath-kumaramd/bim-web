@@ -93,11 +93,7 @@ const CountrySelect = ({
   onChange,
   options,
 }: CountrySelectProps) => {
-  console.log('CountrySelect props:', {
-    disabled,
-    value,
-    options,
-  });
+ 
   if (!options || options.length === 0) {
     return null;
   }
