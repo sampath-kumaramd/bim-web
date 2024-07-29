@@ -49,7 +49,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <LanguageProvider>
           <Header />
-          {children}
+          {children} 
           {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!}/> */}
           <GoogleAnalytics
             GA_MEASUREMENT_ID={
