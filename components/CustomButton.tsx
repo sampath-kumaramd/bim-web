@@ -50,6 +50,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         className,
       )}
       onClick={onClick}
+      
       disabled={disabled}
     >
       <Typography

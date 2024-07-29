@@ -24,6 +24,7 @@ import CustomButton from './CustomButton';
 import { useParams } from 'next/navigation';
 import { Languages } from '@/lib/types/languages';
 import { useDictionary } from '@/hooks/useDictionary';
+import { sendGTMEvent } from '@next/third-parties/google';
 
 const FormSchema = z.object({
   name: z.string().min(2, {
@@ -71,6 +72,8 @@ function ContactUsForm() {
   async function onSubmit(
     data: z.infer<typeof FormSchema>,
   ) {
+
+
     if (!recaptchaValue) {
       toast({
         title: 'reCAPTCHA Error',
@@ -80,6 +83,14 @@ function ContactUsForm() {
       return;
     }
     setIsSubmitting(true);
+
+    sendGTMEvent({
+      event: 'click',
+      category: 'contact',
+      action: 'click',
+      label: 'contact',
+    })
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',

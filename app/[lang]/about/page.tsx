@@ -26,6 +26,7 @@ import googlePlayImage from '../../../public/images/google-play-store-icon.png';
 import { useDictionary } from '@/hooks/useDictionary';
 import { useParams, useRouter } from 'next/navigation';
 import { Languages } from '@/lib/types/languages';
+import { sendGTMEvent } from '@next/third-parties/google';
 
 export default function page() {
   const [windowWidth, setWindowWidth] = useState<
@@ -58,10 +59,22 @@ export default function page() {
 
   const handleButtonClick = (id: string) => {
     router.push(`/${lang}/about/${id}`);
+    sendGTMEvent({
+      event: 'click',
+      category: 'about',
+      action: 'click',
+      label : id,
+    })
   };
 
   const routeToPreRegisterPage = () => {
     router.push(`/${lang}/pre-register`);
+    sendGTMEvent({
+      event: 'click',
+      category: 'get_started',
+      action: 'click',
+      label: 'get_started',
+    })
   };
 
   if (!dict) return null;

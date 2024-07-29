@@ -15,7 +15,7 @@ import { getDictionary } from '@/lib/getDictionary';
 import { LanguageProvider } from '@/components/LanguageContext';
 import { Languages } from '@/lib/types/languages';
 import { CookieConsentDialog } from '@/components/CookieConsent';
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -46,9 +46,10 @@ export default async function RootLayout({
       </head>
       <body className={inter.className}>
         <LanguageProvider>
-          <Header />
+         <Header />
+          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
          {children}
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!}/>
+          {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!}/> */}
           {/* <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID!} /> */}
           <Toaster />
           <Footer />
