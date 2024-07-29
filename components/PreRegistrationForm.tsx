@@ -390,7 +390,7 @@ function PreRegistrationForm() {
                 <FormLabel className="flex flex-wrap items-start text-left sm:text-center">
                   <Typography
                     variant="Bim4Regular"
-                    className="ms-2 text-sm font-thin sm:ms-0 sm:text-base text-left" 
+                    className="ms-2 text-left text-sm font-thin sm:ms-0 sm:text-base"
                   >
                     {dict?.preRegister.form.TOS.label}
                   </Typography>
@@ -401,7 +401,7 @@ function PreRegistrationForm() {
                     <DialogTrigger asChild>
                       <Typography
                         variant="Bim4Regular"
-                        className="cursor-pointer text-sm font-semibold text-pink sm:text-base text-left"
+                        className="cursor-pointer text-left text-sm font-semibold text-pink sm:text-base"
                       >
                         &nbsp;{' '}
                         {dict?.preRegister.form.TOS.link}

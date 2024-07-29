@@ -11,7 +11,7 @@ import { useDictionary } from '@/hooks/useDictionary';
 
 import homeBg from '../../public/images/home-bg.png';
 import homeBgMobile from '../../public/images/home-bg-mobile.png';
-import appSroteImage from '../../public/images/apple-play-store-icon.png';
+import appSroreImage from '../../public/images/apple-play-store-icon.png';
 import googlePlayImage from '../../public/images/google-play-store-icon.png';
 
 export default function Home() {
@@ -36,12 +36,12 @@ export default function Home() {
   const getImageSize = () => {
     if (windowWidth !== null && windowWidth <= 639)
       return {
-        width: 140,
-        height: 60,
+        width: 120,
+        height: 40,
       };
     if (
       windowWidth !== null &&
-      windowWidth >= 639 &&
+      windowWidth >= 640 &&
       windowWidth < 1024
     )
       return {
@@ -54,7 +54,7 @@ export default function Home() {
         height: 60,
       };
     return {
-      width: 100,
+      width: 120,
       height: 40,
     };
   };
@@ -111,25 +111,27 @@ export default function Home() {
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
-                  className="rounded-2xl"
+                  className="w-[120px] rounded-2xl sm:w-[180px] lg:w-[220px]"
                 >
                   <Image
-                    src={appSroteImage.src}
+                    src={appSroreImage.src}
                     alt="Download on the App Store"
                     width={imageSize.width}
                     height={imageSize.height}
+                    layout="responsive"
                   />
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
-                  className="rounded-2xl"
+                  className="w-[120px] rounded-2xl sm:w-[180px] lg:w-[220px]"
                 >
                   <Image
                     src={googlePlayImage.src}
                     alt="Get it on Google Play"
                     width={imageSize.width}
                     height={imageSize.height}
+                    layout="responsive"
                   />
                 </motion.button>
               </div>
