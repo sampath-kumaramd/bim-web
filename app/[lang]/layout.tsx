@@ -1,10 +1,3 @@
-import dynamic from 'next/dynamic';
-
-const GoogleAnalytics = dynamic(
-  () => import('@/components/GoogleAnalytics'),
-  { ssr: true },
-);
-
 import type { Metadata } from 'next';
 import './globals.css';
 import { Inter } from 'next/font/google';
@@ -17,7 +10,7 @@ import { getDictionary } from '@/lib/getDictionary';
 import { LanguageProvider } from '@/components/LanguageContext';
 import { Languages } from '@/lib/types/languages';
 import { CookieConsentDialog } from '@/components/CookieConsent';
-// import {  GoogleTagManager } from '@next/third-parties/google'
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -49,16 +42,11 @@ export default async function RootLayout({
       <body className={inter.className}>
         <LanguageProvider>
           <Header />
-          {children} 
-          {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!}/> */}
-          <GoogleAnalytics
-            GA_MEASUREMENT_ID={
-              process.env.NEXT_PUBLIC_GA_ID!
-            }
-          />
+          {children}
+          <CookieConsentDialog />
+          <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID!} />
           <Toaster />
           <Footer />
-          <CookieConsentDialog />
         </LanguageProvider>
       </body>
     </html>
