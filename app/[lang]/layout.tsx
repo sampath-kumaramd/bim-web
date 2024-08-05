@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   description: 'Created by BIM',
 };
 
+// Google Analytics Measurement ID
+const GA_MEASUREMENT_ID = 'G-4Q04NH0818';
+
 export default async function RootLayout({
   children,
   params: { lang },
@@ -41,7 +44,7 @@ export default async function RootLayout({
         />
         <Script
           strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         />
         <Script
           id="gtag-init"
@@ -51,7 +54,7 @@ export default async function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+              gtag('config', '${GA_MEASUREMENT_ID}', {
                 page_path: window.location.pathname,
               });
             `,
@@ -64,9 +67,7 @@ export default async function RootLayout({
           {children}
           <CookieConsentDialog />
           <GoogleAnalytics
-            GA_MEASUREMENT_ID={
-              process.env.NEXT_PUBLIC_GA_ID!
-            }
+            GA_MEASUREMENT_ID={GA_MEASUREMENT_ID}
           />
           <Toaster />
           <Footer />
