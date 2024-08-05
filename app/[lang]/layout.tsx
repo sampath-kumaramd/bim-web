@@ -44,7 +44,7 @@ export default async function RootLayout({
           <Header />
           {children}
           <CookieConsentDialog />
-          <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID!} />
+          {/* <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID!} /> */}
           <Toaster />
           <Footer />
         </LanguageProvider>
