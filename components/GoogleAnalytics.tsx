@@ -11,8 +11,7 @@ declare global {
   }
 }
 
-function GoogleAnalyticsInner() {
-  const GA_MEASUREMENT_ID = 'G-4Q04NH0818';
+function GoogleAnalyticsInner({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_ID: string }) {
   const [consentGiven, setConsentGiven] = useState(false);
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -94,10 +93,10 @@ function GoogleAnalyticsInner() {
   return null;
 }
 
-export default function GoogleAnalytics() {
+export default function GoogleAnalytics({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_ID: string }) {
   return (
        <Suspense fallback={<div>Loading...</div>}>
-      <GoogleAnalyticsInner />
+      <GoogleAnalyticsInner GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
       </Suspense>
   );
 }
