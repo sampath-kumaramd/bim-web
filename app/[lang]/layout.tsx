@@ -23,7 +23,6 @@ export const metadata: Metadata = {
 };
 
 // Google Analytics Measurement ID
-const GA_MEASUREMENT_ID = 'G-4Q04NH0818';
 
 export default async function RootLayout({
   children,
@@ -42,7 +41,7 @@ export default async function RootLayout({
           type="image/jpg"
           href="/favico.png"
         />
-        <Script
+        {/* <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         />
@@ -59,7 +58,7 @@ export default async function RootLayout({
               });
             `,
           }}
-        />
+        /> */}
       </head>
       <body className={inter.className}>
         <LanguageProvider>
@@ -67,7 +66,6 @@ export default async function RootLayout({
           {children}
           <CookieConsentDialog />
           <GoogleAnalytics
-            GA_MEASUREMENT_ID={GA_MEASUREMENT_ID}
           />
           <Toaster />
           <Footer />
